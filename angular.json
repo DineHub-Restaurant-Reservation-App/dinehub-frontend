@@ -68,7 +68,8 @@
               "browserTarget": "restaurant-reservation-app-frontend:build:production"
             },
             "development": {
-              "browserTarget": "restaurant-reservation-app-frontend:build:development"
+              "browserTarget": "restaurant-reservation-app-frontend:build:development",
+              "open": true
             }
           },
           "defaultConfiguration": "development"
