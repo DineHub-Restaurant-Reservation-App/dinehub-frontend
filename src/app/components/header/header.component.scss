@@ -1,3 +1,6 @@
-nav > * + * {
+.header {
+  padding: 0;
+}
+.header-nav-desktop > * + * {
   margin-left: 16px;
 }

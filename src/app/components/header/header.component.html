@@ -1,9 +1,20 @@
 <mat-toolbar>
-    <header class="container flex justify-content-between">
-        <span>Restaurant Reservation</span>
-        <nav>
+    <header class="container flex justify-content-between align-items-center header">
+        <span>DineHub</span>
+        <nav class="header-nav-desktop hide-mob">
+            <a mat-button>Find Restaurants</a>
             <a mat-button>Login</a>
             <a mat-raised-button color="accent">Sign Up</a>
+        </nav>
+        <nav class="header-nav-mobile hide-desktop">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Toggleable menu button for mobile nav">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <a mat-menu-item>Find Restaurants</a>
+                <a mat-menu-item>Login</a>
+                <a mat-menu-item>Sign Up</a>
+            </mat-menu>
         </nav>
     </header>
 </mat-toolbar>
