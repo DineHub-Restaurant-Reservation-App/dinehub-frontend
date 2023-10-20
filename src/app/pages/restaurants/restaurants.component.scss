@@ -1,0 +1,53 @@
+@import "/src/styles/abstract/mixins";
+
+.resaturants {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.searchbar {
+  display: flex;
+
+  input,
+  button {
+    border: 1px solid black;
+  }
+
+  input {
+    height: 48px;
+    flex-grow: 1;
+    border-right: 0;
+    border-radius: 4px 0 0 4px;
+    padding: 8px 16px;
+
+    font-size: 18px;
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+}
+
+.resaturants-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @include respond-above($tablet) {
+    & > * {
+      width: calc(100% / 3 - (32px / 3));
+      flex-shrink: 0;
+    }
+  }
+
+  @include respond-below($tablet) {
+    & > * {
+      width: 100%;
+    }
+  }
+}

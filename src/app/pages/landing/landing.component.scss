@@ -10,11 +10,6 @@
 .hero-content {
   max-width: 420px;
 
-  h1 {
-    font-size: 64px;
-    font-weight: bold;
-    line-height: 1.1;
-  }
   p {
     font-size: 18px;
     line-height: 1.5;
@@ -30,7 +25,7 @@
   }
 }
 
-@include responde-below($tablet) {
+@include respond-below($tablet) {
   .hero {
     flex-direction: column;
     padding-top: 40px;
@@ -38,9 +33,6 @@
   }
 
   .hero-content {
-    h1 {
-      font-size: 48px;
-    }
     order: 2;
   }
 
@@ -52,22 +44,19 @@
 
 .cta {
   background-color: var(--mat-toolbar-container-background-color);
-  color: white;
   padding: 80px 0;
   article {
     max-width: 520px;
     text-align: center;
   }
-  h2 {
-    font-size: 48px;
-  }
+
   p {
     font-size: 16px;
     margin-bottom: 0;
   }
 }
 
-@include responde-below($tablet) {
+@include respond-below($tablet) {
   .cta-button {
     width: 100%;
   }

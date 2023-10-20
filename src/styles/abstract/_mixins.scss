@@ -1,12 +1,12 @@
 $tablet: 768;
-@mixin responde-below($tablet) {
+@mixin respond-below($tablet) {
   @media screen and (max-width: #{$tablet}px) {
     @content;
   }
 }
 
-@mixin responde-above($tablet) {
-  @media screen and (max-width: #{$tablet+1}px) {
+@mixin respond-above($tablet) {
+  @media screen and (min-width: #{$tablet+1}px) {
     @content;
   }
 }
