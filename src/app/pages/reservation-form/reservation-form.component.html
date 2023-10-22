@@ -1,0 +1,68 @@
+<mat-card class="mt-5 reservation-page">
+    <mat-card-header>
+        <h4>Make a Reservation</h4>
+    </mat-card-header>
+    <mat-card-content class="mt-3">
+        <form [formGroup]="form" class="reservation-form" (ngSubmit)="submitReservation()">
+
+            <mat-form-field class="full-width">
+                <mat-label>Your Name</mat-label>
+                <input matInput formControlName="name" required>
+                <mat-error *ngIf="form.controls['name'].invalid">Please enter your name.</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" required>
+                <mat-error *ngIf="form.controls['email'].invalid">Please enter a valid email address.</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="full-width">
+                <mat-label>Phone Number</mat-label>
+                <input matInput formControlName="phone" required>
+                <mat-error *ngIf="form.controls['phone'].invalid">Please enter a valid phone number containing 10
+                    digits.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date" required>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="form.controls['date'].invalid">{{getDateErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <mat-label>Arrival Time</mat-label>
+                <mat-select formControlName="arrivalTime">
+                    <mat-option value="9 AM">9 AM</mat-option>
+                    <mat-option value="10 AM">10 AM</mat-option>
+                    <mat-option value="11 AM">11 AM</mat-option>
+                    <mat-option value="12 PM">12 PM</mat-option>
+                    <mat-option value="1 PM">1 PM</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['arrivalTime'].invalid">Please choose an arrival time.</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="full-width">
+                <mat-label>Number of Guests</mat-label>
+                <input matInput formControlName="guests" required>
+                <mat-error *ngIf="form.controls['guests'].invalid">
+                    Please enter the number of guests that will be present.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Additional Requests</mat-label>
+                <textarea matInput formControlName="requests"></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="accent" type="submit">Submit Reservation</button>
+        </form>
+    </mat-card-content>
+</mat-card>
