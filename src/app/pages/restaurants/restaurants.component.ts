@@ -8,4 +8,6 @@ import { FormControl } from '@angular/forms';
 })
 export class RestaurantsComponent {
   searchFormControl = new FormControl();
+
+  restaurants = [];
 }
