@@ -1,0 +1,206 @@
+<section class="container banner-section">
+    <picture class="banner-image">
+        <img src="https://placehold.co/1200x400/333333/white?font=lato&text=Banner+Image" alt="">
+    </picture>
+    <picture class="restaurant-logo">
+        <img src="https://placehold.co/400x400/orange/white?font=lato&text=Restaurant+Image" alt="">
+    </picture>
+</section>
+<section class="restaurant-info container">
+    <header>
+        <div>
+            <h2>Sea Shell Restaurant</h2>
+            <p class="text-grey"><span class="text-green">Open</span> • Seafood • 4.5 rating • 123 Ocean Avenue, Seaside
+                City
+            </p>
+            <div class="buisiness-timings" [ngClass]="{'open': isBusinessTimingDropdownOpen}">
+                <div class="timings-dropdown-button" (click)="onClickBusinessTimingDropdown()">
+                    <span class="timing">
+                        <span class="timing-day">Today</span><span class="timing-hours">9 AM - 9 PM</span>
+                    </span>
+                    <svg width="24" height="24" class="dh-arrow" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 10L12 14L8 10" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            stroke="#333">
+                        </path>
+                    </svg>
+                </div>
+                <ul class="timings-dropdown-menu">
+                    <li class="timing">
+                        <span class="timing-day">Tuesday</span>
+                        <span class="timing-hours">9 AM - 9 PM</span>
+                    </li>
+                    <li class="timing">
+                        <span class="timing-day">Wednesday</span>
+                        <span class="timing-hours">9 AM - 9 PM</span>
+                    </li>
+                    <li class="timing">
+                        <span class="timing-day">Thursday</span>
+                        <span class="timing-hours">9 AM - 9 PM</span>
+                    </li>
+                    <li class="timing">
+                        <span class="timing-day">Friday</span>
+                        <span class="timing-hours">9 AM - 9 PM</span>
+                    </li>
+                    <li class="timing">
+                        <span class="timing-day">Saturday</span>
+                        <span class="timing-hours">Holiday</span>
+                    </li>
+                    <li class="timing">
+                        <span class="timing-day">Sunday</span>
+                        <span class="timing-hours">Holiday</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <button mat-raised-button color="accent">Reserve Seat</button>
+    </header>
+    <article class="about-info mt-2">
+        <h5>From the owners</h5>
+        <p>Welcome to the Sea Shell Restaurant, a paradise for seafood lovers. Our menu is filled with a
+            wide range of delectable seafood dishes, all prepared with the freshest catch from the ocean. Whether you're
+            a seafood
+            connoisseur or new to the world of underwater flavors, our chefs are ready to tantalize your taste buds
+            with a memorable culinary experience.</p>
+    </article>
+</section>
+<section class="container restaurant-menu mt-2">
+    <h5>Menu</h5>
+    <mat-accordion>
+        <mat-expansion-panel expanded>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Featured Items
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <article class="menu-item">
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                            alt="Photo of a Shiba Inu">
+                        <mat-card-title>Chicken Biriyani</mat-card-title>
+                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Home style chicken biriyni</p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                            alt="Photo of a Shiba Inu">
+                        <mat-card-title>Chicken Biriyani</mat-card-title>
+                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Home style chicken biriyni</p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                            alt="Photo of a Shiba Inu">
+                        <mat-card-title>Chicken Biriyani</mat-card-title>
+                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Home style chicken biriyni</p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                            alt="Photo of a Shiba Inu">
+                        <mat-card-title>Chicken Biriyani</mat-card-title>
+                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Home style chicken biriyni</p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                            alt="Photo of a Shiba Inu">
+                        <mat-card-title>Chicken Biriyani</mat-card-title>
+                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Home style chicken biriyni</p>
+                    </mat-card-content>
+                </mat-card>
+            </article>
+            <!-- <mat-list>
+            <mat-list-item *ngFor="let folder of folders">
+                <mat-icon matListItemIcon>folder</mat-icon>
+                <div matListItemTitle>{{folder.name}}</div>
+                <div matListItemLine>{{folder.updated | date}}</div>
+            </mat-list-item>
+        </mat-list> -->
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Featured Items
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <article class="menu-item">
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                            alt="Photo of a Shiba Inu">
+                        <mat-card-title>Chicken Biriyani</mat-card-title>
+                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Home style chicken biriyni</p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                            alt="Photo of a Shiba Inu">
+                        <mat-card-title>Chicken Biriyani</mat-card-title>
+                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Home style chicken biriyni</p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                            alt="Photo of a Shiba Inu">
+                        <mat-card-title>Chicken Biriyani</mat-card-title>
+                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Home style chicken biriyni</p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                            alt="Photo of a Shiba Inu">
+                        <mat-card-title>Chicken Biriyani</mat-card-title>
+                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Home style chicken biriyni</p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                            alt="Photo of a Shiba Inu">
+                        <mat-card-title>Chicken Biriyani</mat-card-title>
+                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Home style chicken biriyni</p>
+                    </mat-card-content>
+                </mat-card>
+            </article>
+        </mat-expansion-panel>
+    </mat-accordion>
+</section>

@@ -1,0 +1,101 @@
+@import "/src/styles/abstract/mixins";
+.banner-section {
+  position: relative;
+}
+.banner-image {
+  img {
+    width: 100%;
+    height: 200px;
+    border-radius: 0 0 8px 8px;
+    object-fit: cover;
+  }
+}
+
+.restaurant-logo {
+  position: absolute;
+  bottom: -75px;
+  left: 25px;
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: contain;
+  }
+}
+
+.restaurant-info {
+  padding-top: 80px;
+  header {
+    display: flex;
+    justify-content: space-between;
+    @include respond-below($tablet) {
+      flex-direction: column;
+      button {
+        margin-top: 8px;
+        width: 100%;
+      }
+    }
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.buisiness-timings {
+  display: inline-flex;
+  flex-direction: column;
+  .timings-dropdown-button {
+    display: inline-flex;
+    align-items: center;
+    & > * + * {
+      margin-left: 4px;
+    }
+    cursor: pointer;
+    &:hover {
+      .dh-arrow path {
+        stroke: #999;
+      }
+    }
+  }
+  .timing {
+    display: flex;
+    justify-content: space-between;
+    &-hours {
+      margin-left: 16px;
+      color: #616060;
+    }
+    &-separator {
+      margin-right: auto;
+    }
+  }
+  .timings-dropdown-menu {
+    display: none;
+  }
+  &.open {
+    .timings-dropdown-menu {
+      display: block;
+    }
+  }
+}
+
+.menu-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  & > * {
+    width: calc((100% / 3) - (16px / 3));
+  }
+  @include respond-below($tablet) {
+    flex-direction: column;
+    & > * {
+      width: 100%;
+    }
+  }
+}
+
+.restaurant-menu {
+  padding-bottom: 40px;
+}
