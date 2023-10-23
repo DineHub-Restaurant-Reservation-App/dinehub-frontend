@@ -3,6 +3,7 @@ import { BusinessHour } from './business-hour.model';
 import { Menu } from './menu.model';
 
 export class Restaurant {
+  private _id: string;
   private _url: string;
   private _name: string;
   private _bannerImageHref: string;
@@ -15,6 +16,7 @@ export class Restaurant {
   private _menu: Menu;
 
   constructor(
+    id: string,
     url: string,
     name: string,
     bannerImageHref: string,
@@ -26,6 +28,7 @@ export class Restaurant {
     about: string,
     menu: Menu
   ) {
+    this._id = id;
     this._url = url;
     this._name = name;
     this._bannerImageHref = bannerImageHref;
@@ -38,6 +41,9 @@ export class Restaurant {
     this._menu = menu;
   }
 
+  get id(): string {
+    return this._id;
+  }
   get url(): string {
     return this._url;
   }

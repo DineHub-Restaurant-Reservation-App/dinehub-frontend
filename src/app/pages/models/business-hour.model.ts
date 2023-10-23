@@ -1,10 +1,10 @@
 export class BusinessHour {
-  private day: string;
-  private startTime: number;
-  private startTimePeriod: string;
-  private endTime: number;
-  private endTimePeriod: string;
-  private isHoliday: boolean;
+  private _day: string;
+  private _startTime: number;
+  private _startTimePeriod: string;
+  private _endTime: number;
+  private _endTimePeriod: string;
+  private _isHoliday: boolean;
 
   constructor(
     day: string,
@@ -14,26 +14,33 @@ export class BusinessHour {
     endTimePeriod?: string,
     isHoliday?: boolean
   ) {
-    this.day = day;
-    this.startTime = startTime || 0;
-    this.startTimePeriod = startTimePeriod || '';
-    this.endTime = endTime || 0;
-    this.endTimePeriod = endTimePeriod || '';
-    this.isHoliday = isHoliday || false;
+    this._day = day;
+    this._startTime = startTime || 0;
+    this._startTimePeriod = startTimePeriod || '';
+    this._endTime = endTime || 0;
+    this._endTimePeriod = endTimePeriod || '';
+    this._isHoliday = isHoliday || false;
   }
 
-  public getDay(): string {
-    return this.day;
-  }
-  public getStartTime(): string {
-    return `${this.startTime} ${this.startTimePeriod}`;
+  get day(): string {
+    return this._day;
   }
 
-  public getEndTime(): string {
-    return `${this.endTime} ${this.endTimePeriod}`;
+  get workingHours(): string {
+    if (this._isHoliday) {
+      return 'Holiday';
+    }
+    return `${this._startTime} ${this._startTimePeriod} - ${this._endTime} ${this._endTimePeriod}`;
+  }
+  get startTime(): number {
+    return this._startTime;
   }
 
-  public getIsHoliday(): boolean {
-    return this.isHoliday;
+  get endTime(): number {
+    return this._endTime;
+  }
+
+  get isHoliday(): boolean {
+    return this._isHoliday;
   }
 }

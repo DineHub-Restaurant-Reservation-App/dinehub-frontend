@@ -1,43 +1,38 @@
 export class MenuItem {
   constructor(
-    private category: string,
-    private name: string,
-    private image: string,
-    private description: string,
-    private price: number
+    private _category: string,
+    private _name: string,
+    private _image: string,
+    private _description: string,
+    private _price: number
   ) {}
 
-  get getCategory(): string {
-    return this.category;
+  get category(): string {
+    return this._category;
   }
 
-  get getName(): string {
-    return this.name;
+  get name(): string {
+    return this._name;
   }
 
-  get getImage(): string {
-    return this.image;
+  get image(): string {
+    return this._image;
   }
 
-  get getDescription(): string {
-    return this.description;
+  get description(): string {
+    return this._description;
   }
 
-  get getPrice(): number {
-    return this.price;
+  get price(): number {
+    return this._price;
   }
 }
 export class Menu {
   constructor(
-    private items: MenuItem[],
-    private categorizedMenuItem: { category: string; items: MenuItem[] }[]
+    private _categorizedMenuItem: { category: string; items: MenuItem[] }[]
   ) {}
 
-  get getItems(): MenuItem[] {
-    return this.items;
-  }
-
-  get getCategorizedMenuItem(): { category: string; items: MenuItem[] }[] {
-    return this.categorizedMenuItem;
+  get categorizedMenuItem(): { category: string; items: MenuItem[] }[] {
+    return this._categorizedMenuItem;
   }
 }

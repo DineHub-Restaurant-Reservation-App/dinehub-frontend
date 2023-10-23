@@ -1,22 +1,24 @@
 <section class="container banner-section">
     <picture class="banner-image">
-        <img src="https://placehold.co/1200x400/333333/white?font=lato&text=Banner+Image" alt="">
+        <img [src]="restaurant.bannerImageHref" alt="">
     </picture>
     <picture class="restaurant-logo">
-        <img src="https://placehold.co/400x400/orange/white?font=lato&text=Restaurant+Image" alt="">
+        <img [src]="restaurant.logoHref" alt="">
     </picture>
 </section>
 <section class="restaurant-info container">
     <header>
         <div>
-            <h2>Sea Shell Restaurant</h2>
-            <p class="text-grey"><span class="text-green">Open</span> • Seafood • 4.5 rating • 123 Ocean Avenue, Seaside
-                City
+            <h2>{{restaurant.name}}</h2>
+            <p class="text-grey"><span [class]="isOpen.style">{{isOpen.value}}</span> •
+                {{restaurant.cuisine}} •
+                {{restaurant.rating}}
+                rating • {{restaurant.address}}
             </p>
             <div class="buisiness-timings" [ngClass]="{'open': isBusinessTimingDropdownOpen}">
                 <div class="timings-dropdown-button" (click)="onClickBusinessTimingDropdown()">
                     <span class="timing">
-                        <span class="timing-day">Today</span><span class="timing-hours">9 AM - 9 PM</span>
+                        <span class="timing-day">Today</span><span class="timing-hours">{{todayBusinessHours}}</span>
                     </span>
                     <svg width="24" height="24" class="dh-arrow" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -26,29 +28,9 @@
                     </svg>
                 </div>
                 <ul class="timings-dropdown-menu">
-                    <li class="timing">
-                        <span class="timing-day">Tuesday</span>
-                        <span class="timing-hours">9 AM - 9 PM</span>
-                    </li>
-                    <li class="timing">
-                        <span class="timing-day">Wednesday</span>
-                        <span class="timing-hours">9 AM - 9 PM</span>
-                    </li>
-                    <li class="timing">
-                        <span class="timing-day">Thursday</span>
-                        <span class="timing-hours">9 AM - 9 PM</span>
-                    </li>
-                    <li class="timing">
-                        <span class="timing-day">Friday</span>
-                        <span class="timing-hours">9 AM - 9 PM</span>
-                    </li>
-                    <li class="timing">
-                        <span class="timing-day">Saturday</span>
-                        <span class="timing-hours">Holiday</span>
-                    </li>
-                    <li class="timing">
-                        <span class="timing-day">Sunday</span>
-                        <span class="timing-hours">Holiday</span>
+                    <li class="timing" *ngFor="let businessHour of restaurant.businessHours">
+                        <span class="timing-day">{{businessHour.day}}</span>
+                        <span class="timing-hours">{{businessHour.workingHours}}</span>
                     </li>
                 </ul>
             </div>
@@ -57,140 +39,27 @@
     </header>
     <article class="about-info mt-2">
         <h5>From the owners</h5>
-        <p>Welcome to the Sea Shell Restaurant, a paradise for seafood lovers. Our menu is filled with a
-            wide range of delectable seafood dishes, all prepared with the freshest catch from the ocean. Whether you're
-            a seafood
-            connoisseur or new to the world of underwater flavors, our chefs are ready to tantalize your taste buds
-            with a memorable culinary experience.</p>
+        <p>{{restaurant.about}}</p>
     </article>
 </section>
 <section class="container restaurant-menu mt-2">
     <h5>Menu</h5>
     <mat-accordion>
-        <mat-expansion-panel expanded>
+        <mat-expansion-panel expanded *ngFor="let menu of restaurant.menu.categorizedMenuItem">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    Featured Items
+                    {{menu.category}}
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <article class="menu-item">
-                <mat-card appearance="outlined">
+                <mat-card appearance="outlined" *ngFor="let menuItem of menu.items">
                     <mat-card-header>
-                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                            alt="Photo of a Shiba Inu">
-                        <mat-card-title>Chicken Biriyani</mat-card-title>
-                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
+                        <img mat-card-avatar [src]="menuItem.image" alt="Photo of a Shiba Inu">
+                        <mat-card-title>{{menuItem.name}}</mat-card-title>
+                        <mat-card-subtitle>CA ${{menuItem.price}}</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
-                        <p>Home style chicken biriyni</p>
-                    </mat-card-content>
-                </mat-card>
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                            alt="Photo of a Shiba Inu">
-                        <mat-card-title>Chicken Biriyani</mat-card-title>
-                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>Home style chicken biriyni</p>
-                    </mat-card-content>
-                </mat-card>
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                            alt="Photo of a Shiba Inu">
-                        <mat-card-title>Chicken Biriyani</mat-card-title>
-                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>Home style chicken biriyni</p>
-                    </mat-card-content>
-                </mat-card>
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                            alt="Photo of a Shiba Inu">
-                        <mat-card-title>Chicken Biriyani</mat-card-title>
-                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>Home style chicken biriyni</p>
-                    </mat-card-content>
-                </mat-card>
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                            alt="Photo of a Shiba Inu">
-                        <mat-card-title>Chicken Biriyani</mat-card-title>
-                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>Home style chicken biriyni</p>
-                    </mat-card-content>
-                </mat-card>
-            </article>
-        </mat-expansion-panel>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Featured Items
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <article class="menu-item">
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                            alt="Photo of a Shiba Inu">
-                        <mat-card-title>Chicken Biriyani</mat-card-title>
-                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>Home style chicken biriyni</p>
-                    </mat-card-content>
-                </mat-card>
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                            alt="Photo of a Shiba Inu">
-                        <mat-card-title>Chicken Biriyani</mat-card-title>
-                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>Home style chicken biriyni</p>
-                    </mat-card-content>
-                </mat-card>
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                            alt="Photo of a Shiba Inu">
-                        <mat-card-title>Chicken Biriyani</mat-card-title>
-                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>Home style chicken biriyni</p>
-                    </mat-card-content>
-                </mat-card>
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                            alt="Photo of a Shiba Inu">
-                        <mat-card-title>Chicken Biriyani</mat-card-title>
-                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>Home style chicken biriyni</p>
-                    </mat-card-content>
-                </mat-card>
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                            alt="Photo of a Shiba Inu">
-                        <mat-card-title>Chicken Biriyani</mat-card-title>
-                        <mat-card-subtitle>CA $5.99</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>Home style chicken biriyni</p>
+                        <p>{{menuItem.description}}</p>
                     </mat-card-content>
                 </mat-card>
             </article>
