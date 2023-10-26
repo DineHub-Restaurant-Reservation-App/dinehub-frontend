@@ -6,7 +6,7 @@
     <section class="mt-5">
         <h2>Featured Restaurants<span class="dot">.</span></h2>
         <article class="resaturants-container mt-5">
-            <a [routerLink]="resaturant.url" *ngFor="let resaturant of restaurants">
+            <a routerLink="/{{resaturant.url}}" *ngFor="let resaturant of restaurants">
                 <mat-card>
                     <img mat-card-image [src]="resaturant.logoHref" [alt]="resaturant.name" height="200">
                     <mat-card-content class="mt-2">
