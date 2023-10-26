@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from './pages/landing/landing.component';
+import { LandingComponent } from './pages/home/landing.component';
 import { ReservationFormComponent } from './pages/reservation-form/reservation-form.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
