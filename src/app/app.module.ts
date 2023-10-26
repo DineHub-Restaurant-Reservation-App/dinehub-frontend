@@ -24,6 +24,7 @@ import { LandingComponent } from './pages/home/landing.component';
 import { ReservationFormComponent } from './pages/reservation-form/reservation-form.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
+import { FormatBusinessHoursPipe } from './pipes/format-business-hours.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RestaurantsComponent } from './pages/restaurants/restaurants.component'
     RestaurantsComponent,
     RestaurantComponent,
     ReservationFormComponent,
+    FormatBusinessHoursPipe,
   ],
   imports: [
     BrowserModule,

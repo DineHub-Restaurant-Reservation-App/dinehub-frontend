@@ -7,7 +7,7 @@ export class Address {
     public country: string
   ) {}
 
-  toString() {
+  public getFormattedAddress() {
     return `${this.street}, ${this.city}, ${this.province}, ${this.zipCode},${this.country}`;
   }
 }

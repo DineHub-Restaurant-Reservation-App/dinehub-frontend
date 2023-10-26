@@ -1,68 +1,72 @@
-<section class="container banner-section">
-    <picture class="banner-image">
-        <img [src]="restaurant.bannerImageHref" alt="">
-    </picture>
-    <picture class="restaurant-logo">
-        <img [src]="restaurant.logoHref" alt="">
-    </picture>
-</section>
-<section class="restaurant-info container">
-    <header>
-        <div>
-            <h2>{{restaurant.name}}</h2>
-            <p class="text-grey"><span [class]="isOpen.style">{{isOpen.value}}</span> •
-                {{restaurant.cuisine}} •
-                {{restaurant.rating}}
-                rating • {{restaurant.address}}
-            </p>
-            <div class="buisiness-timings" [ngClass]="{'open': isBusinessTimingDropdownOpen}">
-                <div class="timings-dropdown-button" (click)="onClickBusinessTimingDropdown()">
-                    <span class="timing">
-                        <span class="timing-day">Today</span><span class="timing-hours">{{todayBusinessHours}}</span>
-                    </span>
-                    <svg width="24" height="24" class="dh-arrow" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 10L12 14L8 10" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            stroke="#333">
-                        </path>
-                    </svg>
-                </div>
-                <ul class="timings-dropdown-menu">
-                    <li class="timing" *ngFor="let businessHour of restaurant.businessHours">
-                        <span class="timing-day">{{businessHour.day}}</span>
-                        <span class="timing-hours">{{businessHour.workingHours}}</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <a mat-raised-button color="accent" routerLink="/reserve">Reserve Seat</a>
-    </header>
-    <article class="about-info mt-2">
-        <h5>From the owners</h5>
-        <p>{{restaurant.about}}</p>
+<section *ngIf="!isLoading">
+    <article class="container banner-section">
+        <picture class="banner-image">
+            <img [src]="restaurant.bannerImageHref" alt="">
+        </picture>
+        <picture class="restaurant-logo">
+            <img [src]="restaurant.logoHref" alt="">
+        </picture>
     </article>
-</section>
-<section class="container restaurant-menu mt-2">
-    <h5>Menu</h5>
-    <mat-accordion>
-        <mat-expansion-panel expanded *ngFor="let menu of restaurant.menu.categorizedMenuItem">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{menu.category}}
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <article class="menu-item">
-                <mat-card appearance="outlined" *ngFor="let menuItem of menu.items">
-                    <mat-card-header>
-                        <img mat-card-avatar [src]="menuItem.image" alt="Photo of a Shiba Inu">
-                        <mat-card-title>{{menuItem.name}}</mat-card-title>
-                        <mat-card-subtitle>CA ${{menuItem.price}}</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>{{menuItem.description}}</p>
-                    </mat-card-content>
-                </mat-card>
-            </article>
-        </mat-expansion-panel>
-    </mat-accordion>
+    <article class="restaurant-info container">
+        <header>
+            <div>
+                <h2>{{restaurant.name}}</h2>
+                <p class="text-grey"><span [class]="isOpen.style">{{isOpen.value}}</span> •
+                    {{restaurant.cuisine.join(", ")}} •
+                    {{restaurant.rating}}
+                    rating • {{restaurant.address.street}}, {{restaurant.address.city}}
+                </p>
+                <div class="buisiness-timings" [ngClass]="{'open': isBusinessTimingDropdownOpen}">
+                    <div class="timings-dropdown-button" (click)="onClickBusinessTimingDropdown()">
+                        <span class="timing">
+                            <span class="timing-day">Today</span><span class="timing-hours">{{todayBusinessHours |
+                                formatBusinessHours}}</span>
+                        </span>
+                        <svg width="24" height="24" class="dh-arrow" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 10L12 14L8 10" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" stroke="#333">
+                            </path>
+                        </svg>
+                    </div>
+                    <ul class="timings-dropdown-menu">
+                        <li class="timing" *ngFor="let businessHour of restaurant.businessHours">
+                            <span class="timing-day">{{businessHour.day}}</span>
+                            <span class="timing-hours">{{businessHour | formatBusinessHours}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a mat-raised-button color="accent" routerLink="/reserve">Reserve Seat</a>
+        </header>
+        <article class="about-info mt-2">
+            <h5>From the owners</h5>
+            <p>{{restaurant.about}}</p>
+        </article>
+    </article>
+    <article class="container restaurant-menu mt-2">
+        <h5>Menu</h5>
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="i == 0" *ngFor="let menu of restaurant.menu.categorizedMenuItem;
+                let i= index;">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{menu.category}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <article class="menu-item">
+                    <mat-card appearance="outlined" *ngFor="let menuItem of menu.items">
+                        <mat-card-header>
+                            <img mat-card-avatar [src]="menuItem.image" alt="Photo of a Shiba Inu">
+                            <mat-card-title>{{menuItem.name}}</mat-card-title>
+                            <mat-card-subtitle>CA ${{menuItem.price}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>{{menuItem.description}}</p>
+                        </mat-card-content>
+                    </mat-card>
+                </article>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </article>
 </section>

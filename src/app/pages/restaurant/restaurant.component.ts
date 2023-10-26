@@ -1,7 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Address } from '../../models/address.model';
-import { BusinessHour } from '../../models/business-hour.model';
-import { Menu, MenuItem } from '../../models/menu.model';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { FormatBusinessHoursPipe } from 'src/app/pipes/format-business-hours.pipe';
 import { Restaurant } from '../../models/restaurant.model';
 
 @Component({
@@ -16,46 +17,29 @@ export class RestaurantComponent implements OnInit {
     day: string;
     time: number;
   };
+  isLoading: boolean = true;
+
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private title: Title
+  ) {}
   ngOnInit(): void {
-    this.restaurant = new Restaurant(
-      '',
-      'restaurant/sea-shell',
-      'Sea Shell',
-      '',
-      '',
-      new Address(
-        '123 Ocean Avenue',
-        'Seaside City',
-        'ON',
-        'M1K4S6',
-        'Country'
-      ),
-      [
-        new BusinessHour('Monday', 9, 'AM', 10, 'PM'),
-        new BusinessHour('Tuesday', 9, 'AM', 10, 'PM'),
-        new BusinessHour('Thursday', 9, 'AM', 10, 'PM'),
-        new BusinessHour('Friday', 9, 'AM', 10, 'PM'),
-        new BusinessHour('Saturday', 9, 'AM', 10, 'PM'),
-        new BusinessHour('Sunday', 0, '', 0, '', true),
-      ],
-      ['Seafood'],
-      4.5,
-      "Welcome to the Sea Shell Restaurant, a paradise for seafood lovers. Our menu is filled with a wide range of delectable seafood dishes, all prepared with the freshest catch from the ocean. Whether you're a seafood connoisseur or new to the world of underwater flavors, our chefs are ready to tantalize your taste buds with a memorable culinary experience.",
-      new Menu([
-        {
-          category: 'Featured Items',
-          items: [
-            new MenuItem(
-              'Featured Items',
-              'Chicken Biriyani',
-              'https://material.angular.io/assets/img/examples/shiba2.jpg',
-              'Home style chicken biriyni',
-              5.99
-            ),
-          ],
-        },
-      ])
-    );
+    let pageId = this.route.snapshot.params['id'];
+    this.route.params.subscribe((params) => {
+      pageId = params['id'];
+    });
+
+    this.http
+      .get<Restaurant>(
+        `https://dinehub-24505-default-rtdb.firebaseio.com/restaurants/${pageId}.json`
+      )
+      .subscribe((restaurant) => {
+        this.isLoading = false;
+        this.restaurant = restaurant;
+        console.log(restaurant);
+        this.title.setTitle(`DineHub | ${restaurant.name}`);
+      });
     this.getTodayDetails();
   }
 
@@ -93,7 +77,7 @@ export class RestaurantComponent implements OnInit {
   get todayBusinessHours() {
     for (let businessHour of this.restaurant.businessHours) {
       if (businessHour.day.toLowerCase() === this.today.day) {
-        return businessHour.workingHours;
+        return businessHour;
       }
     }
     console.log(`Error while finding ${this.today.day}'s business hours`);
