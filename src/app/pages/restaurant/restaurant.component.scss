@@ -67,18 +67,26 @@
   }
   .timing {
     display: flex;
+    width: 180px;
     justify-content: space-between;
+    &-day {
+      margin-right: 16px;
+    }
     &-hours {
-      margin-left: 16px;
+      margin-left: auto;
       color: #616060;
     }
     &-separator {
       margin-right: auto;
     }
+    &.is-today {
+      font-weight: bold;
+    }
   }
   .timings-dropdown-menu {
     display: none;
   }
+
   &.open {
     .timings-dropdown-menu {
       display: block;

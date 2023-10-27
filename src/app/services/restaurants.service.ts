@@ -5,22 +5,22 @@ import { Restaurant } from '../models/restaurant.model';
 
 @Injectable({ providedIn: 'root' })
 export class RestaurantsService {
-  private _restaurants: Restaurant[] = [];
+  private URL: string =
+    'https://dinehub-24505-default-rtdb.firebaseio.com/restaurants';
 
   constructor(private http: HttpClient) {}
-  get restaurants() {
-    return [...this._restaurants];
-  }
 
   public fetchRestaurants(name: string = '') {
-    let url =
-      'https://dinehub-24505-default-rtdb.firebaseio.com/restaurants.json';
+    let url = `${this.URL}.json`;
     if (name) {
       url += `?orderBy="$key"&startAt="${name}"&endAt="${name}\uf8ff"`;
     }
-    console.log(url);
     return this.http
       .get(url)
       .pipe(map((responseData): Restaurant[] => Object.values(responseData)));
+  }
+
+  public fetchRestaurant(name: string) {
+    return this.http.get<Restaurant>(`${this.URL}/${name}.json`);
   }
 }

@@ -16,7 +16,7 @@
                     {{restaurant.rating}}
                     rating • {{restaurant.address.street}}, {{restaurant.address.city}}
                 </p>
-                <div class="buisiness-timings" [ngClass]="{'open': isBusinessTimingDropdownOpen}">
+                <div class="buisiness-timings md:mt-1" [ngClass]="{'open': isBusinessTimingDropdownOpen}">
                     <div class="timings-dropdown-button" (click)="onClickBusinessTimingDropdown()">
                         <span class="timing">
                             <span class="timing-day">Today</span><span class="timing-hours">{{todayBusinessHours |
@@ -30,14 +30,15 @@
                         </svg>
                     </div>
                     <ul class="timings-dropdown-menu">
-                        <li class="timing" *ngFor="let businessHour of restaurant.businessHours">
+                        <li class="timing" *ngFor="let businessHour of restaurant.businessHours"
+                            [ngClass]="{'is-today': businessHour.day.toLowerCase() === today.day}">
                             <span class="timing-day">{{businessHour.day}}</span>
                             <span class="timing-hours">{{businessHour | formatBusinessHours}}</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <a mat-raised-button color="accent" routerLink="/reserve">Reserve Seat</a>
+            <a mat-raised-button color="accent" routerLink="/reserve" class="md:mt-2">Reserve Seat</a>
         </header>
         <article class="about-info mt-2">
             <h5>From the owners</h5>
@@ -47,7 +48,7 @@
     <article class="container restaurant-menu mt-2">
         <h5>Menu</h5>
         <mat-accordion>
-            <mat-expansion-panel [expanded]="i == 0" *ngFor="let menu of restaurant.menu.categorizedMenuItem;
+            <mat-expansion-panel [ngClass]="{'mt-2': i!==0}" [expanded]="i == 0" *ngFor="let menu of restaurant.menu.categorizedMenuItem;
                 let i= index;">
                 <mat-expansion-panel-header>
                     <mat-panel-title>

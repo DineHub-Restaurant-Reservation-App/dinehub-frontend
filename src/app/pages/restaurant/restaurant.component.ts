@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { FormatBusinessHoursPipe } from 'src/app/pipes/format-business-hours.pipe';
+import { RestaurantsService } from 'src/app/services/restaurants.service';
 import { Restaurant } from '../../models/restaurant.model';
 
 @Component({
@@ -20,20 +21,18 @@ export class RestaurantComponent implements OnInit {
   isLoading: boolean = true;
 
   constructor(
-    private http: HttpClient,
+    private restaurantService: RestaurantsService,
     private route: ActivatedRoute,
     private title: Title
   ) {}
   ngOnInit(): void {
-    let pageId = this.route.snapshot.params['id'];
+    let restaurantName = this.route.snapshot.params['id'];
     this.route.params.subscribe((params) => {
-      pageId = params['id'];
+      restaurantName = params['id'];
     });
 
-    this.http
-      .get<Restaurant>(
-        `https://dinehub-24505-default-rtdb.firebaseio.com/restaurants/${pageId}.json`
-      )
+    this.restaurantService
+      .fetchRestaurant(restaurantName)
       .subscribe((restaurant) => {
         this.isLoading = false;
         this.restaurant = restaurant;
