@@ -1,7 +1,7 @@
 <div class="container resaturants">
     <div class="searchbar">
-        <input type="text" placeholder="Search for a resaturants...">
-        <button mat-flat-button type="button">Search</button>
+        <input type="text" placeholder="Search for a resaturants..." #searchTextField />
+        <button mat-flat-button type="button" (click)="onClickSearchBtn()">Search</button>
     </div>
     <section class="mt-5">
         <h2>Featured Restaurants<span class="dot">.</span></h2>

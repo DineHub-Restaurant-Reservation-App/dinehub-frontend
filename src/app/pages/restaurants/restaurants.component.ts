@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+
+import { RestaurantsService } from 'src/app/services/restaurants.service';
 import { Restaurant } from '../../models/restaurant.model';
 
 @Component({
@@ -9,19 +11,22 @@ import { Restaurant } from '../../models/restaurant.model';
   styleUrls: ['./restaurants.component.scss'],
 })
 export class RestaurantsComponent implements OnInit {
-  searchFormControl = new FormControl();
-
+  @ViewChild('searchTextField') searchTermField!: ElementRef;
   restaurants!: Restaurant[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private restaurantService: RestaurantsService) {}
 
   ngOnInit(): void {
-    this.http
-      .get<Restaurant[]>(
-        'https://dinehub-24505-default-rtdb.firebaseio.com/restaurants.json'
-      )
+    this.restaurantService.fetchRestaurants().subscribe((restaurants) => {
+      this.restaurants = restaurants;
+    });
+  }
+
+  onClickSearchBtn() {
+    this.restaurantService
+      .fetchRestaurants(this.searchTermField.nativeElement.value)
       .subscribe((restaurants) => {
-        this.restaurants = Object.values(restaurants);
+        this.restaurants = restaurants;
       });
   }
 }
