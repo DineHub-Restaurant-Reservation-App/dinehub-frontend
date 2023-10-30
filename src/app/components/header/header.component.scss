@@ -4,3 +4,8 @@
 .header-nav-desktop > * + * {
   margin-left: 16px;
 }
+.authMenu {
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+}

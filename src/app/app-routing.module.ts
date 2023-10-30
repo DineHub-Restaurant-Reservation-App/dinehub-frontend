@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from './pages/auth/auth.component';
+import { BusinessComponent } from './pages/business/business.component';
 import { LandingComponent } from './pages/home/landing.component';
 import { ReservationFormComponent } from './pages/reservation-form/reservation-form.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
@@ -26,6 +28,23 @@ const routes: Routes = [
   {
     path: 'reserve',
     component: ReservationFormComponent,
+  },
+  {
+    path: 'auth',
+    component: AuthComponent,
+  },
+  {
+    path: 'business',
+    children: [
+      {
+        path: 'signup',
+        component: BusinessComponent,
+      },
+      {
+        path: 'login',
+        component: BusinessComponent,
+      },
+    ],
   },
   {
     path: '**',

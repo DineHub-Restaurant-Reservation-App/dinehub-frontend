@@ -14,12 +14,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AuthComponent } from './pages/auth/auth.component';
+import { BusinessComponent } from './pages/business/business.component';
 import { LandingComponent } from './pages/home/landing.component';
 import { ReservationFormComponent } from './pages/reservation-form/reservation-form.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
@@ -36,6 +39,8 @@ import { FormatBusinessHoursPipe } from './pipes/format-business-hours.pipe';
     RestaurantComponent,
     ReservationFormComponent,
     FormatBusinessHoursPipe,
+    AuthComponent,
+    BusinessComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,7 @@ import { FormatBusinessHoursPipe } from './pipes/format-business-hours.pipe';
     MatNativeDateModule,
     MatSelectModule,
     HttpClientModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,46 @@
+<section class="hero container">
+    <article class="hero-content">
+        <h3 [innerHTML]="content.title"></h3>
+        <p class="mt-3 hero-desc">{{content.desc}}</p>
+        <form [formGroup]="form" class="signup-form" (submit)="onSubmit()">
+            <mat-form-field class="full-width" *ngIf="isSignUpPage">
+                <mat-label>Restaurant Name</mat-label>
+                <input matInput formControlName="restaurantName">
+                <mat-error *ngIf="form.controls['restaurantName'].invalid">Please enter your restaurant
+                    name.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="form.controls['email'].invalid">Please enter a valid email address.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password">
+                <mat-error *ngIf="form.controls['password'].invalid">Please enter a valid password, password should have
+                    minimum 3 characters and maximum 15 characters.</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="full-width" *ngIf="isSignUpPage">
+                <mat-label>Phone Number</mat-label>
+                <input matInput formControlName="phone" type="tel">
+                <mat-error *ngIf="form.controls['phone'].invalid">Please enter a valid phone number containing 10
+                    digits.</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="accent" type="submit">{{isSignUpPage ? "Sign Up": "Login"}}</button>
+            <p class="mt-2" *ngIf="isSignUpPage">Already have an account? <a routerLink="/business/login"
+                    class="signup-info">Login</a></p>
+            <p class="mt-2" *ngIf="!isSignUpPage">Dont' have an account? <a routerLink="/business/signup"
+                    class="signup-info">SignUp</a></p>
+        </form>
+
+    </article>
+    <figure class="hero-img">
+        <img class="" src="/assets/images/signup-hero.jpg" alt="">
+    </figure>
+
+</section>
