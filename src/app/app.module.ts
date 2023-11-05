@@ -28,6 +28,7 @@ import { ReservationFormComponent } from './pages/reservation-form/reservation-f
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 import { FormatBusinessHoursPipe } from './pipes/format-business-hours.pipe';
+import { RestaurantDashboardComponent } from './pages/restaurant-dashboard/restaurant-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { FormatBusinessHoursPipe } from './pipes/format-business-hours.pipe';
     FormatBusinessHoursPipe,
     AuthComponent,
     BusinessComponent,
+    RestaurantDashboardComponent,
   ],
   imports: [
     BrowserModule,
