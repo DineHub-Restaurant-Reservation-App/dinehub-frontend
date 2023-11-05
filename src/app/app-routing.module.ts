@@ -47,6 +47,14 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'signup',
+    component: AuthComponent,
+  },
+  {
+    path: 'login',
+    component: AuthComponent,
+  },
+  {
     path: '**',
     redirectTo: '',
   },

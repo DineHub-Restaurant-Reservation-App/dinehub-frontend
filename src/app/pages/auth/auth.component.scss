@@ -1,0 +1,39 @@
+@import "/src//styles/abstract/mixins";
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  .hero-form {
+    flex-grow: 1;
+    max-width: 500px;
+  }
+}
+
+.hero-content {
+  max-width: 480px;
+  .hero-desc {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--secondary);
+  }
+}
+
+.signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .signup-info {
+    font-weight: bold;
+  }
+}
+
+@include respond-below($tablet) {
+  .hero {
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}

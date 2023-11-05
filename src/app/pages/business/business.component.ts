@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  NgModel,
+  Validators,
+} from '@angular/forms';
+import { MatButtonToggle } from '@angular/material/button-toggle';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import {
@@ -18,6 +25,7 @@ export class BusinessComponent implements OnInit {
   form!: FormGroup;
   isSignUpPage!: boolean;
   content!: any;
+  authMode = new FormControl('business');
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,

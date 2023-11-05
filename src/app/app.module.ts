@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -25,11 +26,10 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { BusinessComponent } from './pages/business/business.component';
 import { LandingComponent } from './pages/home/landing.component';
 import { ReservationFormComponent } from './pages/reservation-form/reservation-form.component';
+import { RestaurantDashboardComponent } from './pages/restaurant-dashboard/restaurant-dashboard.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 import { FormatBusinessHoursPipe } from './pipes/format-business-hours.pipe';
-import { RestaurantDashboardComponent } from './pages/restaurant-dashboard/restaurant-dashboard.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +63,7 @@ import { RestaurantDashboardComponent } from './pages/restaurant-dashboard/resta
     MatSelectModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
