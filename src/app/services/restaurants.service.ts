@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { Restaurant } from '../models/restaurant.model';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class RestaurantsService {
   private URL: string =
     'https://dinehub-24505-default-rtdb.firebaseio.com/restaurants';

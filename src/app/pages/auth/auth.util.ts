@@ -7,10 +7,6 @@ export const signUpForm = {
     '',
     [Validators.required, Validators.minLength(3), Validators.maxLength(15)],
   ],
-  phone: [
-    '',
-    [Validators.required, Validators.minLength(10), Validators.maxLength(10)],
-  ],
 };
 
 export const loginForm = {

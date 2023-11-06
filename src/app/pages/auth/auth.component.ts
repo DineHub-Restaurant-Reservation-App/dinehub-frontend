@@ -9,6 +9,9 @@ import {
 import { MatButtonToggle } from '@angular/material/button-toggle';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 import {
   loginForm,
   loginPageContent,
@@ -25,10 +28,12 @@ export class AuthComponent {
   isSignUpPage!: boolean;
   content!: any;
   authMode = new FormControl('business');
+  user!: BehaviorSubject<User | null>;
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -43,6 +48,11 @@ export class AuthComponent {
       this.content = loginPageContent;
     }
     console.log(this.form);
+    if (this.user) {
+      this.user.subscribe((data) => {
+        console.log(data);
+      });
+    }
   }
 
   openSnackBar(message: string) {
@@ -50,7 +60,34 @@ export class AuthComponent {
   }
 
   onSubmit() {
-    this.snackBar.open('Invalid form', 'Close', {
+    if (this.form.valid) {
+      if (this.isSignUpPage) {
+        const { email, password, restaurantName } = this.form.value;
+        this.authService.signUp(email, password, restaurantName).subscribe(
+          (data) => {
+            console.log(data);
+          },
+          (error) => this.handleAuthError(error)
+        );
+      } else {
+        const { email, password } = this.form.value;
+        this.authService.login(email, password).subscribe(
+          (data) => {
+            console.log(data);
+          },
+          (error) => this.handleAuthError(error)
+        );
+      }
+    } else {
+      this.snackBar.open('Invalid authentication credential', 'Close', {
+        duration: 2000,
+        verticalPosition: 'top',
+      });
+    }
+  }
+
+  handleAuthError(errorMessage: string) {
+    this.snackBar.open(errorMessage, 'Close', {
       duration: 2000,
       verticalPosition: 'top',
     });

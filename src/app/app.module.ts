@@ -30,6 +30,8 @@ import { RestaurantDashboardComponent } from './pages/restaurant-dashboard/resta
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 import { FormatBusinessHoursPipe } from './pipes/format-business-hours.pipe';
+import { AuthService } from './services/auth.service';
+import { RestaurantsService } from './services/restaurants.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +67,7 @@ import { FormatBusinessHoursPipe } from './pipes/format-business-hours.pipe';
     MatSnackBarModule,
     MatButtonToggleModule,
   ],
-  providers: [],
+  providers: [RestaurantsService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

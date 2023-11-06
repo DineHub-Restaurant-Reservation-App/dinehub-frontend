@@ -27,15 +27,9 @@
         </a>
         <nav class="header-nav-desktop hide-mob">
             <a mat-button routerLink="/restaurants">Find Restaurants</a>
-            <!-- <button mat-button [matMenuTriggerFor]="businessAuthMenu">For Business</button> -->
-            <!-- <mat-menu #businessAuthMenu="matMenu" xPosition="before">
-                <div class="authMenu">
-                    <a mat-stroked-button routerLink="/business/login">Login</a>
-                    <a mat-raised-button color="accent" routerLink="/business/signup">SignUp</a>
-                </div>
-            </mat-menu> -->
-            <a mat-button routerLink="/login">Login</a>
-            <a mat-raised-button color="accent" routerLink="/signup">Sign Up</a>
+            <a mat-button routerLink="/login" *ngIf="!isUserAuthenticated">Login</a>
+            <a mat-raised-button color="accent" routerLink="/signup" *ngIf="!isUserAuthenticated">Sign Up</a>
+            <a mat-raised-button color="accent" (click)="onLogout()" *ngIf="isUserAuthenticated">Logout</a>
         </nav>
         <nav class="header-nav-mobile hide-desktop">
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Toggleable menu button for mobile nav">
@@ -43,15 +37,9 @@
             </button>
             <mat-menu #menu="matMenu" xPosition="after">
                 <a mat-menu-item routerLink="/restaurants">Find Restaurants</a>
-                <!-- <button mat-menu-item [matMenuTriggerFor]="businessAuthMobMenu">Business</button> -->
-                <a mat-menu-item>Login</a>
-                <a mat-menu-item>Sign Up</a>
-                <!-- <mat-menu #businessAuthMobMenu="matMenu">
-                    <div class="authMenu">
-                        <a mat-stroked-button routerLink="/business/login">Login</a>
-                        <a mat-raised-button color="accent" routerLink="/business/signup">SignUp</a>
-                    </div>
-                </mat-menu> -->
+                <a mat-menu-item routerLink="/login" *ngIf="!isUserAuthenticated">Login</a>
+                <a mat-menu-item routerLink="/signup" *ngIf="!isUserAuthenticated">Sign Up</a>
+                <a mat-menu-item (click)="onLogout()" *ngIf="isUserAuthenticated">Logout</a>
             </mat-menu>
         </nav>
     </header>
