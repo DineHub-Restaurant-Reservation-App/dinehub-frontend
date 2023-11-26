@@ -1,23 +1,37 @@
-import { Validators } from '@angular/forms';
+import { ValidatorFn, Validators } from '@angular/forms';
 
-export const signUpFormBusiness = {
-  restaurantName: ['', Validators.required],
-  email: ['', [Validators.required, Validators.email]],
-  password: ['', [Validators.required, Validators.minLength(6)]],
-};
+export interface FormControlObject {
+  controlName: string;
+  controlType: string;
+  label: string;
+  validators: ValidatorFn[];
+  errorMessage: { [key: string]: string };
+}
 
-export const signUpFormCustomer = {
-  userName: ['', Validators.required],
-  email: ['', [Validators.required, Validators.email]],
-  password: ['', [Validators.required, Validators.minLength(6)]],
-};
+export const loginFormGroup: FormControlObject[] = [
+  {
+    controlName: 'email',
+    controlType: 'text',
+    label: 'Email',
+    validators: [Validators.required, Validators.email],
+    errorMessage: {
+      required: 'Email address cannot be empty.',
+      email: 'Please enter a valid email address.',
+    },
+  },
+  {
+    controlName: 'password',
+    controlType: 'password',
+    label: 'Password',
+    validators: [Validators.required, Validators.minLength(6)],
+    errorMessage: {
+      required: 'Password cannot be empty.',
+      minLength: 'Password should have minimum 6 characters.',
+    },
+  },
+];
 
-export const loginForm = {
-  email: ['', [Validators.required, Validators.email]],
-  password: ['', [Validators.required, Validators.minLength(6)]],
-};
-
-export const businessFormGroup = [
+export const signUpFormGroup: FormControlObject[] = [
   {
     controlName: 'restaurantName',
     controlType: 'text',
@@ -26,48 +40,28 @@ export const businessFormGroup = [
     errorMessage: {
       required: 'Restaurant name cannot be empty.',
     },
-    errorsMsgs: [
-      {
-        key: 'required',
-        msg: 'Restaurant name cannot be empty.',
-      },
-    ],
   },
   {
     controlName: 'email',
     controlType: 'text',
     label: 'Restaurant Email',
     validators: [Validators.required, Validators.email],
-    errorsMsgs: [
-      {
-        key: 'required',
-        msg: 'Email address cannot be empty.',
-      },
-      {
-        key: 'email',
-        msg: 'Please enter a valid email address.',
-      },
-    ],
+    errorMessage: {
+      required: 'Email address cannot be empty.',
+      email: 'Please enter a valid email address.',
+    },
   },
   {
     controlName: 'password',
     controlType: 'password',
     label: 'Password',
     validators: [Validators.required, Validators.minLength(6)],
-    errorsMsgs: [
-      {
-        key: 'required',
-        msg: 'Password cannot be empty',
-      },
-      {
-        key: 'minLength',
-        msg: 'Password should have minimum 6 characters.',
-      },
-    ],
+    errorMessage: {
+      required: 'Password cannot be empty.',
+      minLength: 'Password should have minimum 6 characters.',
+    },
   },
 ];
-
-export const createFormObj = (formType: string) => {};
 
 export const signUpPageContent = {
   title:

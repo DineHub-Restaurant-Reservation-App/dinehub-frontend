@@ -10,33 +10,15 @@
         </mat-button-toggle-group> -->
         <form [formGroup]="form" class="signup-form mt-3" (submit)="onSubmit()">
 
-            <mat-form-field class="full-width" appearance="outline" *ngFor="let control of formControls;">
+            <mat-form-field class="full-width" appearance="outline" *ngFor="let control of formControls;let i = index"
+                [ngClass]="{'mt-1': i!==0}">
                 <mat-label>{{control.label}}</mat-label>
-                <input matInput formControlName="{{control.controlName}}">
-                <mat-error *ngIf="form.controls[control.controlName].invalid">
-                    {{getErrorMessage(form.controls[control.controlName])}}
+                <input matInput formControlName="{{control.controlName}}" type="{{control.controlType}}">
+                <mat-error>
+                    {{getErrorMessage(control,form.controls[control.controlName])}}
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="full-width" *ngIf="isSignUpPage" appearance="outline">
-                <mat-label>Restaurant Name</mat-label>
-                <input matInput formControlName="restaurantName">
-                <mat-error *ngIf="form.controls['restaurantName'].invalid">Please enter your restaurant
-                    name.</mat-error>
-            </mat-form-field>
-
-            <mat-form-field class="full-width mt-1" appearance="outline">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email">
-                <mat-error *ngIf="form.controls['email'].invalid">Please enter a valid email address.</mat-error>
-            </mat-form-field>
-
-            <mat-form-field class="full-width mt-1" appearance="outline">
-                <mat-label>Password</mat-label>
-                <input matInput formControlName="password" type="password">
-                <mat-error *ngIf="form.controls['password'].invalid">Invalid password. Please use minimum 6
-                    characters</mat-error>
-            </mat-form-field>
 
             <button mat-raised-button color="accent" type="submit" class="mt-1">{{isSignUpPage ? "Sign Up":
                 "Login"}}</button>
