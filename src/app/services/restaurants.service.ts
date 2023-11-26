@@ -1,12 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
+import { environment } from '../../environments/environment';
 import { Restaurant } from '../models/restaurant.model';
-
 @Injectable()
 export class RestaurantsService {
-  private URL: string =
-    'https://dinehub-24505-default-rtdb.firebaseio.com/restaurants';
+  private URL: string = `${environment.API_ENDPOINT}/restaurants`;
 
   constructor(private http: HttpClient) {}
 
