@@ -2,8 +2,9 @@
     <mat-form-field *ngSwitchCase="'textbox'" class="full-width" appearance="outline">
         <mat-label>{{ question.label }}</mat-label>
         <input matInput formControlName="{{ question.key }}" type="{{ question.type }}">
+        <mat-hint *ngIf="!!question.hint">{{question.hint}}</mat-hint>
         <mat-error>
-            Invalid input!
+            {{getErrorMessage()}}
         </mat-error>
     </mat-form-field>
 </ng-container>

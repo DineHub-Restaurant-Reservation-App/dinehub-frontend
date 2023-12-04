@@ -1,4 +1,9 @@
 <form [formGroup]="form" class="form">
     <app-dynamic-form-field *ngFor="let question of questions" [question]="question"
         [form]="form"></app-dynamic-form-field>
+
+    <div class="action-btns mt-2">
+        <button mat-stroked-button>Cancel</button>
+        <button mat-raised-button color="accent">Save</button>
+    </div>
 </form>

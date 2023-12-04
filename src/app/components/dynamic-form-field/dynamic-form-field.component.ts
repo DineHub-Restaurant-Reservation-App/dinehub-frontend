@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Question } from 'src/app/models/question.model';
 
 @Component({
@@ -16,5 +16,30 @@ export class DynamicFormFieldComponent {
 
   getFormGroup(key: string) {
     return <FormGroup>this.form.get(key);
+  }
+
+  getErrorMessage() {
+    const formControl: AbstractControl = <FormControl>(
+      this.form.get(this.question.key)
+    );
+
+    if (formControl && formControl.errors) {
+      const errorKeys = Object.keys(formControl.errors);
+      let errorMessage: string | undefined = '';
+      errorKeys.forEach((error) => {
+        if (error === 'required') {
+          errorMessage = this.question.errorMessage?.['required'];
+        } else if (error === 'email') {
+          errorMessage = this.question.errorMessage?.['email'];
+        } else if (error === 'minLength') {
+          errorMessage = this.question.errorMessage?.['minLength'];
+        }
+      });
+      if (errorMessage === undefined) {
+        errorMessage = 'Invalid input data!';
+      }
+      return errorMessage;
+    }
+    return '';
   }
 }

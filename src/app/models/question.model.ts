@@ -9,4 +9,5 @@ export class Question {
   validators?: ValidatorFn[];
   questions?: Question[];
   errorMessage?: { [key: string]: string };
+  hint?: string;
 }

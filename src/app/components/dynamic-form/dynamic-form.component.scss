@@ -1,3 +1,4 @@
+@import "/src/styles/abstract/mixins";
 .form {
   display: flex;
   flex-direction: column;
@@ -5,9 +6,13 @@
 }
 
 .action-btns {
-  align-self: flex-end;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  justify-content: flex-end;
   gap: 16px;
+
+  @include respond-below($tablet) {
+    flex-direction: column;
+    justify-content: initial;
+  }
 }
