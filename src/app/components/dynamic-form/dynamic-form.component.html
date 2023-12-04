@@ -1,0 +1,4 @@
+<form [formGroup]="form" class="form">
+    <app-dynamic-form-field *ngFor="let question of questions" [question]="question"
+        [form]="form"></app-dynamic-form-field>
+</form>

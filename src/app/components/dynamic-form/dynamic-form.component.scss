@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.action-btns {
+  align-self: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+}

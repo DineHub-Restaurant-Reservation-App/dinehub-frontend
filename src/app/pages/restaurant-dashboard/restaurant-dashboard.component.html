@@ -1,1 +1,15 @@
-<p>restaurant-dashboard works!</p>
+<div class="container mt-5 dashboard-container">
+    <header>
+        <h3 class="mb-1">Welcome to Your Restaurant Management Dashboard<span class="dot">.</span>
+        </h3>
+        <p>Effortlessly manage your restaurant's information, menu, and reservations in one place.</p>
+    </header>
+    <mat-tab-group class="mt-3">
+        <mat-tab label="General Information">
+            <app-dynamic-form [questions]="generalInfoFormQuestions"></app-dynamic-form>
+        </mat-tab>
+        <mat-tab label="Manage Reservation">Content 2</mat-tab>
+        <mat-tab label="Manage Menu">Content 3</mat-tab>
+    </mat-tab-group>
+
+</div>

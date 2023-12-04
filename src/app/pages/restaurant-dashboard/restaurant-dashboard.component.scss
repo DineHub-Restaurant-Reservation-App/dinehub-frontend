@@ -1,0 +1,18 @@
+@import "/src/styles/abstract/mixins";
+
+.action-btns {
+  align-self: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.dashboard-container ::ng-deep .form {
+  width: 70%;
+  padding: 40px 0 20px 0;
+  @include respond-below($tablet) {
+    width: 100%;
+    padding: 20px 0;
+  }
+}

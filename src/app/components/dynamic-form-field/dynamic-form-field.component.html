@@ -1,0 +1,16 @@
+<ng-container [ngSwitch]="question.controlType" [formGroup]="form">
+    <mat-form-field *ngSwitchCase="'textbox'" class="full-width" appearance="outline">
+        <mat-label>{{ question.label }}</mat-label>
+        <input matInput formControlName="{{ question.key }}" type="{{ question.type }}">
+        <mat-error>
+            Invalid input!
+        </mat-error>
+    </mat-form-field>
+</ng-container>
+
+<fieldset *ngIf="!!question.questions;">
+    <h5>{{question.label}}</h5>
+    <app-dynamic-form-field *ngFor="let nestedQuestion of question.questions" [question]="nestedQuestion"
+        [form]="getFormGroup(question.key)">
+    </app-dynamic-form-field>
+</fieldset>

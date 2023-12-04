@@ -16,12 +16,16 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DynamicFormFieldComponent } from './components/dynamic-form-field/dynamic-form-field.component';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { TextFieldComponent } from './components/text-field/text-field.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { BusinessComponent } from './pages/business/business.component';
 import { LandingComponent } from './pages/home/landing.component';
@@ -31,7 +35,10 @@ import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 import { FormatBusinessHoursPipe } from './pipes/format-business-hours.pipe';
 import { AuthService } from './services/auth.service';
+import { QuestionControlService } from './services/question-control.service';
+import { RestaurantInfoService } from './services/restaurant-info.service';
 import { RestaurantsService } from './services/restaurants.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +52,9 @@ import { RestaurantsService } from './services/restaurants.service';
     AuthComponent,
     BusinessComponent,
     RestaurantDashboardComponent,
+    TextFieldComponent,
+    DynamicFormComponent,
+    DynamicFormFieldComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,8 +76,14 @@ import { RestaurantsService } from './services/restaurants.service';
     HttpClientModule,
     MatSnackBarModule,
     MatButtonToggleModule,
+    MatTabsModule,
   ],
-  providers: [RestaurantsService, AuthService],
+  providers: [
+    RestaurantsService,
+    AuthService,
+    RestaurantInfoService,
+    QuestionControlService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
