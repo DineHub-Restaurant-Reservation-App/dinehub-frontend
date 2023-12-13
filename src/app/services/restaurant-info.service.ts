@@ -1,4 +1,4 @@
-import { Validators } from '@angular/forms';
+import { AbstractControl, Validators } from '@angular/forms';
 import { Question } from '../models/question.model';
 
 export class RestaurantInfoService {
@@ -143,10 +143,10 @@ export class RestaurantInfoService {
           {
             key: 'monday',
             type: 'text',
-            controlType: 'textbox',
+            controlType: 'operatingHour',
             label: 'Monday',
             hint: 'Hint: Use the pattern 9AM - 9PM',
-            validators: [Validators.required],
+            validators: [Validators.required, businessHourValidation()],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
             },
@@ -221,4 +221,11 @@ export class RestaurantInfoService {
       },
     ];
   }
+}
+
+export function businessHourValidation() {
+  return (control: AbstractControl) => {
+    console.log('Inside validator');
+    return null;
+  };
 }

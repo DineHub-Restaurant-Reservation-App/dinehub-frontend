@@ -1,5 +1,13 @@
 <ng-container [ngSwitch]="question.controlType" [formGroup]="form">
-    <mat-form-field *ngSwitchCase="'textbox'" class="full-width" appearance="outline">
+    <mat-form-field *ngSwitchCase="'textbox'" class="full-width mt-1" appearance="outline">
+        <mat-label>{{ question.label }}</mat-label>
+        <input matInput formControlName="{{ question.key }}" type="{{ question.type }}">
+        <mat-hint *ngIf="!!question.hint">{{question.hint}}</mat-hint>
+        <mat-error>
+            {{getErrorMessage()}}
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field *ngSwitchCase="'operatingHour'" class="full-width mt-1" appearance="outline">
         <mat-label>{{ question.label }}</mat-label>
         <input matInput formControlName="{{ question.key }}" type="{{ question.type }}">
         <mat-hint *ngIf="!!question.hint">{{question.hint}}</mat-hint>
