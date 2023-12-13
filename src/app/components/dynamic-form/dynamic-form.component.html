@@ -1,9 +1,18 @@
 <form [formGroup]="form" class="form">
-    <app-dynamic-form-field *ngFor="let question of questions" [question]="question"
-        [form]="form"></app-dynamic-form-field>
 
-    <div class="action-btns mt-2">
-        <button mat-stroked-button>Cancel</button>
-        <button mat-raised-button color="accent">Save</button>
-    </div>
+    <ng-container *ngFor="let question of questions">
+
+        <app-dynamic-form-field *ngIf="!question.questions;" [question]="question"
+            [form]="form"></app-dynamic-form-field>
+
+        <fieldset *ngIf="!!question.questions;">
+            <h5>{{question.label}}</h5>
+            <app-dynamic-form-field *ngFor="let nestedQuestion of question.questions" [question]="nestedQuestion"
+                [form]="getFormGroup(question.key)">
+            </app-dynamic-form-field>
+        </fieldset>
+
+    </ng-container>
+
+
 </form>

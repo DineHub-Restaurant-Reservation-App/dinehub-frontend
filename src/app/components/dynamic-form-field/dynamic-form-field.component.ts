@@ -14,10 +14,6 @@ export class DynamicFormFieldComponent {
   @Input()
   form!: FormGroup;
 
-  getFormGroup(key: string) {
-    return <FormGroup>this.form.get(key);
-  }
-
   getErrorMessage() {
     const formControl: AbstractControl = <FormControl>(
       this.form.get(this.question.key)

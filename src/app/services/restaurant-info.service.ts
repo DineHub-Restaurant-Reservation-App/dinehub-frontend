@@ -145,7 +145,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'operatingHour',
             label: 'Monday',
-            hint: 'Hint: Use the pattern 9AM - 9PM',
+            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
             validators: [Validators.required, businessHourValidation()],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -156,7 +156,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Tuesday',
-            hint: 'Hint: Use the pattern 9AM - 9PM',
+            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -167,7 +167,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Wednesday',
-            hint: 'Hint: Use the pattern 9AM - 9PM',
+            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -178,7 +178,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Thursday',
-            hint: 'Hint: Use the pattern 9AM - 9PM',
+            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -189,7 +189,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Friday',
-            hint: 'Hint: Use the pattern 9AM - 9PM',
+            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -200,7 +200,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Saturday',
-            hint: 'Hint: Use the pattern 9AM - 9PM',
+            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -211,7 +211,7 @@ export class RestaurantInfoService {
             controlType: 'textbox',
             type: 'text',
             label: 'Sunday',
-            hint: 'Hint: Use the pattern 9AM - 9PM',
+            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',

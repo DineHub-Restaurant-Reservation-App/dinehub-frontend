@@ -16,10 +16,3 @@
         </mat-error>
     </mat-form-field>
 </ng-container>
-
-<fieldset *ngIf="!!question.questions;">
-    <h5>{{question.label}}</h5>
-    <app-dynamic-form-field *ngFor="let nestedQuestion of question.questions" [question]="nestedQuestion"
-        [form]="getFormGroup(question.key)">
-    </app-dynamic-form-field>
-</fieldset>
