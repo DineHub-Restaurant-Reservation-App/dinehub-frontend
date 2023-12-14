@@ -221,6 +221,47 @@ export class RestaurantInfoService {
       },
     ];
   }
+
+  getManageReservationQuestions(): Question[] {
+    return [
+      {
+        key: 'slotInterval',
+        controlType: 'textbox',
+        type: 'number',
+        label: 'Slot Interval (in mins)',
+        value: '60',
+        validators: [Validators.required],
+      },
+      {
+        key: 'bufferTime',
+        controlType: 'textbox',
+        type: 'number',
+        label: 'Buffer Time (in mins)',
+        value: '0',
+        validators: [Validators.required],
+      },
+      {
+        key: 'tableCount',
+        controlType: 'textbox',
+        type: 'number',
+        label: 'Table Count',
+        validators: [Validators.required],
+        errorMessage: {
+          required: 'Table Count cannot be empty.',
+        },
+      },
+      {
+        key: 'capacityPerTable',
+        controlType: 'textbox',
+        type: 'number',
+        label: 'Total Persons Per table',
+        validators: [Validators.required],
+        errorMessage: {
+          required: 'Table Capacity cannot be empty.',
+        },
+      },
+    ];
+  }
 }
 
 export function businessHourValidation() {

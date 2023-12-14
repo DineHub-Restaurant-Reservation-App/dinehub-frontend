@@ -32,6 +32,11 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
     this.generalInformationForm = this.qcs.toFormGroup(
       this.generalInformationQuestions
     );
+    this.manageReservationQuestions =
+      this.restaurantQuestionService.getManageReservationQuestions();
+    this.manageReservationForm = this.qcs.toFormGroup(
+      this.manageReservationQuestions
+    );
   }
   ngOnDestroy(): void {}
 }
