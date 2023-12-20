@@ -3,6 +3,17 @@
 .dialog-container {
   padding-bottom: 16px;
   min-width: 562px;
+  @include respond-below($tablet) {
+    min-width: initial;
+    width: calc(100vw - 40px);
+  }
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 24px;
 }
 
 .dialog-content {

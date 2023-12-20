@@ -9,7 +9,6 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ManageMenuDialogComponent implements OnInit {
   isCategoryModal: boolean = true;
-  isEditModal: boolean = false;
   categories!: string[];
   form!: FormGroup;
   constructor(
@@ -23,14 +22,10 @@ export class ManageMenuDialogComponent implements OnInit {
       this.data.modalType === 'addMenuItem'
         ? false
         : true;
-    this.isEditModal =
-      this.data.modalType === 'editCategory' ||
-      this.data.modalType === 'editMenuItem'
-        ? true
-        : false;
+
     this.categories = ['Seafood', 'sides'];
 
-    if (!this.isEditModal) {
+    if (this.isCategoryModal) {
       this.form = this.fb.group({
         name: [this.data.formData?.name ?? '', Validators.required],
         description: [
@@ -39,7 +34,6 @@ export class ManageMenuDialogComponent implements OnInit {
         ],
       });
     } else {
-      console.log(this.data.formData);
       this.form = this.fb.group({
         name: [this.data.formData?.name ?? '', Validators.required],
         description: [

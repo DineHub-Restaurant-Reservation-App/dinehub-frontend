@@ -1,5 +1,12 @@
 <article class="dialog-container">
-    <h6 mat-dialog-title>{{data.modalTitle}}</h6>
+    <header class="dialog-header">
+        <h6 mat-dialog-title>{{data.modalTitle}}</h6>
+        <button mat-icon-button mat-dialog-close aria-label="close modal button">
+            <mat-icon>close</mat-icon>
+        </button>
+    </header>
+
+
     <form mat-dialog-content class="dialog-content" [formGroup]="form" (submit)="onSubmit()">
 
         <mat-form-field appearance="outline">
