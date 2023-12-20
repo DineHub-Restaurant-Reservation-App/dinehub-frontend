@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Question } from 'src/app/models/question.model';
 import { Restaurant } from 'src/app/models/restaurant.model';
 import { QuestionControlService } from 'src/app/services/question-control.service';

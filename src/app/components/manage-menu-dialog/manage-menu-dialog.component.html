@@ -1,0 +1,40 @@
+<article class="dialog-container">
+    <h6 mat-dialog-title>{{data.modalTitle}}</h6>
+    <form mat-dialog-content class="dialog-content" [formGroup]="form" (submit)="onSubmit()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName="description">
+        </mat-form-field>
+
+        <ng-container *ngIf="!isCategoryModal">
+            <mat-form-field appearance="outline">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                    <mat-option *ngFor="let category of categories" value="{{category}}">{{category}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Price</mat-label>
+                <input matInput formControlName="price">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Image Url</mat-label>
+                <input matInput formControlName="imageUrl">
+            </mat-form-field>
+        </ng-container>
+
+
+        <div class="action-btns">
+            <button mat-stroked-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button color="accent" type="submit">Save</button>
+        </div>
+    </form>
+</article>

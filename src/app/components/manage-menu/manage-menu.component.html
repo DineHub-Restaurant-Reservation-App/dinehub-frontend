@@ -1,0 +1,62 @@
+<section class="menu-container">
+    <mat-accordion>
+        <mat-expansion-panel [ngClass]="{'mt-2': i!==0}" [expanded]="i == 0" *ngFor="let category of menu;
+                        let i= index;">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <div class="menu-category" (click)="openMenuModal($event,'editCategory',category)">
+                        <h5>{{category.name}}</h5>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18px" height="18px"
+                            clip-rule="evenodd" baseProfile="basic">
+                            <path fill-rule="evenodd"
+                                d="M5.034,43.754l2.928-11.7 c0.044-0.175,0.135-0.336,0.263-0.464l23.39-23.395c1.599-1.599,4.196-1.599,5.795,0l4.392,4.392c1.601,1.603,1.604,4.2-0.001,5.799 L18.411,41.781c-0.128,0.128-0.289,0.219-0.465,0.263l-11.7,2.924C5.515,45.15,4.851,44.486,5.034,43.754z"
+                                clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M5.001,41.985v2.001h1.001v-2.001 H5.001z"
+                                clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M42.001,13.539v2.001h1.001v-2.001 H42.001z"
+                                clip-rule="evenodd" />
+                            <path fill="#fff" fill-rule="evenodd"
+                                d="M6.005,41.997 l2.928-11.7l23.39-23.395c1.208-1.208,3.172-1.208,4.38,0l4.392,4.392c1.212,1.212,1.212,3.176,0,4.384l-23.39,23.395L6.005,41.997z"
+                                clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M6.005,41.997l1.756-7.015 l5.259,5.259L6.005,41.997z"
+                                clip-rule="evenodd" />
+                            <path fill-rule="evenodd"
+                                d="M5.034,41.754l2.928-11.7 c0.044-0.175,0.135-0.336,0.263-0.464l23.39-23.395c1.599-1.599,4.196-1.599,5.795,0l4.392,4.392c1.601,1.603,1.604,4.2-0.001,5.799 L18.411,39.781c-0.128,0.128-0.289,0.219-0.465,0.263l-11.7,2.924C5.515,43.15,4.851,42.486,5.034,41.754z M7.379,40.623 l9.813-2.453l23.196-23.199c0.819-0.817,0.821-2.148-0.001-2.969L35.995,7.61c-0.817-0.817-2.148-0.817-2.965,0L9.835,30.809 L7.379,40.623z"
+                                clip-rule="evenodd" />
+                            <path fill-rule="evenodd"
+                                d="M33.807,21.506l-7.312-7.312 c-0.391-0.391-0.391-1.024,0-1.415c0.391-0.391,1.024-0.391,1.415,0l7.312,7.312c0.391,0.391,0.391,1.024,0,1.415 C34.831,21.897,34.198,21.897,33.807,21.506z"
+                                clip-rule="evenodd" />
+                            <path fill-rule="evenodd"
+                                d="M36.731,18.582l-7.312-7.312 c-0.391-0.391-0.391-1.024,0-1.415c0.391-0.391,1.024-0.391,1.415,0l7.312,7.312c0.391,0.391,0.391,1.024,0,1.415 C37.755,18.973,37.122,18.973,36.731,18.582z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <article class="menu-item">
+                <mat-card appearance="outlined" *ngFor="let menuItem of category.items"
+                    (click)="openMenuModal($event,'editMenuItem',menuItem)">
+                    <mat-card-header>
+                        <img mat-card-avatar [src]="menuItem.imageURL" alt="Photo of a Shiba Inu">
+                        <mat-card-title>{{menuItem.name}}</mat-card-title>
+                        <mat-card-subtitle>CA ${{menuItem.price}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{menuItem.description}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </article>
+        </mat-expansion-panel>
+    </mat-accordion>
+</section>
+<div class="add-button-container">
+    <button class="add-button" mat-fab color="accent" aria-label="add button with a plus icon"
+        [matMenuTriggerFor]="addButtonMenu">
+        <mat-icon>add</mat-icon>
+    </button>
+    <mat-menu #addButtonMenu="matMenu" yPosition="above" xPosition="before">
+        <button mat-menu-item (click)="openMenuModal($event,'addCategory')">Add Category</button>
+        <button mat-menu-item (click)="openMenuModal($event,'addMenuItem')">Add Menu Item</button>
+    </mat-menu>
+</div>

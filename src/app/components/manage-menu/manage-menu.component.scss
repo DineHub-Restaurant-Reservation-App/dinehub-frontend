@@ -1,0 +1,59 @@
+@import "/src/styles/abstract/mixins";
+
+.menu-container {
+  padding: 1px;
+  @include respond-above($tablet) {
+    padding: 20px;
+  }
+}
+
+.menu-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  h5 {
+    margin: 0;
+  }
+  &:hover {
+    h5 {
+      text-decoration: underline;
+    }
+  }
+}
+
+.menu-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  & > * {
+    width: calc((100% / 3) - (16px / 3));
+    cursor: pointer;
+    &:hover {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+  }
+  @include respond-below($tablet) {
+    flex-direction: column;
+    & > * {
+      width: 100%;
+    }
+  }
+}
+
+.add-button-container {
+  position: fixed;
+  width: 100%;
+  max-width: 1080px;
+  bottom: 0;
+}
+.add-button {
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+
+  @include respond-below($tablet) {
+    right: 34px;
+  }
+}

@@ -4,7 +4,7 @@
         </h3>
         <p>Effortlessly manage your restaurant's information, menu, and reservations in one place.</p>
     </header>
-    <mat-tab-group class="mt-3">
+    <mat-tab-group class="mt-3" selectedIndex="2">
         <mat-tab label="General Information">
             <app-dynamic-form [questions]="generalInformationQuestions"
                 [form]="generalInformationForm"></app-dynamic-form>
@@ -23,7 +23,9 @@
                     [disabled]="manageReservationForm.invalid">Save</button>
             </div>
         </mat-tab>
-        <mat-tab label="Manage Menu">Content 3</mat-tab>
+        <mat-tab label="Manage Menu">
+            <app-manage-menu></app-manage-menu>
+        </mat-tab>
     </mat-tab-group>
 
 </div>

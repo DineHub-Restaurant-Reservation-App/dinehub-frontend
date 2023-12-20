@@ -8,6 +8,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,6 +26,8 @@ import { DynamicFormFieldComponent } from './components/dynamic-form-field/dynam
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ManageMenuDialogComponent } from './components/manage-menu-dialog/manage-menu-dialog.component';
+import { ManageMenuComponent } from './components/manage-menu/manage-menu.component';
 import { TextFieldComponent } from './components/text-field/text-field.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { BusinessComponent } from './pages/business/business.component';
@@ -55,6 +58,8 @@ import { RestaurantsService } from './services/restaurants.service';
     TextFieldComponent,
     DynamicFormComponent,
     DynamicFormFieldComponent,
+    ManageMenuComponent,
+    ManageMenuDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +82,7 @@ import { RestaurantsService } from './services/restaurants.service';
     MatSnackBarModule,
     MatButtonToggleModule,
     MatTabsModule,
+    MatDialogModule,
   ],
   providers: [
     RestaurantsService,

@@ -266,7 +266,6 @@ export class RestaurantInfoService {
 
 export function businessHourValidation() {
   return (control: AbstractControl) => {
-    console.log('Inside validator');
     return null;
   };
 }

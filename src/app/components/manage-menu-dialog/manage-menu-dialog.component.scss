@@ -1,0 +1,25 @@
+@import "/src/styles/abstract/mixins";
+
+.dialog-container {
+  padding-bottom: 16px;
+  min-width: 562px;
+}
+
+.dialog-content {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.action-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+
+  @include respond-below($tablet) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
