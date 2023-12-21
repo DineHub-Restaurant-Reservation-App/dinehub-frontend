@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Question } from 'src/app/models/question.model';
 import { Restaurant } from 'src/app/models/restaurant.model';
+import { DashboardService } from 'src/app/services/dashboard.service';
 import { QuestionControlService } from 'src/app/services/question-control.service';
 import { RestaurantInfoService } from 'src/app/services/restaurant-info.service';
-import { RestaurantsService } from 'src/app/services/restaurants.service';
 
 @Component({
   selector: 'app-restaurant-dashboard',
@@ -16,24 +16,43 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
 
   generalInformationQuestions!: Question[];
   manageReservationQuestions!: Question[];
-  manageMenuQuestions!: Question[];
 
   generalInformationForm!: FormGroup;
   manageReservationForm!: FormGroup;
-  manageMenuForm!: FormGroup;
 
   constructor(
     private restaurantQuestionService: RestaurantInfoService,
-    private qcs: QuestionControlService
+    private qcs: QuestionControlService,
+    private dashboardService: DashboardService
   ) {}
   ngOnInit(): void {
+    const generalInfoAppData = this.dashboardService.getGeneralInfoData();
+
+    const manageReservationAppData =
+      this.dashboardService.getReservationInfoData();
+
+    this.dashboardService.generalInfoSubject.subscribe((appData: any) => {
+      this.createOrUpdateGeneralInfoForm(appData);
+    });
+    this.dashboardService.reservationInfoSubject.subscribe((appData) => {
+      this.createOrUpdateManageReservationForm(appData);
+    });
+
+    this.createOrUpdateGeneralInfoForm(generalInfoAppData);
+    this.createOrUpdateManageReservationForm(manageReservationAppData);
+  }
+
+  createOrUpdateGeneralInfoForm(answer: any) {
     this.generalInformationQuestions =
-      this.restaurantQuestionService.getGeneralInformationQuestions();
+      this.restaurantQuestionService.getGeneralInformationQuestions(answer);
     this.generalInformationForm = this.qcs.toFormGroup(
       this.generalInformationQuestions
     );
+  }
+
+  createOrUpdateManageReservationForm(answer: any) {
     this.manageReservationQuestions =
-      this.restaurantQuestionService.getManageReservationQuestions();
+      this.restaurantQuestionService.getManageReservationQuestions(answer);
     this.manageReservationForm = this.qcs.toFormGroup(
       this.manageReservationQuestions
     );

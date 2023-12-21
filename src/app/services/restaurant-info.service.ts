@@ -2,13 +2,14 @@ import { AbstractControl, Validators } from '@angular/forms';
 import { Question } from '../models/question.model';
 
 export class RestaurantInfoService {
-  getGeneralInformationQuestions(): Question[] {
+  getGeneralInformationQuestions(answer: any): Question[] {
     return [
       {
         key: 'name',
         controlType: 'textbox',
         type: 'text',
         label: 'Restaurant Name',
+        value: answer.name ?? null,
         validators: [Validators.required],
         errorMessage: {
           required: 'Restaurant Name cannot be empty.',
@@ -19,6 +20,7 @@ export class RestaurantInfoService {
         controlType: 'textbox',
         type: 'text',
         label: 'About Us',
+        value: answer.about ?? null,
         validators: [Validators.required],
         errorMessage: {
           required: 'About us cannot be empty.',
@@ -29,6 +31,7 @@ export class RestaurantInfoService {
         type: 'text',
         controlType: 'textbox',
         label: 'Logo Url',
+        value: answer.logo ?? null,
         validators: [Validators.required],
         errorMessage: {
           required: 'Logo Url cannot be empty.',
@@ -39,6 +42,7 @@ export class RestaurantInfoService {
         type: 'text',
         controlType: 'textbox',
         label: 'Banner Url',
+        value: answer.banner ?? null,
         validators: [Validators.required],
         errorMessage: {
           required: 'Banner Url cannot be empty.',
@@ -53,6 +57,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Street',
+            value: answer?.address.street ?? null,
             validators: [Validators.required],
             errorMessage: {
               required: 'Street name cannot be empty.',
@@ -63,6 +68,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'City',
+            value: answer?.address.city ?? null,
             validators: [Validators.required],
             errorMessage: {
               required: 'City name cannot be empty.',
@@ -73,6 +79,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'State',
+            value: answer?.address.state ?? null,
             validators: [Validators.required],
             errorMessage: {
               required: 'State name cannot be empty.',
@@ -83,6 +90,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'PostalCode',
+            value: answer?.address.postalCode ?? null,
             validators: [
               Validators.required,
               Validators.minLength(6),
@@ -105,6 +113,7 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'WebsiteURL',
+            value: answer?.contactInformation.websiteURL ?? null,
             validators: [],
           },
           {
@@ -112,6 +121,7 @@ export class RestaurantInfoService {
             type: 'tel',
             controlType: 'textbox',
             label: 'Phone Number',
+            value: answer?.contactInformation.phoneNumber ?? null,
             validators: [
               Validators.required,
               Validators.min(10),
@@ -128,6 +138,7 @@ export class RestaurantInfoService {
             type: 'email',
             controlType: 'textbox',
             label: 'Email',
+            value: answer?.contactInformation.email ?? null,
             validators: [Validators.required, Validators.email],
             errorMessage: {
               required: 'Email address cannot be empty.',
@@ -145,7 +156,8 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'operatingHour',
             label: 'Monday',
-            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
+            value: answer?.operatingHours.monday ?? '12 AM - 12 PM',
+            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
             validators: [Validators.required, businessHourValidation()],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -156,7 +168,8 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Tuesday',
-            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
+            value: answer?.operatingHours.tuesday ?? '12 AM - 12 PM',
+            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -167,7 +180,8 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Wednesday',
-            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
+            value: answer?.operatingHours.wednesday ?? '12 AM - 12 PM',
+            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -178,7 +192,8 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Thursday',
-            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
+            value: answer?.operatingHours.thursday ?? '12 AM - 12 PM',
+            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -189,7 +204,8 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Friday',
-            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
+            value: answer?.operatingHours.friday ?? '12 AM - 12 PM',
+            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -200,7 +216,8 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'textbox',
             label: 'Saturday',
-            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
+            value: answer?.operatingHours.saturday ?? '12 AM - 12 PM',
+            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -211,7 +228,8 @@ export class RestaurantInfoService {
             controlType: 'textbox',
             type: 'text',
             label: 'Sunday',
-            hint: 'Hint: Use the pattern 9AM - 9PM or closed',
+            value: answer?.operatingHours.sunday ?? '12 AM - 12 PM',
+            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -222,14 +240,14 @@ export class RestaurantInfoService {
     ];
   }
 
-  getManageReservationQuestions(): Question[] {
+  getManageReservationQuestions(manageReservationAnswer: any): Question[] {
     return [
       {
         key: 'slotInterval',
         controlType: 'textbox',
         type: 'number',
         label: 'Slot Interval (in mins)',
-        value: '60',
+        value: manageReservationAnswer.slotInterval ?? '60',
         validators: [Validators.required],
       },
       {
@@ -237,7 +255,7 @@ export class RestaurantInfoService {
         controlType: 'textbox',
         type: 'number',
         label: 'Buffer Time (in mins)',
-        value: '0',
+        value: manageReservationAnswer.slotInterval ?? '0',
         validators: [Validators.required],
       },
       {
@@ -245,6 +263,7 @@ export class RestaurantInfoService {
         controlType: 'textbox',
         type: 'number',
         label: 'Table Count',
+        value: manageReservationAnswer.tableCount ?? '0',
         validators: [Validators.required],
         errorMessage: {
           required: 'Table Count cannot be empty.',
@@ -255,6 +274,7 @@ export class RestaurantInfoService {
         controlType: 'textbox',
         type: 'number',
         label: 'Total Persons Per table',
+        value: manageReservationAnswer.capacityPerTable ?? '0',
         validators: [Validators.required],
         errorMessage: {
           required: 'Table Capacity cannot be empty.',

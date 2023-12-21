@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DashboardService, MenuType } from 'src/app/services/dashboard.service';
 import { ManageMenuDialogComponent } from '../manage-menu-dialog/manage-menu-dialog.component';
 
 @Component({
@@ -7,36 +8,21 @@ import { ManageMenuDialogComponent } from '../manage-menu-dialog/manage-menu-dia
   templateUrl: './manage-menu.component.html',
   styleUrls: ['./manage-menu.component.scss'],
 })
-export class ManageMenuComponent {
-  menu = [
-    {
-      name: 'Seafood',
-      items: [
-        {
-          name: 'Grilled Salmon',
-          description:
-            'A succulent grilled salmon fillet seasoned to perfection.',
-          category: 'Seafood',
-          price: 19.99,
-          imageURL:
-            'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          availability: true,
-        },
-        {
-          name: 'Ribeye Steak',
-          description:
-            'A succulent grilled salmon fillet seasoned to perfection.',
-          category: 'Seafood',
-          price: 29.99,
-          imageURL:
-            'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          availability: true,
-        },
-      ],
-    },
-  ];
+export class ManageMenuComponent implements OnInit {
+  menu!: MenuType[];
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    private dashboardService: DashboardService
+  ) {}
+
+  ngOnInit(): void {
+    this.menu = this.dashboardService.getMenuDataByCategory();
+
+    this.dashboardService.menuSubject.subscribe((data) => {
+      this.menu = data;
+    });
+  }
 
   openMenuModal(e: MouseEvent, modalType: string, formData?: any) {
     e.stopPropagation();
