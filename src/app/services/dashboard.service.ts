@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+// TODO: remove and re-use the menu.model
 export interface MenuItemType {
   name: string;
   id?: string;

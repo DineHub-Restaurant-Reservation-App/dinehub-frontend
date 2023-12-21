@@ -9,6 +9,7 @@ import { ManageMenuDialogComponent } from '../manage-menu-dialog/manage-menu-dia
   styleUrls: ['./manage-menu.component.scss'],
 })
 export class ManageMenuComponent implements OnInit {
+  // TODO: remove and re-use the menu.model
   menu!: MenuType[];
 
   constructor(
