@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './pages/auth/auth.component';
+import { AuthGuard } from './pages/auth/auth.guard';
 import { BusinessComponent } from './pages/business/business.component';
 import { LandingComponent } from './pages/home/landing.component';
 import { ReservationFormComponent } from './pages/reservation-form/reservation-form.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
   {
     path: 'app',
     component: RestaurantDashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
