@@ -1,5 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatTabChangeEvent, MatTabGroup } from '@angular/material/tabs';
+import { Subject } from 'rxjs';
+import {
+  CanComponentDeactivate,
+  CanDeactivateType,
+} from 'src/app/common/guards/canDeactivate.guard';
 import { Question } from 'src/app/models/question.model';
 import { Restaurant } from 'src/app/models/restaurant.model';
 import { DashboardService } from 'src/app/services/dashboard.service';
@@ -19,6 +25,8 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
 
   generalInformationForm!: FormGroup;
   manageReservationForm!: FormGroup;
+
+  selectedTabIndex: number = 0;
 
   constructor(
     private restaurantQuestionService: RestaurantInfoService,
@@ -40,6 +48,21 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
 
     this.createOrUpdateGeneralInfoForm(generalInfoAppData);
     this.createOrUpdateManageReservationForm(manageReservationAppData);
+
+    window.onbeforeunload = () => {
+      if (
+        (this.selectedTabIndex == 0 && this.generalInformationForm.touched) ||
+        (this.selectedTabIndex == 1 && this.manageReservationForm.touched)
+      ) {
+        return false;
+      }
+
+      return true;
+    };
+  }
+
+  onTabChange(matTabGroup: MatTabChangeEvent) {
+    this.selectedTabIndex = matTabGroup.index;
   }
 
   createOrUpdateGeneralInfoForm(answer: any) {
@@ -57,5 +80,21 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
       this.manageReservationQuestions
     );
   }
-  ngOnDestroy(): void {}
+
+  canDeactivate(): CanDeactivateType {
+    console.log('Inside canDeactivate');
+    if (
+      (this.selectedTabIndex == 0 && this.generalInformationForm.touched) ||
+      (this.selectedTabIndex == 1 && this.manageReservationForm.touched)
+    ) {
+      return confirm(
+        'Are you sure you want to leave? Your unsaved changes will be lost.'
+      );
+    }
+    return true;
+  }
+
+  ngOnDestroy(): void {
+    window.onbeforeunload = null;
+  }
 }

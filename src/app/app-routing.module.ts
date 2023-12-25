@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { canDeactivateGuard } from './common/guards/canDeactivate.guard';
 import { AuthComponent } from './pages/auth/auth.component';
 import { AuthGuard } from './pages/auth/auth.guard';
 import { BusinessComponent } from './pages/business/business.component';
@@ -43,6 +44,7 @@ const routes: Routes = [
     path: 'app',
     component: RestaurantDashboardComponent,
     canActivate: [AuthGuard],
+    canDeactivate: [canDeactivateGuard],
   },
   {
     path: '**',

@@ -4,7 +4,7 @@
         </h3>
         <p>Effortlessly manage your restaurant's information, menu, and reservations in one place.</p>
     </header>
-    <mat-tab-group class="mt-3">
+    <mat-tab-group class="mt-3" [selectedIndex]="selectedTabIndex" (selectedTabChange)="onTabChange($event)">
         <mat-tab label="General Information">
             <app-dynamic-form [questions]="generalInformationQuestions"
                 [form]="generalInformationForm"></app-dynamic-form>
