@@ -17,21 +17,43 @@ DineHub is a user-friendly restaurant reservation application designed to stream
 To run the project locally, follow these steps:
 
 1. **Clone the Repository:**
+
    ```bash
    git clone https://github.com/your-username/dinehub.git
-   
+
+   ```
+
 2. **Install Dependencies:**
+
    ```bash
    npm install
 
+   ```
+
 3. **Run the Angular Application:**
+
    ```bash
    ng serve
-   
+
+   ```
+
 4. **Access the Application:**<br/>
    Open your browser and go to http://localhost:4200 to access the DineHub application.
 
 ## Screenshots (Development Preview)
 
+### Home Page
+
+<img src="./snapshots/home-page.png"/>
+
+### Restaurant Page
+
+<img src="./snapshots/restaurant-page.png"/>
+
+### Dashboard Page
+
+<img src="./snapshots/dashboard-page.png"/>
+
 ## License
+
 This project is licensed under the [MIT License](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt).
