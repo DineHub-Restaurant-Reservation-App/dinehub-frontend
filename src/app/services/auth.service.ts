@@ -5,12 +5,10 @@ import { BehaviorSubject, Subject, catchError, tap, throwError } from 'rxjs';
 import { User } from '../models/user.model';
 
 interface AuthResponseData {
-  idToken: string;
+  token: string;
+  userId: string;
   email: string;
-  refreshToken: string;
   expiresIn: string;
-  localId: string;
-  registered?: boolean;
 }
 
 @Injectable()
@@ -18,15 +16,14 @@ export class AuthService {
   user = new BehaviorSubject<User | null>(null);
   private _expirationTimer: any;
   constructor(private http: HttpClient, private router: Router) {}
-  signUp(email: string, password: string, username: string) {
+  signUp(email: string, password: string, restaurantName: string) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD1AhswFPRQsr_wn0M9knAmEcnnthKR734',
+        'http://localhost:8080/restaurant_app/v1/api/auth/register',
         {
-          email: email,
-          password: password,
-          displayName: username,
-          returnSecureToken: true,
+          restaurantName,
+          password,
+          email,
         }
       )
       .pipe(
@@ -34,8 +31,8 @@ export class AuthService {
         tap((responseData) => {
           this.handleAuthentication(
             responseData.email,
-            responseData.localId,
-            responseData.idToken,
+            responseData.userId,
+            responseData.token,
             +responseData.expiresIn
           );
         })
@@ -45,7 +42,7 @@ export class AuthService {
   login(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD1AhswFPRQsr_wn0M9knAmEcnnthKR734',
+        'http://localhost:8080/restaurant_app/v1/api/auth/login',
         {
           email: email,
           password: password,
@@ -57,8 +54,8 @@ export class AuthService {
         tap((responseData) => {
           this.handleAuthentication(
             responseData.email,
-            responseData.localId,
-            responseData.idToken,
+            responseData.userId,
+            responseData.token,
             +responseData.expiresIn
           );
         })
@@ -104,28 +101,30 @@ export class AuthService {
     token: string,
     expiresIn: number
   ) {
-    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    const expirationDate = new Date(expiresIn);
     const user = new User(email, userId, token, expirationDate);
     this.user.next(user);
     localStorage.setItem('user_data', JSON.stringify(user));
-    this.autoLogout(expiresIn * 1000);
+    this.autoLogout(expiresIn);
   }
 
   private handleError(errResponse: HttpErrorResponse) {
+    console.log(errResponse);
     let errorMessage: string = 'An error has occurred!';
-    if (errResponse.error.error.message) {
-      switch (errResponse.error.error.message) {
-        case 'EMAIL_EXISTS':
+    if (errResponse.error.code) {
+      switch (errResponse.error.code) {
+        case 'USER_ALREADY_EXISTING':
           errorMessage = 'Email address already existing!';
           break;
-        case 'EMAIL_NOT_FOUND':
-          errorMessage = 'Invalid email/ password';
-          break;
-        case 'INVALID_PASSWORD':
-          errorMessage = 'Invalid email/ password';
+        case 'DUPLICATE_RESTAURANT':
+          errorMessage =
+            'Restaurant name already taken. Please try a different name!';
           break;
         case 'INVALID_LOGIN_CREDENTIALS':
           errorMessage = 'Invalid email/ password';
+          break;
+        case 'INVALID_TOKEN':
+          errorMessage = 'Please login again!';
           break;
       }
     }

@@ -1,11 +1,8 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatTabChangeEvent, MatTabGroup } from '@angular/material/tabs';
-import { Subject } from 'rxjs';
-import {
-  CanComponentDeactivate,
-  CanDeactivateType,
-} from 'src/app/common/guards/canDeactivate.guard';
+
+import { CanDeactivateType } from 'src/app/common/guards/canDeactivate.guard';
 import { Question } from 'src/app/models/question.model';
 import { Restaurant } from 'src/app/models/restaurant.model';
 import { DashboardService } from 'src/app/services/dashboard.service';

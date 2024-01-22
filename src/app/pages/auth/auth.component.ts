@@ -111,7 +111,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     const { email, password, restaurantName } = this.form.value;
     this.authService.signUp(email, password, restaurantName).subscribe(
       (data) => {
-        this.setUpRestaurant(restaurantName, email);
+        this.router.navigate(['app']);
       },
       (error) => this.handleAuthError(error)
     );
