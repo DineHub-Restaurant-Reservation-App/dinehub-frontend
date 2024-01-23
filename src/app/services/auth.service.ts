@@ -63,6 +63,9 @@ export class AuthService {
   }
 
   autoLogin() {
+    /* TODO:
+     * If token is expired, redirect to login
+     */
     const userData = localStorage.getItem('user_data');
     if (!userData) {
       return;

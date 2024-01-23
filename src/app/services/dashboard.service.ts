@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, take } from 'rxjs';
+import { User } from '../models/user.model';
+import { AuthService } from './auth.service';
 
 // TODO: remove and re-use the menu.model
 export interface MenuItemType {
@@ -19,11 +21,30 @@ export interface MenuType {
   items: MenuItemType[];
 }
 
+export interface GeneralInfoType {
+  name: String;
+  address: String;
+  bannerImage: String;
+  logo: String;
+  businessHour: String;
+  cuisine: String;
+  rating: String;
+  about: String;
+}
+
 @Injectable({ providedIn: 'root' })
 export class DashboardService {
   public generalInfoSubject: Subject<{}> = new Subject();
   public reservationInfoSubject: Subject<{}> = new Subject();
   public menuSubject: Subject<MenuType[]> = new Subject();
+
+  private currentUser?: User | null;
+  constructor(private authService: AuthService) {
+    this.authService.user.subscribe((user) => {
+      this.currentUser = user;
+    });
+  }
+
   private generalInfo = {
     name: 'Aloha Bites',
     about:
@@ -43,13 +64,13 @@ export class DashboardService {
       email: 'alohabite@gmail.com',
     },
     operatingHours: {
-      monday: '9 AM - 9 PM',
-      tuesday: '9 AM - 9 PM',
-      wednesday: '9 AM - 9 PM',
-      thursday: '9 AM - 9 PM',
-      friday: '9 AM - 9 PM',
-      saturday: '9 AM - 9 PM',
-      sunday: 'Sunday',
+      monday: '12',
+      tuesday: '12',
+      wednesday: '12',
+      thursday: '12',
+      friday: '12',
+      saturday: '12',
+      sunday: '12',
     },
   };
 
@@ -90,6 +111,7 @@ export class DashboardService {
   };
 
   getGeneralInfoData() {
+    console.log(this.currentUser);
     return { ...this.generalInfo };
   }
   getMenuDataByCategory() {
