@@ -14,11 +14,13 @@ export class DynamicFormFieldComponent {
   @Input()
   form!: FormGroup;
 
-  getErrorMessage() {
-    const formControl: AbstractControl = <FormControl>(
+  getErrorMessage(questionControlName: string | null = null) {
+    let formControl: AbstractControl = <FormControl>(
       this.form.get(this.question.key)
     );
-
+    if (questionControlName != null) {
+      formControl = <FormControl>this.form.get(questionControlName);
+    }
     if (formControl && formControl.errors) {
       const errorKeys = Object.keys(formControl.errors);
       let errorMessage: string | undefined = '';

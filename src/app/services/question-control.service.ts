@@ -10,13 +10,26 @@ export class QuestionControlService {
         group[question.key] = this.toFormControl(question);
       } else {
         const innerFormGroup: any = {};
+        const parentQuestionKey = question.key;
         question.questions.forEach((question) => {
-          innerFormGroup[question.key] = this.toFormControl(question);
+          if (parentQuestionKey == 'operatingHours') {
+            innerFormGroup[question.key + 'StartingTime'] = new FormControl(
+              question.startingTime,
+              question.validators
+            );
+            innerFormGroup[question.key + 'EndingTime'] = new FormControl(
+              question.startingTime,
+              question.validators
+            );
+          } else {
+            innerFormGroup[question.key] = this.toFormControl(question);
+          }
         });
+
         group[question.key] = new FormGroup(innerFormGroup);
       }
     });
-
+    console.log(group);
     return new FormGroup(group);
   }
 

@@ -148,16 +148,17 @@ export class RestaurantInfoService {
         ],
       },
       {
-        key: 'operatingHours,',
+        key: 'operatingHours',
         label: 'Operating Hours',
+        hint: 'Enter timings in 24-hour format (e.g., 09:00). Use "00:00" for holidays.',
         questions: [
           {
             key: 'monday',
             type: 'text',
             controlType: 'operatingHour',
             label: 'Monday',
-            value: answer?.operatingHours.monday ?? '12 AM - 12 PM',
-            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
+            startingTime: answer?.operatingHours.monday.startingTime ?? 12,
+            endingTime: answer?.operatingHours.monday.startingTime ?? 20,
             validators: [Validators.required, businessHourValidation()],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -166,10 +167,10 @@ export class RestaurantInfoService {
           {
             key: 'tuesday',
             type: 'text',
-            controlType: 'textbox',
+            controlType: 'operatingHour',
             label: 'Tuesday',
-            value: answer?.operatingHours.tuesday ?? '12 AM - 12 PM',
-            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
+            startingTime: answer?.operatingHours.tuesday.startingTime ?? 12,
+            endingTime: answer?.operatingHours.tuesday.startingTime ?? 20,
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -178,10 +179,10 @@ export class RestaurantInfoService {
           {
             key: 'wednesday',
             type: 'text',
-            controlType: 'textbox',
+            controlType: 'operatingHour',
             label: 'Wednesday',
-            value: answer?.operatingHours.wednesday ?? '12 AM - 12 PM',
-            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
+            startingTime: answer?.operatingHours.wednesday.startingTime ?? 12,
+            endingTime: answer?.operatingHours.wednesday.startingTime ?? 20,
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -190,10 +191,10 @@ export class RestaurantInfoService {
           {
             key: 'thursday',
             type: 'text',
-            controlType: 'textbox',
+            controlType: 'operatingHour',
             label: 'Thursday',
-            value: answer?.operatingHours.thursday ?? '12 AM - 12 PM',
-            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
+            startingTime: answer?.operatingHours.thursday.startingTime ?? 12,
+            endingTime: answer?.operatingHours.thursday.startingTime ?? 20,
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -202,10 +203,10 @@ export class RestaurantInfoService {
           {
             key: 'friday',
             type: 'text',
-            controlType: 'textbox',
+            controlType: 'operatingHour',
             label: 'Friday',
-            value: answer?.operatingHours.friday ?? '12 AM - 12 PM',
-            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
+            startingTime: answer?.operatingHours.friday.startingTime ?? 12,
+            endingTime: answer?.operatingHours.friday.startingTime ?? 20,
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -214,10 +215,10 @@ export class RestaurantInfoService {
           {
             key: 'saturday',
             type: 'text',
-            controlType: 'textbox',
+            controlType: 'operatingHour',
             label: 'Saturday',
-            value: answer?.operatingHours.saturday ?? '12 AM - 12 PM',
-            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
+            startingTime: answer?.operatingHours.saturday.startingTime ?? 12,
+            endingTime: answer?.operatingHours.saturday.startingTime ?? 20,
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -225,11 +226,11 @@ export class RestaurantInfoService {
           },
           {
             key: 'sunday',
-            controlType: 'textbox',
+            controlType: 'operatingHour',
             type: 'text',
             label: 'Sunday',
-            value: answer?.operatingHours.sunday ?? '12 AM - 12 PM',
-            hint: 'Hint: Use the pattern 9 AM - 9 PM or closed',
+            startingTime: answer?.operatingHours.sunday.startingTime ?? 12,
+            endingTime: answer?.operatingHours.sunday.startingTime ?? 20,
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -289,3 +290,164 @@ export function businessHourValidation() {
     return null;
   };
 }
+
+// {
+//   key: 'operatingHours,',
+//   label: 'Operating Hours',
+//   questions: [
+//     {
+//       key: 'monday',
+//       type: 'text',
+//       controlType: 'operatingHour',
+//       label: 'Monday Start Time - AM',
+//       value: answer?.operatingHours.monday ?? '12',
+//       validators: [Validators.required, businessHourValidation()],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'mondayEndTime',
+//       type: 'text',
+//       controlType: 'operatingHour',
+//       label: 'Monday End Time - PM',
+//       value: answer?.operatingHours.monday ?? '12',
+//       validators: [Validators.required, businessHourValidation()],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'tuesdayStartTime',
+//       type: 'text',
+//       controlType: 'operatingHour',
+//       label: 'Tuesday Start Time - AM',
+//       value: answer?.operatingHours.tuesday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'tuesdayEndTime',
+//       type: 'text',
+//       controlType: 'operatingHour',
+//       label: 'Tuesday End Time - PM',
+//       value: answer?.operatingHours.tuesday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'wednesdayStartTime',
+//       type: 'text',
+//       controlType: 'operatingHour',
+//       label: 'Wednesday Start Time - AM',
+//       value: answer?.operatingHours.wednesday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'wednesdayEndTime',
+//       type: 'text',
+//       controlType: 'operatingHour',
+//       label: 'Wednesday End Time - PM',
+//       value: answer?.operatingHours.wednesday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'thursdayStartTime',
+//       type: 'text',
+//       controlType: 'operatingHour',
+//       label: 'Thursday Start Time - AM',
+//       value: answer?.operatingHours.thursday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'thursdayEndTime',
+//       type: 'text',
+//       controlType: 'operatingHour',
+//       label: 'Thursday End Time - PM',
+//       value: answer?.operatingHours.thursday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'fridayStartTime',
+//       type: 'text',
+//       controlType: 'operatingHour',
+//       label: 'Friday Start Time - AM',
+//       value: answer?.operatingHours.friday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'fridayEndTime',
+//       type: 'text',
+//       controlType: 'operatingHour',
+//       label: 'Friday End Time - PM',
+//       value: answer?.operatingHours.friday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'saturdayStartTime',
+//       type: 'text',
+//       controlType: 'textbox',
+//       label: 'Saturday Start Time - AM',
+//       value: answer?.operatingHours.saturday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'saturdayEndTime',
+//       type: 'text',
+//       controlType: 'textbox',
+//       label: 'Saturday End Time - PM',
+//       value: answer?.operatingHours.saturday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'sundayStartTime',
+//       controlType: 'textbox',
+//       type: 'text',
+//       label: 'Sunday Start Time - AM',
+//       value: answer?.operatingHours.sunday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//     {
+//       key: 'sundayEndTime',
+//       controlType: 'textbox',
+//       type: 'text',
+//       label: 'Sunday End Time - PM',
+//       value: answer?.operatingHours.sunday ?? '12',
+//       validators: [Validators.required],
+//       errorMessage: {
+//         required: 'Operating Hours cannot be empty.',
+//       },
+//     },
+//   ],
+// },

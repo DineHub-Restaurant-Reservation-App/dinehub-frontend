@@ -21,6 +21,10 @@
   justify-content: space-between !important;
 }
 
+.m-0 {
+  margin: 0 !important;
+}
+
 .mt-1 {
   margin-top: 8px !important;
 }
@@ -131,4 +135,9 @@ h6 {
 }
 .dot {
   color: #ceaf46;
+}
+
+.comment {
+  font-size: 14px;
+  color: var(--secondary);
 }

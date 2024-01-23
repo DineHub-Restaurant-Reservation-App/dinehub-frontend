@@ -6,6 +6,8 @@ export class Question {
   type?: string;
   label?: string;
   value?: string = '';
+  startingTime?: string;
+  endingTime?: string;
   validators?: ValidatorFn[];
   questions?: Question[];
   errorMessage?: { [key: string]: string };

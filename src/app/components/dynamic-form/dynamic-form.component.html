@@ -7,6 +7,7 @@
 
         <fieldset *ngIf="!!question.questions;">
             <h5>{{question.label}}</h5>
+            <p class="comment mb-2" *ngIf="question.hint">{{question.hint}}</p>
             <app-dynamic-form-field *ngFor="let nestedQuestion of question.questions" [question]="nestedQuestion"
                 [form]="getFormGroup(question.key)">
             </app-dynamic-form-field>
