@@ -1,4 +1,4 @@
-import { AbstractControl, Validators } from '@angular/forms';
+import { AbstractControl, ValidationErrors, Validators } from '@angular/forms';
 import { Question } from '../models/question.model';
 
 export class RestaurantInfoService {
@@ -162,6 +162,7 @@ export class RestaurantInfoService {
             validators: [Validators.required, businessHourValidation()],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
+              invalidHour: 'Enter a valid time (1:00 - 24:59)',
             },
           },
           {
@@ -174,6 +175,7 @@ export class RestaurantInfoService {
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
+              invalidHour: 'Enter a valid time (1:00 - 24:59)',
             },
           },
           {
@@ -187,6 +189,7 @@ export class RestaurantInfoService {
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
+              invalidHour: 'Enter a valid time (1:00 - 24:59)',
             },
           },
           {
@@ -200,6 +203,7 @@ export class RestaurantInfoService {
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
+              invalidHour: 'Enter a valid time (1:00 - 24:59)',
             },
           },
           {
@@ -212,6 +216,7 @@ export class RestaurantInfoService {
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
+              invalidHour: 'Enter a valid time (1:00 - 24:59)',
             },
           },
           {
@@ -225,6 +230,7 @@ export class RestaurantInfoService {
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
+              invalidHour: 'Enter a valid time (1:00 - 24:59)',
             },
           },
           {
@@ -237,6 +243,7 @@ export class RestaurantInfoService {
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
+              invalidHour: 'Enter a valid time (1:00 - 24:59)',
             },
           },
         ],
@@ -289,168 +296,10 @@ export class RestaurantInfoService {
 }
 
 export function businessHourValidation() {
-  return (control: AbstractControl) => {
-    return null;
+  return (control: AbstractControl): ValidationErrors | null => {
+    if (control.value >= 1 && control.value <= 24) {
+      return null;
+    }
+    return { invalidHour: { value: control.value } };
   };
 }
-
-// {
-//   key: 'operatingHours,',
-//   label: 'Operating Hours',
-//   questions: [
-//     {
-//       key: 'monday',
-//       type: 'text',
-//       controlType: 'operatingHour',
-//       label: 'Monday Start Time - AM',
-//       value: answer?.operatingHours.monday ?? '12',
-//       validators: [Validators.required, businessHourValidation()],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'mondayEndTime',
-//       type: 'text',
-//       controlType: 'operatingHour',
-//       label: 'Monday End Time - PM',
-//       value: answer?.operatingHours.monday ?? '12',
-//       validators: [Validators.required, businessHourValidation()],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'tuesdayStartTime',
-//       type: 'text',
-//       controlType: 'operatingHour',
-//       label: 'Tuesday Start Time - AM',
-//       value: answer?.operatingHours.tuesday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'tuesdayEndTime',
-//       type: 'text',
-//       controlType: 'operatingHour',
-//       label: 'Tuesday End Time - PM',
-//       value: answer?.operatingHours.tuesday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'wednesdayStartTime',
-//       type: 'text',
-//       controlType: 'operatingHour',
-//       label: 'Wednesday Start Time - AM',
-//       value: answer?.operatingHours.wednesday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'wednesdayEndTime',
-//       type: 'text',
-//       controlType: 'operatingHour',
-//       label: 'Wednesday End Time - PM',
-//       value: answer?.operatingHours.wednesday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'thursdayStartTime',
-//       type: 'text',
-//       controlType: 'operatingHour',
-//       label: 'Thursday Start Time - AM',
-//       value: answer?.operatingHours.thursday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'thursdayEndTime',
-//       type: 'text',
-//       controlType: 'operatingHour',
-//       label: 'Thursday End Time - PM',
-//       value: answer?.operatingHours.thursday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'fridayStartTime',
-//       type: 'text',
-//       controlType: 'operatingHour',
-//       label: 'Friday Start Time - AM',
-//       value: answer?.operatingHours.friday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'fridayEndTime',
-//       type: 'text',
-//       controlType: 'operatingHour',
-//       label: 'Friday End Time - PM',
-//       value: answer?.operatingHours.friday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'saturdayStartTime',
-//       type: 'text',
-//       controlType: 'textbox',
-//       label: 'Saturday Start Time - AM',
-//       value: answer?.operatingHours.saturday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'saturdayEndTime',
-//       type: 'text',
-//       controlType: 'textbox',
-//       label: 'Saturday End Time - PM',
-//       value: answer?.operatingHours.saturday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'sundayStartTime',
-//       controlType: 'textbox',
-//       type: 'text',
-//       label: 'Sunday Start Time - AM',
-//       value: answer?.operatingHours.sunday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//     {
-//       key: 'sundayEndTime',
-//       controlType: 'textbox',
-//       type: 'text',
-//       label: 'Sunday End Time - PM',
-//       value: answer?.operatingHours.sunday ?? '12',
-//       validators: [Validators.required],
-//       errorMessage: {
-//         required: 'Operating Hours cannot be empty.',
-//       },
-//     },
-//   ],
-// },

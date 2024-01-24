@@ -22,6 +22,7 @@ export class DynamicFormFieldComponent {
       formControl = <FormControl>this.form.get(questionControlName);
     }
     if (formControl && formControl.errors) {
+      console.log(formControl.errors);
       const errorKeys = Object.keys(formControl.errors);
       let errorMessage: string | undefined = '';
       errorKeys.forEach((error) => {
@@ -33,6 +34,8 @@ export class DynamicFormFieldComponent {
           errorMessage = this.question.errorMessage?.['minLength'];
         } else if (error === 'maxlength') {
           errorMessage = this.question.errorMessage?.['maxLength'];
+        } else if (error === 'invalidHour') {
+          errorMessage = this.question.errorMessage?.['invalidHour'];
         }
       });
       if (errorMessage === undefined) {
