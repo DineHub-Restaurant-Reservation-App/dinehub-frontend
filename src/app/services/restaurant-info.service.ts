@@ -42,10 +42,47 @@ export class RestaurantInfoService {
         type: 'text',
         controlType: 'textbox',
         label: 'Banner Url',
-        value: answer.banner ?? null,
+        value: answer.bannerImage ?? null,
         validators: [Validators.required],
         errorMessage: {
           required: 'Banner Url cannot be empty.',
+        },
+      },
+      {
+        key: 'websiteURL',
+        type: 'text',
+        controlType: 'textbox',
+        label: 'WebsiteURL',
+        value: answer?.websiteURL ?? null,
+        validators: [],
+      },
+      {
+        key: 'phoneNumber',
+        type: 'tel',
+        controlType: 'textbox',
+        label: 'Phone Number',
+        value: answer?.phoneNumber ?? null,
+        validators: [
+          Validators.required,
+          Validators.min(10),
+          Validators.max(10),
+        ],
+        errorMessage: {
+          required: 'Phone number cannot be empty.',
+          minLength: 'Phone number should have minimum 10 characters.',
+          maxLength: 'Phone number should have maximum 10 characters.',
+        },
+      },
+      {
+        key: 'email',
+        type: 'email',
+        controlType: 'textbox',
+        label: 'Email',
+        value: answer?.email ?? null,
+        validators: [Validators.required, Validators.email],
+        errorMessage: {
+          required: 'Email address cannot be empty.',
+          email: 'Please enter a valid email address.',
         },
       },
       {
@@ -75,14 +112,14 @@ export class RestaurantInfoService {
             },
           },
           {
-            key: 'state',
+            key: 'province',
             type: 'text',
             controlType: 'textbox',
-            label: 'State',
-            value: answer?.address.state ?? null,
+            label: 'Province',
+            value: answer?.address.province ?? null,
             validators: [Validators.required],
             errorMessage: {
-              required: 'State name cannot be empty.',
+              required: 'Province name cannot be empty.',
             },
           },
           {
@@ -102,63 +139,31 @@ export class RestaurantInfoService {
               maxLength: 'Postal cannot be more than 6 characters',
             },
           },
-        ],
-      },
-      {
-        key: 'contactInformation',
-        label: 'Contact Information',
-        questions: [
           {
-            key: 'websiteURL',
+            key: 'country',
             type: 'text',
             controlType: 'textbox',
-            label: 'WebsiteURL',
-            value: answer?.contactInformation.websiteURL ?? null,
-            validators: [],
-          },
-          {
-            key: 'phoneNumber',
-            type: 'tel',
-            controlType: 'textbox',
-            label: 'Phone Number',
-            value: answer?.contactInformation.phoneNumber ?? null,
-            validators: [
-              Validators.required,
-              Validators.min(10),
-              Validators.max(10),
-            ],
+            label: 'Country',
+            value: answer?.address.country ?? 'Canada',
+            validators: [Validators.required],
             errorMessage: {
-              required: 'Phone number cannot be empty.',
-              minLength: 'Phone number should have minimum 10 characters.',
-              maxLength: 'Phone number should have maximum 10 characters.',
-            },
-          },
-          {
-            key: 'email',
-            type: 'email',
-            controlType: 'textbox',
-            label: 'Email',
-            value: answer?.contactInformation.email ?? null,
-            validators: [Validators.required, Validators.email],
-            errorMessage: {
-              required: 'Email address cannot be empty.',
-              email: 'Please enter a valid email address.',
+              required: 'country name cannot be empty.',
             },
           },
         ],
       },
       {
-        key: 'operatingHours',
+        key: 'businessHour',
         label: 'Operating Hours',
         hint: 'Enter timings in 24-hour format (e.g., 09:00). Use "00:00" for holidays.',
         questions: [
           {
             key: 'monday',
             type: 'text',
-            controlType: 'operatingHour',
+            controlType: 'businessHour',
             label: 'Monday',
-            startingTime: answer.operatingHours.mondayStartingTime ?? '00:00',
-            endingTime: answer.operatingHours.mondayEndingTime ?? '00:00',
+            startingTime: answer.businessHour.mondayStartingTime ?? '00:00',
+            endingTime: answer.businessHour.mondayEndingTime ?? '00:00',
             validators: [Validators.required, businessHourValidation()],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -168,10 +173,10 @@ export class RestaurantInfoService {
           {
             key: 'tuesday',
             type: 'text',
-            controlType: 'operatingHour',
+            controlType: 'businessHour',
             label: 'Tuesday',
-            startingTime: answer?.operatingHours.tuesdayStartingTime ?? '00:00',
-            endingTime: answer?.operatingHours.tuesdayEndingTime ?? '00:00',
+            startingTime: answer?.businessHour.tuesdayStartingTime ?? '00:00',
+            endingTime: answer?.businessHour.tuesdayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -181,11 +186,10 @@ export class RestaurantInfoService {
           {
             key: 'wednesday',
             type: 'text',
-            controlType: 'operatingHour',
+            controlType: 'businessHour',
             label: 'Wednesday',
-            startingTime:
-              answer?.operatingHours.wednesdayStartingTime ?? '00:00',
-            endingTime: answer?.operatingHours.wednesdayEndingTime ?? '00:00',
+            startingTime: answer?.businessHour.wednesdayStartingTime ?? '00:00',
+            endingTime: answer?.businessHour.wednesdayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -195,11 +199,10 @@ export class RestaurantInfoService {
           {
             key: 'thursday',
             type: 'text',
-            controlType: 'operatingHour',
+            controlType: 'businessHour',
             label: 'Thursday',
-            startingTime:
-              answer?.operatingHours.thursdayStartingTime ?? '00:00',
-            endingTime: answer?.operatingHours.thursdayEndingTime ?? '00:00',
+            startingTime: answer?.businessHour.thursdayStartingTime ?? '00:00',
+            endingTime: answer?.businessHour.thursdayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -209,10 +212,10 @@ export class RestaurantInfoService {
           {
             key: 'friday',
             type: 'text',
-            controlType: 'operatingHour',
+            controlType: 'businessHour',
             label: 'Friday',
-            startingTime: answer?.operatingHours.fridayStartingTime ?? '00:00',
-            endingTime: answer?.operatingHours.fridayEndingTime ?? '00:00',
+            startingTime: answer?.businessHour.fridayStartingTime ?? '00:00',
+            endingTime: answer?.businessHour.fridayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -222,11 +225,10 @@ export class RestaurantInfoService {
           {
             key: 'saturday',
             type: 'text',
-            controlType: 'operatingHour',
+            controlType: 'businessHour',
             label: 'Saturday',
-            startingTime:
-              answer?.operatingHours.saturdayStartingTime ?? '00:00',
-            endingTime: answer?.operatingHours.saturdayEndingTime ?? '00:00',
+            startingTime: answer?.businessHour.saturdayStartingTime ?? '00:00',
+            endingTime: answer?.businessHour.saturdayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -235,11 +237,11 @@ export class RestaurantInfoService {
           },
           {
             key: 'sunday',
-            controlType: 'operatingHour',
+            controlType: 'businessHour',
             type: 'text',
             label: 'Sunday',
-            startingTime: answer?.operatingHours.sundayStartingTime ?? '00:00',
-            endingTime: answer?.operatingHours.sundayEndingTime ?? '00:00',
+            startingTime: answer?.businessHour.sundayStartingTime ?? '00:00',
+            endingTime: answer?.businessHour.sundayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',

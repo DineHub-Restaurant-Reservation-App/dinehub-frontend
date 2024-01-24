@@ -23,13 +23,24 @@ export interface MenuType {
 
 export interface GeneralInfoType {
   name: String;
-  address: String;
+  address: any;
   bannerImage: String;
   logo: String;
   businessHour: BusinessHour;
   cuisine: String;
   rating: String;
   about: String;
+  websiteURL: String;
+  phoneNumber: String;
+  email: String;
+}
+
+export interface Address {
+  street: string;
+  city: string;
+  province: string;
+  zipCode: string;
+  country: string;
 }
 
 export interface BusinessHour {
@@ -62,25 +73,24 @@ export class DashboardService {
     });
   }
 
-  private generalInfo = {
+  private generalInfo: GeneralInfoType = {
     name: 'Aloha Bites',
     about:
       "Aloha Bites is a taste of the Hawaiian islands right in the heart of Tropical Paradise. Enjoy our fresh seafood dishes and traditional Hawaiian flavors. Whether it's poke bowls or grilled mahi-mahi, we bring the spirit of aloha to your plate.",
     logo: 'https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvMzEyLXRlZDkzNzktY2hpbS5qcGc.jpg',
-    banner:
+    bannerImage:
       'https://images.rawpixel.com/image_600/cHJpdmF0ZS9zdGF0aWMvaW1hZ2VzL3dlYnNpdGUvMjAyMi0wNi90cDI3MS1wcmVzZW50YXRpb24tMTMuanBn.jpg',
     address: {
       street: '789',
       city: 'Luau Lane',
-      state: 'Tropical Paradise',
+      province: 'Tropical Paradise',
       postalCode: 'M1M1M1',
+      country: 'Canada',
     },
-    contactInformation: {
-      websiteURL: "alohabite.com'",
-      phoneNumber: '4629899763',
-      email: 'alohabite@gmail.com',
-    },
-    operatingHours: {
+    websiteURL: "alohabite.com'",
+    phoneNumber: '4629899763',
+    email: 'alohabite@gmail.com',
+    businessHour: {
       mondayStartingTime: '11',
       mondayEndingTime: '19',
       tuesdayStartingTime: '12',
@@ -96,6 +106,8 @@ export class DashboardService {
       sundayStartingTime: '0',
       sundayEndingTime: '0',
     },
+    cuisine: 'String',
+    rating: 'String',
   };
 
   private menu: MenuType[] = [
