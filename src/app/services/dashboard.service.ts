@@ -26,10 +26,27 @@ export interface GeneralInfoType {
   address: String;
   bannerImage: String;
   logo: String;
-  businessHour: String;
+  businessHour: BusinessHour;
   cuisine: String;
   rating: String;
   about: String;
+}
+
+export interface BusinessHour {
+  mondayStartingTime: string;
+  mondayEndingTime: string;
+  tuesdayStartingTime: string;
+  tuesdayEndingTime: string;
+  wednesdayStartingTime: string;
+  wednesdayEndingTime: string;
+  thursdayStartingTime: string;
+  thursdayEndingTime: string;
+  fridayStartingTime: string;
+  fridayEndingTime: string;
+  saturdayStartingTime: string;
+  saturdayEndingTime: string;
+  sundayStartingTime: string;
+  sundayEndingTime: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -64,13 +81,20 @@ export class DashboardService {
       email: 'alohabite@gmail.com',
     },
     operatingHours: {
-      monday: '12',
-      tuesday: '12',
-      wednesday: '12',
-      thursday: '12',
-      friday: '12',
-      saturday: '12',
-      sunday: '12',
+      mondayStartingTime: '11',
+      mondayEndingTime: '19',
+      tuesdayStartingTime: '12',
+      tuesdayEndingTime: '20',
+      wednesdayStartingTime: '13',
+      wednesdayEndingTime: '21',
+      thursdayStartingTime: '14',
+      thursdayEndingTime: '22',
+      fridayStartingTime: '15',
+      fridayEndingTime: '23',
+      saturdayStartingTime: '16',
+      saturdayEndingTime: '24',
+      sundayStartingTime: '0',
+      sundayEndingTime: '0',
     },
   };
 

@@ -157,8 +157,8 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'operatingHour',
             label: 'Monday',
-            startingTime: answer?.operatingHours.monday.startingTime ?? 12,
-            endingTime: answer?.operatingHours.monday.startingTime ?? 20,
+            startingTime: answer.operatingHours.mondayStartingTime ?? '00:00',
+            endingTime: answer.operatingHours.mondayEndingTime ?? '00:00',
             validators: [Validators.required, businessHourValidation()],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -169,8 +169,8 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'operatingHour',
             label: 'Tuesday',
-            startingTime: answer?.operatingHours.tuesday.startingTime ?? 12,
-            endingTime: answer?.operatingHours.tuesday.startingTime ?? 20,
+            startingTime: answer?.operatingHours.tuesdayStartingTime ?? '00:00',
+            endingTime: answer?.operatingHours.tuesdayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -181,8 +181,9 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'operatingHour',
             label: 'Wednesday',
-            startingTime: answer?.operatingHours.wednesday.startingTime ?? 12,
-            endingTime: answer?.operatingHours.wednesday.startingTime ?? 20,
+            startingTime:
+              answer?.operatingHours.wednesdayStartingTime ?? '00:00',
+            endingTime: answer?.operatingHours.wednesdayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -193,8 +194,9 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'operatingHour',
             label: 'Thursday',
-            startingTime: answer?.operatingHours.thursday.startingTime ?? 12,
-            endingTime: answer?.operatingHours.thursday.startingTime ?? 20,
+            startingTime:
+              answer?.operatingHours.thursdayStartingTime ?? '00:00',
+            endingTime: answer?.operatingHours.thursdayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -205,8 +207,8 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'operatingHour',
             label: 'Friday',
-            startingTime: answer?.operatingHours.friday.startingTime ?? 12,
-            endingTime: answer?.operatingHours.friday.startingTime ?? 20,
+            startingTime: answer?.operatingHours.fridayStartingTime ?? '00:00',
+            endingTime: answer?.operatingHours.fridayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -217,8 +219,9 @@ export class RestaurantInfoService {
             type: 'text',
             controlType: 'operatingHour',
             label: 'Saturday',
-            startingTime: answer?.operatingHours.saturday.startingTime ?? 12,
-            endingTime: answer?.operatingHours.saturday.startingTime ?? 20,
+            startingTime:
+              answer?.operatingHours.saturdayStartingTime ?? '00:00',
+            endingTime: answer?.operatingHours.saturdayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',
@@ -229,8 +232,8 @@ export class RestaurantInfoService {
             controlType: 'operatingHour',
             type: 'text',
             label: 'Sunday',
-            startingTime: answer?.operatingHours.sunday.startingTime ?? 12,
-            endingTime: answer?.operatingHours.sunday.startingTime ?? 20,
+            startingTime: answer?.operatingHours.sundayStartingTime ?? '00:00',
+            endingTime: answer?.operatingHours.sundayEndingTime ?? '00:00',
             validators: [Validators.required],
             errorMessage: {
               required: 'Operating Hours cannot be empty.',

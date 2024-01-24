@@ -18,7 +18,7 @@ export class QuestionControlService {
               question.validators
             );
             innerFormGroup[question.key + 'EndingTime'] = new FormControl(
-              question.startingTime,
+              question.endingTime,
               question.validators
             );
           } else {

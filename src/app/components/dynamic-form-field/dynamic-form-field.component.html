@@ -12,7 +12,6 @@
         <mat-form-field appearance="outline">
             <span matTextPrefix class="hour-label">From&nbsp;</span>
             <input matInput formControlName="{{ question.key+'StartingTime' }}" type="{{ question.type }}">
-            <span matTextSuffix class="hour-label">&nbsp;AM</span>
             <mat-error>
                 {{getErrorMessage(question.key+'StartingTime')}}
             </mat-error>
@@ -20,7 +19,6 @@
         <mat-form-field appearance="outline">
             <span matTextPrefix class="hour-label">To&nbsp;</span>
             <input matInput formControlName="{{ question.key+'EndingTime' }}" type="{{ question.type }}">
-            <span matTextSuffix class="hour-label">&nbsp;PM</span>
             <mat-error>
                 {{getErrorMessage(question.key+'StartingTime')}}
             </mat-error>
