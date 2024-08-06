@@ -1,0 +1,51 @@
+<ng-container [ngSwitch]="question.controlType" [formGroup]="form">
+    <mat-form-field *ngSwitchCase="'textbox'" class="full-width mt-1" appearance="outline">
+        <mat-label>{{ question.label }}</mat-label>
+        <input matInput formControlName="{{ question.key }}" type="{{ question.type }}">
+        <mat-hint *ngIf="!!question.hint">{{question.hint}}</mat-hint>
+        <mat-error>
+            {{getErrorMessage()}}
+        </mat-error>
+    </mat-form-field>
+    <div *ngSwitchCase="'businessHour'" class="business-hour-setting mt-1">
+        <h6 class="day">{{question.label}}</h6>
+        <mat-form-field appearance="outline">
+            <span matTextPrefix class="hour-label">From&nbsp;</span>
+            <input matInput formControlName="{{ question.key+'StartingTime' }}" type="{{ question.type }}">
+            <mat-error>
+                {{getErrorMessage(question.key+'StartingTime')}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <span matTextPrefix class="hour-label">To&nbsp;</span>
+            <input matInput formControlName="{{ question.key+'EndingTime' }}" type="{{ question.type }}">
+            <mat-error>
+                {{getErrorMessage(question.key+'StartingTime')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div *ngSwitchCase="'seatingArrangements'" class="seating-arrangements mt-1" formArrayName="seatingArrangements">
+        <div class="seating-arrangements__header">
+            <h6 class="day">{{question.label}}</h6>
+            <button mat-raised-button color="accent" type="submit" (click)="addNewSeatingArrangment()">Add</button>
+        </div>
+
+        <ng-container *ngFor="let seatingArrangement of seatingArrangements().controls; let i = index" class="mt-1">
+            <div [formGroup]="seatingArrangement" class="seating-arrangements__controls mt-3">
+                <mat-form-field appearance="outline">
+                    <span matTextPrefix class="hour-label">Table Number&nbsp;</span>
+                    <input matInput formControlName="tableNumber" type="number">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <span matTextPrefix class="hour-label">Table Capacity&nbsp;</span>
+                    <input matInput formControlName="capacity" type="number">
+                </mat-form-field>
+                <button mat-mini-fab color="accent" aria-label="Example icon button with a delete icon"
+                    (click)="deleteArrangment(i)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>

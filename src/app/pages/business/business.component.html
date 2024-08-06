@@ -1,0 +1,51 @@
+<section class="hero container">
+    <article class="hero-content">
+        <h3 [innerHTML]="content.title"></h3>
+        <p class="mt-3 hero-desc">{{authMode.value}}</p>
+        <mat-button-toggle-group [formControl]="authMode" aria-label="Modes Of Authentication">
+            <mat-button-toggle value="business">Business</mat-button-toggle>
+            <mat-button-toggle value="customer">Customer</mat-button-toggle>
+        </mat-button-toggle-group>
+        <form [formGroup]="form" class="signup-form mt-3" (submit)="onSubmit()">
+            <mat-form-field class="full-width" *ngIf="isSignUpPage" appearance="outline">
+                <mat-label>Restaurant Name</mat-label>
+                <input matInput formControlName="restaurantName">
+                <mat-error *ngIf="form.controls['restaurantName'].invalid">Please enter your restaurant
+                    name.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width mt-1" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="form.controls['email'].invalid">Please enter a valid email address.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width mt-1" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password">
+                <mat-error *ngIf="form.controls['password'].invalid">Invalid password. Please use minimum 6
+                    characters</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="full-width mt-1" *ngIf="isSignUpPage" appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput formControlName="phone" type="tel">
+                <mat-error *ngIf="form.controls['phone'].invalid">Please enter a valid phone number containing 10
+                    digits.</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="accent" type="submit" class="mt-1">{{isSignUpPage ? "Sign Up":
+                "Login"}}</button>
+            <p class="mt-2" *ngIf="isSignUpPage">Already have an account? <a routerLink="/business/login"
+                    class="signup-info" [ngClass]="'text-primary'">Login</a></p>
+            <p class="mt-2" *ngIf="!isSignUpPage">Dont' have an account? <a routerLink="/business/signup"
+                    class="signup-info">SignUp</a></p>
+        </form>
+
+    </article>
+    <figure class="hero-img">
+        <img class="" src="/assets/images/signup-hero.jpg" alt="">
+    </figure>
+
+</section>

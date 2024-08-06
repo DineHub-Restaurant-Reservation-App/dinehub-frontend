@@ -1,0 +1,33 @@
+.confirmation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 40px 0;
+}
+
+.confirmation-card {
+  max-width: 400px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.confirmation-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success-icon {
+  font-size: 48px;
+  color: green;
+  margin-bottom: 20px;
+}
+
+mat-card-header {
+  justify-content: center;
+}
+
+strong {
+  font-weight: bold;
+}

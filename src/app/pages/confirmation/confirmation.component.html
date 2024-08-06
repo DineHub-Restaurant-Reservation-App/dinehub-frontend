@@ -1,0 +1,15 @@
+<div class="confirmation-container">
+    <mat-card class="confirmation-card">
+        <mat-card-header>
+            <mat-card-title>Reservation Confirmation</mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngIf="isLoaded" class="confirmation-content">
+            <mat-icon class="done-icon" [ngStyle]="{ 'color': 'green' }">done</mat-icon>
+
+            <p>Dear {{ reservation.customerName }},</p>
+            <p>Your reservation with ID <strong>{{ reservation._id }}</strong> has been confirmed.</p>
+            <p>Please save the reservation ID for any further changes and while going to the restaurant.</p>
+            <p>Thank you for choosing our service!</p>
+        </mat-card-content>
+    </mat-card>
+</div>

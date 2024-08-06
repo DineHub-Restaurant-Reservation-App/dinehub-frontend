@@ -1,0 +1,48 @@
+<article class="dialog-container">
+    <header class="dialog-header">
+        <h6 mat-dialog-title>{{data.modalTitle}}</h6>
+        <button mat-icon-button mat-dialog-close aria-label="close modal button">
+            <mat-icon>close</mat-icon>
+        </button>
+    </header>
+
+
+    <form mat-dialog-content class="dialog-content" [formGroup]="form">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+
+
+
+        <ng-container *ngIf="!isCategoryModal">
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description">
+            </mat-form-field>
+            <mat-form-field appearance="outline" *ngIf="!isEditModal">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                    <mat-option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Price</mat-label>
+                <input matInput formControlName="price">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Image Url</mat-label>
+                <input matInput formControlName="image">
+            </mat-form-field>
+        </ng-container>
+
+
+        <div class="action-btns">
+            <button *ngIf="isEditModal" mat-flat-button color="warn" (click)="onDelete()">Delete</button>
+            <button mat-raised-button color="accent" type="submit" (click)="onSubmit()">Save</button>
+        </div>
+    </form>
+</article>

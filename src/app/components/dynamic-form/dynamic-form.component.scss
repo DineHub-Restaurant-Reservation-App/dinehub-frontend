@@ -1,0 +1,18 @@
+@import "/src/styles/abstract/mixins";
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.action-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+
+  @include respond-below($tablet) {
+    flex-direction: column;
+    justify-content: initial;
+  }
+}

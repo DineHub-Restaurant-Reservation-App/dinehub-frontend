@@ -1,0 +1,28 @@
+<div class="container resaturants">
+    <div class="searchbar">
+        <input type="text" placeholder="Search for a resaturants..." [(ngModel)]="searchTerm"
+            (keyup.enter)="onClickSearchBtn()" />
+        <button mat-flat-button type="button" (click)="onClickSearchBtn()">Search</button>
+    </div>
+    <section class="mt-5">
+        <h2>Featured Restaurants<span class="dot">.</span></h2>
+        <article class="resaturants-container mt-5">
+            <ng-container *ngIf="filteredRestaurants.length === 0; else restaurants">
+                <p>No Restaurants with the given search term found!</p>
+            </ng-container>
+
+            <ng-template #restaurants>
+                <a routerLink="/restaurants/{{restaurant._id}}" *ngFor="let restaurant of filteredRestaurants">
+                    <mat-card>
+                        <img mat-card-image [src]="restaurant.logoHref" [alt]="restaurant.name" height="200">
+                        <mat-card-content class="mt-2">
+                            <mat-card-title>{{restaurant.name}}</mat-card-title>
+                        </mat-card-content>
+                    </mat-card>
+                </a>
+            </ng-template>
+
+
+        </article>
+    </section>
+</div>

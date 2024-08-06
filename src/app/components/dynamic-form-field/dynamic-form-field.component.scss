@@ -1,0 +1,31 @@
+.full-width {
+  width: 100%;
+}
+
+.business-hour-setting {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  input {
+    text-align: right;
+  }
+  .day {
+    font-size: 16px !important;
+    margin-right: auto;
+    margin-top: 18px;
+  }
+  .hour-label {
+    color: var(--secondary);
+  }
+}
+
+.seating-arrangements__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.seating-arrangements__controls {
+  display: flex;
+  gap: 12px;
+}

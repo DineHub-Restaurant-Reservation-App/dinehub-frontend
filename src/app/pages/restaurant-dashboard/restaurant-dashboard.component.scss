@@ -1,0 +1,37 @@
+@import "/src/styles/abstract/mixins";
+
+.action-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 70%;
+  gap: 16px;
+
+  @include respond-below($tablet) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.dashboard-container {
+  padding-bottom: 40px;
+}
+
+.dashboard-container ::ng-deep .form {
+  width: 70%;
+  padding: 40px 0 20px 0;
+  @include respond-below($tablet) {
+    width: 100%;
+    padding: 20px 0;
+  }
+}
+
+.dashboard-container ::ng-deep {
+  .mat-mdc-tab-body.mat-mdc-tab-body-active,
+  .mat-mdc-tab-body-content {
+    overflow: visible;
+  }
+  .mat-mdc-tab-body-content {
+    padding: 4px 0;
+  }
+}

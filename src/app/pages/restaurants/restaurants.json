@@ -1,0 +1,1043 @@
+{
+    "aloha-bites": {
+        "about": "Aloha Bites is a taste of the Hawaiian islands right in the heart of Tropical Paradise. Enjoy our fresh seafood dishes and traditional Hawaiian flavors. Whether it's poke bowls or grilled mahi-mahi, we bring the spirit of aloha to your plate.",
+        "address": {
+            "city": "Tropical Paradise",
+            "country": "United States",
+            "province": "HI",
+            "street": "789 Luau Lane",
+            "zipCode": "96701"
+        },
+        "bannerImageHref": "https://images.rawpixel.com/image_600/cHJpdmF0ZS9zdGF0aWMvaW1hZ2VzL3dlYnNpdGUvMjAyMi0wNi90cDI3MS1wcmVzZW50YXRpb24tMTMuanBn.jpg",
+        "businessHours": [
+            {
+                "day": "Monday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Tuesday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Wednesday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Thursday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Friday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Saturday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Sunday",
+                "endTime": 7,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            }
+        ],
+        "cuisine": [
+            "Hawaiian",
+            "Seafood"
+        ],
+        "id": "rest-A3B4C5D6E",
+        "logoHref": "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvMzEyLXRlZDkzNzktY2hpbS5qcGc.jpg",
+        "menu": {
+            "categorizedMenuItem": [
+                {
+                    "category": "Steak Selections",
+                    "items": [
+                        {
+                            "category": "Steak Selections",
+                            "description": "16-ounce ribeye steak with savory seasoning",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Ribeye Steak",
+                            "price": 24.99
+                        },
+                        {
+                            "category": "Steak Selections",
+                            "description": "8-ounce filet mignon cooked to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Filet Mignon",
+                            "price": 29.99
+                        }
+                    ]
+                },
+                {
+                    "category": "Sides",
+                    "items": [
+                        {
+                            "category": "Sides",
+                            "description": "Creamy mashed potatoes with garlic",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Garlic Mashed Potatoes",
+                            "price": 5.99
+                        },
+                        {
+                            "category": "Sides",
+                            "description": "Fresh asparagus spears grilled to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Grilled Asparagus",
+                            "price": 6.99
+                        }
+                    ]
+                }
+            ]
+        },
+        "name": "Aloha Bites",
+        "rating": 4.8,
+        "url": "restaurants/aloha-bites"
+    },
+    "green-garden-cafe": {
+        "about": "Green Garden Cafe is your destination for fresh and healthy vegetarian meals. From salads to smoothies, our menu offers a variety of plant-based delights. Join us for a refreshing and nutritious dining experience in the heart of Sunnyville.",
+        "address": {
+            "city": "Sunnyville",
+            "country": "United States",
+            "province": "CA",
+            "street": "321 Green Avenue",
+            "zipCode": "90123"
+        },
+        "bannerImageHref": "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcC00MjQtZmVsaXgtMjg5MS1sLmpwZw.jpg",
+        "businessHours": [
+            {
+                "day": "Monday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Tuesday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Wednesday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Thursday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Friday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Saturday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 8,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Sunday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 8,
+                "startTimePeriod": "AM"
+            }
+        ],
+        "cuisine": [
+            "Vegetarian",
+            "Café"
+        ],
+        "id": "rest-7F3B9E2A",
+        "logoHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay1wLTIwOC1qai0wMDAxMzIuanBn.jpg",
+        "menu": {
+            "categorizedMenuItem": [
+                {
+                    "category": "Salads",
+                    "items": [
+                        {
+                            "category": "Salads",
+                            "description": "Fresh vegetables with olives and feta cheese",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Mediterranean Salad",
+                            "price": 10.99
+                        },
+                        {
+                            "category": "Salads",
+                            "description": "Avocado, mixed greens, and vinaigrette",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Avocado Bliss",
+                            "price": 9.99
+                        }
+                    ]
+                },
+                {
+                    "category": "Smoothies",
+                    "items": [
+                        {
+                            "category": "Smoothies",
+                            "description": "Mango, banana, and coconut smoothie",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Tropical Paradise",
+                            "price": 6.99
+                        },
+                        {
+                            "category": "Smoothies",
+                            "description": "Mixed berry and yogurt smoothie",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Berry Blast",
+                            "price": 7.49
+                        }
+                    ]
+                }
+            ]
+        },
+        "name": "Green Garden Cafe",
+        "rating": 4.4,
+        "url": "restaurants/green-garden-cafe"
+    },
+    "mama-mia-pizzeria": {
+        "about": "Mama Mia Pizzeria serves the most authentic Italian pizzas in town. Our dough is made from scratch, and our toppings are fresh and flavorful. Whether you're a fan of classic Margherita or adventurous with toppings, we've got a slice for you.",
+        "address": {
+            "city": "Pizzatown",
+            "country": "United States",
+            "province": "NY",
+            "street": "123 Pizza Place",
+            "zipCode": "10001"
+        },
+        "bannerImageHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvdjg3MmJhdGNoMTEtbnVubnktYmxvZ2Jhbm5lci0wOF8xXzEuanBn.jpg",
+        "businessHours": [
+            {
+                "day": "Monday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Tuesday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Wednesday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Thursday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Friday",
+                "endTime": 11,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Saturday",
+                "endTime": 11,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Sunday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 12,
+                "startTimePeriod": "PM"
+            }
+        ],
+        "cuisine": [
+            "Italian",
+            "Pizza"
+        ],
+        "id": "rest-1A2B3C4D",
+        "logoHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvYTAwOS1rYWJvb21waWNzLTUyMC5qcGc.jpg",
+        "menu": {
+            "categorizedMenuItem": [
+                {
+                    "category": "Steak Selections",
+                    "items": [
+                        {
+                            "category": "Steak Selections",
+                            "description": "16-ounce ribeye steak with savory seasoning",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Ribeye Steak",
+                            "price": 24.99
+                        },
+                        {
+                            "category": "Steak Selections",
+                            "description": "8-ounce filet mignon cooked to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Filet Mignon",
+                            "price": 29.99
+                        }
+                    ]
+                },
+                {
+                    "category": "Sides",
+                    "items": [
+                        {
+                            "category": "Sides",
+                            "description": "Creamy mashed potatoes with garlic",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Garlic Mashed Potatoes",
+                            "price": 5.99
+                        },
+                        {
+                            "category": "Sides",
+                            "description": "Fresh asparagus spears grilled to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Grilled Asparagus",
+                            "price": 6.99
+                        }
+                    ]
+                }
+            ]
+        },
+        "name": "Mama Mia Pizzeria",
+        "rating": 4.7,
+        "url": "restaurants/mama-mia-pizzeria"
+    },
+    "sea-shell": {
+        "about": "Welcome to the Sea Shell Restaurant, a paradise for seafood lovers. Our menu is filled with a wide range of delectable seafood dishes, all prepared with the freshest catch from the ocean. Whether you're a seafood connoisseur or new to the world of underwater flavors, our chefs are ready to tantalize your taste buds with a memorable culinary experience.",
+        "address": {
+            "city": "Seaside City",
+            "country": "Country",
+            "province": "ON",
+            "street": "123 Ocean Avenue",
+            "zipCode": "M1K 4S6"
+        },
+        "bannerImageHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0tcGYtczUxLWZvbi0wMS5qcGc.jpg",
+        "businessHours": [
+            {
+                "day": "Monday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Tuesday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Thursday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Friday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Saturday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Sunday",
+                "endTime": 0,
+                "endTimePeriod": "",
+                "isHoliday": true,
+                "startTime": 0,
+                "startTimePeriod": ""
+            }
+        ],
+        "cuisine": [
+            "Seafood"
+        ],
+        "id": "rest-P9Q8R7S6",
+        "logoHref": "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxNzE4MTAxLXdpa2ltZWRpYS1pbWFnZS1rb3diaXRoNC5qcGc.jpg",
+        "menu": {
+            "categorizedMenuItem": [
+                {
+                    "category": "Featured Items",
+                    "items": [
+                        {
+                            "category": "Featured Items",
+                            "description": "Home style chicken biryani",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Chicken Biriyani",
+                            "price": 5.99
+                        }
+                    ]
+                }
+            ]
+        },
+        "name": "Sea Shell",
+        "rating": 4.5,
+        "url": "restaurants/sea-shell"
+    },
+    "sizzlin-steaks": {
+        "about": "Sizzlin' Steaks is a steak lover's paradise. Our grill is fired up to bring you the juiciest and most flavorful steaks. Whether you prefer it rare or well-done, we serve your steak just the way you like it. Join us for a sizzling dining experience in the heart of Flameville.",
+        "address": {
+            "city": "Flameville",
+            "country": "United States",
+            "province": "TX",
+            "street": "555 Grill Street",
+            "zipCode": "76543"
+        },
+        "bannerImageHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtczcxLW1vbmlrYS13YXRlcm1lbG9uLXNhbGFkLXdpdGgtZnJlc2gtYmFzaWwtbWludC1yZWQtb25pb24tY3VjdW1iZXItYW5kLWNhc2hldy1udXRzLTYtMDEuanBn.jpg",
+        "businessHours": [
+            {
+                "day": "Monday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Tuesday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Wednesday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Thursday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Friday",
+                "endTime": 11,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Saturday",
+                "endTime": 11,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Sunday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            }
+        ],
+        "cuisine": [
+            "Steakhouse"
+        ],
+        "id": "rest-D94A5F7E",
+        "logoHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azU4ODM1NjM4LXdpa2ltZWRpYS1pbWFnZS1rdjd0YnJ6My1rejJkemZxcS5qcGc.jpg",
+        "menu": {
+            "categorizedMenuItem": [
+                {
+                    "category": "Steak Selections",
+                    "items": [
+                        {
+                            "category": "Steak Selections",
+                            "description": "16-ounce ribeye steak with savory seasoning",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Ribeye Steak",
+                            "price": 24.99
+                        },
+                        {
+                            "category": "Steak Selections",
+                            "description": "8-ounce filet mignon cooked to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Filet Mignon",
+                            "price": 29.99
+                        }
+                    ]
+                },
+                {
+                    "category": "Sides",
+                    "items": [
+                        {
+                            "category": "Sides",
+                            "description": "Creamy mashed potatoes with garlic",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Garlic Mashed Potatoes",
+                            "price": 5.99
+                        },
+                        {
+                            "category": "Sides",
+                            "description": "Fresh asparagus spears grilled to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Grilled Asparagus",
+                            "price": 6.99
+                        }
+                    ]
+                }
+            ]
+        },
+        "name": "Sizzlin' Steaks",
+        "rating": 4.9,
+        "url": "restaurants/sizzlin-steaks"
+    },
+    "sunflower-delights": {
+        "about": "Sunflower Delights is a cozy café offering a variety of vegetarian and vegan delights. From fresh salads to organic smoothies, our menu is designed for health-conscious foodies. Enjoy a sunny dining experience at Sunflower Delights.",
+        "address": {
+            "city": "Sunnyville",
+            "country": "United States",
+            "province": "CA",
+            "street": "789 Sunflower Lane",
+            "zipCode": "90123"
+        },
+        "bannerImageHref": "https://images.rawpixel.com/image_600/cHJpdmF0ZS9zdGF0aWMvaW1hZ2VzL3dlYnNpdGUvMjAyMi0wNi90cDI3MS1wcmVzZW50YXRpb24tMDktcGYyOS5qcGc.jpg",
+        "businessHours": [
+            {
+                "day": "Monday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Tuesday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Wednesday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Thursday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Friday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Saturday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Sunday",
+                "endTime": 7,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 9,
+                "startTimePeriod": "AM"
+            }
+        ],
+        "cuisine": [
+            "Vegetarian",
+            "Café"
+        ],
+        "id": "rest-5E6F7G8H",
+        "logoHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvYTAwOS1rYWJvb21waWNzLTUyMC5qcGc.jpg",
+        "menu": {
+            "categorizedMenuItem": [
+                {
+                    "category": "Steak Selections",
+                    "items": [
+                        {
+                            "category": "Steak Selections",
+                            "description": "16-ounce ribeye steak with savory seasoning",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Ribeye Steak",
+                            "price": 24.99
+                        },
+                        {
+                            "category": "Steak Selections",
+                            "description": "8-ounce filet mignon cooked to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Filet Mignon",
+                            "price": 29.99
+                        }
+                    ]
+                },
+                {
+                    "category": "Sides",
+                    "items": [
+                        {
+                            "category": "Sides",
+                            "description": "Creamy mashed potatoes with garlic",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Garlic Mashed Potatoes",
+                            "price": 5.99
+                        },
+                        {
+                            "category": "Sides",
+                            "description": "Fresh asparagus spears grilled to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Grilled Asparagus",
+                            "price": 6.99
+                        }
+                    ]
+                }
+            ]
+        },
+        "name": "Sunflower Delights",
+        "rating": 4.5,
+        "url": "restaurants/sunflower-delights"
+    },
+    "taco-town": {
+        "about": "Taco Town is your destination for the most delicious and authentic Mexican street tacos. Our tacos are prepared with love and filled with a burst of flavors. From carne asada to al pastor, we've got your taco cravings covered.",
+        "address": {
+            "city": "Taco City",
+            "country": "United States",
+            "province": "TX",
+            "street": "456 Taco Street",
+            "zipCode": "76543"
+        },
+        "bannerImageHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvdjg3MmJhdGNoMTEtbnVubnktYmxvZ2Jhbm5lci0wMl8xXzEuanBn.jpg",
+        "businessHours": [
+            {
+                "day": "Monday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Tuesday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Wednesday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Thursday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Friday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Saturday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": true,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Sunday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": true,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            }
+        ],
+        "cuisine": [
+            "Mexican"
+        ],
+        "id": "rest-9I0J1K2L",
+        "logoHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxOTExNzg4LXdpa2ltZWRpYS1pbWFnZS1rb3dqbDMzdy5qcGc.jpg",
+        "menu": {
+            "categorizedMenuItem": [
+                {
+                    "category": "Steak Selections",
+                    "items": [
+                        {
+                            "category": "Steak Selections",
+                            "description": "16-ounce ribeye steak with savory seasoning",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Ribeye Steak",
+                            "price": 24.99
+                        },
+                        {
+                            "category": "Steak Selections",
+                            "description": "8-ounce filet mignon cooked to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Filet Mignon",
+                            "price": 29.99
+                        }
+                    ]
+                },
+                {
+                    "category": "Sides",
+                    "items": [
+                        {
+                            "category": "Sides",
+                            "description": "Creamy mashed potatoes with garlic",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Garlic Mashed Potatoes",
+                            "price": 5.99
+                        },
+                        {
+                            "category": "Sides",
+                            "description": "Fresh asparagus spears grilled to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Grilled Asparagus",
+                            "price": 6.99
+                        }
+                    ]
+                }
+            ]
+        },
+        "name": "Taco Town",
+        "rating": 4.3,
+        "url": "restaurants/taco-town"
+    },
+    "taste-of-italy": {
+        "about": "Taste of Italy is your gateway to the flavors of Italy. From traditional pasta dishes to wood-fired pizzas, our menu is crafted with authentic Italian recipes and the freshest ingredients. Come savor the essence of Italy right here in Little Italy.",
+        "address": {
+            "city": "Little Italy",
+            "country": "United States",
+            "province": "NY",
+            "street": "789 Little Italy Lane",
+            "zipCode": "10002"
+        },
+        "bannerImageHref": "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxODUzNzk1LXdpa2ltZWRpYS1pbWFnZS1rb3djdHl1dC5qcGc.jpg",
+        "businessHours": [
+            {
+                "day": "Monday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Tuesday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Wednesday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Thursday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Friday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Saturday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Sunday",
+                "endTime": 8,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 10,
+                "startTimePeriod": "AM"
+            }
+        ],
+        "cuisine": [
+            "Italian"
+        ],
+        "id": "rest-X5Y4Z3A2",
+        "logoHref": "https://images.rawpixel.com/image_600/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3Vwd2s2MTcxMjk2MC13aWtpbWVkaWEtaW1hZ2Uta293YmhqcDUuanBn.jpg",
+        "menu": {
+            "categorizedMenuItem": [
+                {
+                    "category": "Pasta",
+                    "items": [
+                        {
+                            "category": "Pasta",
+                            "description": "Spaghetti with rich meat sauce",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Spaghetti Bolognese",
+                            "price": 12.99
+                        },
+                        {
+                            "category": "Pasta",
+                            "description": "Creamy fettuccine pasta with parmesan",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Fettuccine Alfredo",
+                            "price": 14.99
+                        }
+                    ]
+                },
+                {
+                    "category": "Pizza",
+                    "items": [
+                        {
+                            "category": "Pizza",
+                            "description": "Classic margherita pizza with fresh basil",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Margherita Pizza",
+                            "price": 11.99
+                        },
+                        {
+                            "category": "Pizza",
+                            "description": "Pizza topped with prosciutto and arugula",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Prosciutto Pizza",
+                            "price": 13.99
+                        }
+                    ]
+                }
+            ]
+        },
+        "name": "Taste of Italy",
+        "rating": 4.8,
+        "url": "restaurants/taste-of-italy"
+    },
+    "the-pasta-house": {
+        "about": "The Pasta House is where Italian cuisine meets perfection. Savor a delightful selection of pasta dishes, from classic spaghetti to exquisite ravioli. We bring the taste of Italy to your plate, one dish at a time.",
+        "address": {
+            "city": "Pasta City",
+            "country": "United States",
+            "province": "NY",
+            "street": "456 Pasta Avenue",
+            "zipCode": "10002"
+        },
+        "bannerImageHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExMjEtMDcta3h6bTNucHMuanBn.jpg",
+        "businessHours": [
+            {
+                "day": "Monday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Tuesday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Wednesday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Thursday",
+                "endTime": 10,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Friday",
+                "endTime": 11,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Saturday",
+                "endTime": 11,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            },
+            {
+                "day": "Sunday",
+                "endTime": 9,
+                "endTimePeriod": "PM",
+                "isHoliday": false,
+                "startTime": 11,
+                "startTimePeriod": "AM"
+            }
+        ],
+        "cuisine": [
+            "Italian"
+        ],
+        "id": "rest-0F1G2H3I",
+        "logoHref": "https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcC00MjQtZmVsaXgtMDM1Mi5qcGc.jpg",
+        "menu": {
+            "categorizedMenuItem": [
+                {
+                    "category": "Steak Selections",
+                    "items": [
+                        {
+                            "category": "Steak Selections",
+                            "description": "16-ounce ribeye steak with savory seasoning",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Ribeye Steak",
+                            "price": 24.99
+                        },
+                        {
+                            "category": "Steak Selections",
+                            "description": "8-ounce filet mignon cooked to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Filet Mignon",
+                            "price": 29.99
+                        }
+                    ]
+                },
+                {
+                    "category": "Sides",
+                    "items": [
+                        {
+                            "category": "Sides",
+                            "description": "Creamy mashed potatoes with garlic",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Garlic Mashed Potatoes",
+                            "price": 5.99
+                        },
+                        {
+                            "category": "Sides",
+                            "description": "Fresh asparagus spears grilled to perfection",
+                            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=2960&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                            "name": "Grilled Asparagus",
+                            "price": 6.99
+                        }
+                    ]
+                }
+            ]
+        },
+        "name": "The Pasta House",
+        "rating": 4.6,
+        "url": "restaurants/the-pasta-house"
+    }
+}
