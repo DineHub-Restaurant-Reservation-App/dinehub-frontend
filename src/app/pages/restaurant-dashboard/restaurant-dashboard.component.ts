@@ -99,6 +99,7 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
   }
 
   submitGeneralInfoForm() {
+    
     this.dashboardService
       .updateGeneralInfoData(this.generalInformationForm.value)
       .subscribe((data) => {

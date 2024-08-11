@@ -114,71 +114,62 @@ export class DashboardService {
   }
 
   getCategories() {
-    console.log('categories: ', this.menu);
     return this.menu.categories;
   }
 
   updateGeneralInfoData(data: any) {
     const mappedBusinessHours = [
       {
-        openHours: {
-          startTime: data.businessHours.mondayStartingTime,
-          endTime: data.businessHours.mondayEndingTime,
-        },
-        day: 'Monday',
+        from: data.businessHours.mondayStartingTime,
+        to: data.businessHours.mondayEndingTime,
       },
       {
-        openHours: {
-          startTime: data.businessHours.thursdayStartingTime,
-          endTime: data.businessHours.tuesdayEndingTime,
-        },
-        day: 'Tuesday',
+        from: data.businessHours.thursdayStartingTime,
+        to: data.businessHours.tuesdayEndingTime,
       },
       {
-        openHours: {
-          startTime: data.businessHours.wednesdayStartingTime,
-          endTime: data.businessHours.wednesdayEndingTime,
-        },
-        day: 'Wednesday',
+        from: data.businessHours.wednesdayStartingTime,
+        to: data.businessHours.wednesdayEndingTime,
       },
       {
-        openHours: {
-          startTime: data.businessHours.thursdayStartingTime,
-          endTime: data.businessHours.thursdayEndingTime,
-        },
-        day: 'Thursday',
+        from: data.businessHours.thursdayStartingTime,
+        to: data.businessHours.thursdayEndingTime,
+
       },
       {
-        openHours: {
-          startTime: data.businessHours.fridayStartingTime,
-          endTime: data.businessHours.fridayEndingTime,
-        },
-        day: 'Friday',
+        from: data.businessHours.fridayStartingTime,
+        to: data.businessHours.fridayEndingTime,
       },
       {
-        openHours: {
-          startTime: data.businessHours.saturdayStartingTime,
-          endTime: data.businessHours.saturdayEndingTime,
-        },
-        day: 'Saturday',
+        from: data.businessHours.saturdayStartingTime,
+        to: data.businessHours.saturdayEndingTime,
       },
       {
-        openHours: {
-          startTime: data.businessHours.sundayStartingTime,
-          endTime: data.businessHours.sundayEndingTime,
-        },
-        day: 'Sunday',
+        from: data.businessHours.sundayStartingTime,
+        to: data.businessHours.sundayEndingTime,
       },
     ];
     data.businessHours = mappedBusinessHours;
 
+    if(data.password === ''){
+      delete data.password;
+    }
+
     console.log('sending req: ', data);
     return this.http
       .put<{ restaurant: Restaurant }>(
-        `${this.URL}/restaurant/${this.currentUser?.userId}`,
-        data
+        `${this.URL}/restaurant/auth/update`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${this.currentUser?.token}`,
+          },
+        }
       )
-      .pipe(map((data) => data.restaurant));
+      .pipe(map((data) => {
+        console.log("updateGeneralInfoData: ", data);
+        return data;
+      }));
   }
 
   addNewCategory(data: any) {

@@ -1,4 +1,4 @@
-<section *ngIf="!isLoading" class="restaurant-container">
+<section *ngIf="!isLoading; else spinner" class="restaurant-container">
     <article class="container banner-section">
         <picture class="banner-image">
             <img [src]="restaurant.bannerImageHref" alt="">
@@ -12,7 +12,7 @@
             <div>
                 <h2>{{restaurant.name}}</h2>
                 <p class="text-grey">
-                    <!-- <span [class]="isOpen.style">{{isOpen.value}}</span> • -->
+                    <span [class]="isOpen.style">{{isOpen.value}}</span> •
                     {{restaurant.cuisine}} •
                     {{restaurant.rating}}
                     rating • {{restaurant.address.street}}, {{restaurant.address.city}}
@@ -20,8 +20,8 @@
                 <div class="buisiness-timings md:mt-1" [ngClass]="{'open': isBusinessTimingDropdownOpen}">
                     <div class="timings-dropdown-button" (click)="onClickBusinessTimingDropdown()">
                         <span class="timing">
-                            <!-- <span class="timing-day">Today</span><span class="timing-hours">{{todayBusinessHours |
-                                formatBusinessHours}}</span> -->
+                            <span class="timing-day">Today</span><span class="timing-hours">{{todayBusinessHours |
+                                formatBusinessHours}}</span>
                         </span>
                         <svg width="24" height="24" class="dh-arrow" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -30,13 +30,13 @@
                             </path>
                         </svg>
                     </div>
-                    <!-- <ul class="timings-dropdown-menu">
-                        <li class="timing" *ngFor="let businessHour of restaurant.businessHours"
-                            [ngClass]="{'is-today': businessHour.day.toLowerCase() === today.day}">
-                            <span class="timing-day">{{businessHour.day}}</span>
+                    <ul class="timings-dropdown-menu">
+                        <li class="timing" *ngFor="let businessHour of restaurant.businessHours; let i = index"
+                            [ngClass]="{'is-today': i === today.day}">
+                            <span class="timing-day">{{daysOfWeek[i]}}</span>
                             <span class="timing-hours">{{businessHour | formatBusinessHours}}</span>
                         </li>
-                    </ul> -->
+                    </ul>
                 </div>
             </div>
             <a mat-raised-button color="accent" routerLink="{{'/reserve/'+restaurant._id}}" class="md:mt-2">Reserve
@@ -47,7 +47,7 @@
             <p>{{restaurant.about}}</p>
         </article>
     </article>
-    <article class="container restaurant-menu mt-2" *ngIf="restaurantMenu.menuItems.length!==0">
+    <!-- <article class="container restaurant-menu mt-2" *ngIf="restaurantMenu.menuItems.length!==0">
         <h5>Menu</h5>
         <mat-accordion>
             <mat-expansion-panel [ngClass]="{'mt-2': i!==0}" [expanded]="i == 0" *ngFor="let menu of restaurantMenu.menuItems;
@@ -71,5 +71,9 @@
                 </article>
             </mat-expansion-panel>
         </mat-accordion>
-    </article>
+    </article> -->
 </section>
+
+<ng-template #spinner>
+    <mat-spinner class="spinner" color="accent"></mat-spinner>
+</ng-template>

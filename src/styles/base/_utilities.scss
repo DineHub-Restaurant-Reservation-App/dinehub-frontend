@@ -141,3 +141,10 @@ h6 {
   font-size: 14px;
   color: var(--secondary);
 }
+
+.spinner{
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

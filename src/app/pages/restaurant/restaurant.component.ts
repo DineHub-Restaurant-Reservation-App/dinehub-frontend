@@ -18,10 +18,19 @@ export class RestaurantComponent implements OnInit {
   restaurant!: Restaurant;
   restaurantMenu!: any;
   today!: {
-    day: string;
+    day: number;
     time: number;
   };
   isLoading: boolean = true;
+  daysOfWeek = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
 
   constructor(
     private restaurantService: RestaurantsService,
@@ -29,71 +38,48 @@ export class RestaurantComponent implements OnInit {
     private title: Title
   ) {}
   ngOnInit(): void {
-    let restaurantName = this.route.snapshot.params['id'];
+    let restaurantId = this.route.snapshot.params['id'];
     this.route.params.subscribe((params) => {
-      restaurantName = params['id'];
+      restaurantId = params['id'];
     });
-    const restaurant = this.restaurantService.fetchRestaurant(restaurantName);
-    const menu = this.restaurantService.fetchMenu(restaurantName);
+    const restaurant = this.restaurantService.fetchRestaurant(restaurantId);
+    // const menu = this.restaurantService.fetchMenu(restaurantId);
 
-    forkJoin([restaurant, menu]).subscribe(([restaurant, menu]) => {
+    forkJoin([restaurant]).subscribe(([restaurant]) => {
       this.isLoading = false;
       this.restaurant = restaurant;
-      this.restaurantMenu = menu;
-
+      // this.restaurantMenu = menu;
+      console.log(restaurant);
       this.title.setTitle(`DineHub | ${restaurant.name}`);
     });
 
-    // this.getTodayDetails();
+    this.getTodayDetails();
   }
 
   getTodayDetails() {
     const date = new Date();
-    const daysOfWeek = [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-    ];
     this.today = {
-      day: daysOfWeek[date.getDay()].toLowerCase(),
-      time: date.getHours() <= 12 ? date.getHours() : date.getHours() - 12,
+      day: date.getDay(),
+      time: date.getHours(),
     };
   }
 
-  // get isOpen() {
-  //   // console.log('businessHour: ', this.restaurant.businessHours);
-  //   for (let businessHour of this.restaurant.businessHours) {
-  //     const startTime: number = +businessHour.openHours.startTime.replace(
-  //       ':',
-  //       ''
-  //     );
-  //     const endTime: number = +businessHour.openHours.endTime.replace(':', '');
+  get isOpen() {
 
-  //     if (
-  //       !businessHour.isHoliday &&
-  //       businessHour.day.toLowerCase() === this.today.day &&
-  //       this.today.time >= startTime &&
-  //       this.today.time <= endTime
-  //     ) {
-  //       return { value: 'Open', style: 'text-green' };
-  //     }
-  //   }
-  //   return { value: 'Closed', style: 'text-red' };
-  // }
+    if(this.restaurant.businessHours){
+      const todayTiming = this.restaurant.businessHours[this.today.day];
+      const startTime: number = +todayTiming.from.split(':')[0];
+      const endTime: number = +todayTiming.to.split(':')[0];
+      return this.today.time >= startTime && this.today.time <= endTime ? { value: 'Open', style: 'text-green' }: { value: 'Closed', style: 'text-red' }
+    }
 
-  // get todayBusinessHours() {
-  //   for (let businessHour of this.restaurant.businessHours) {
-  //     if (businessHour.day.toLowerCase() === this.today.day) {
-  //       return businessHour;
-  //     }
-  //   }
-  //   console.log(`Error while finding ${this.today.day}'s business hours`);
-  //   return '';
-  // }
+    return { value: 'Closed', style: 'text-red' };
+    
+  }
+
+  get todayBusinessHours() {
+    return this.restaurant.businessHours[this.today.day] ?? '';
+  }
 
   onClickBusinessTimingDropdown() {
     this.isBusinessTimingDropdownOpen = !this.isBusinessTimingDropdownOpen;

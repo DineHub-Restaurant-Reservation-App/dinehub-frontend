@@ -12,7 +12,7 @@
                 [form]="generalInformationForm"></app-dynamic-form>
             <div class="action-btns">
                 <button mat-stroked-button type="submit" [disabled]="!generalInformationForm.touched">Cancel</button>
-                <button mat-raised-button color="accent" type="submit" [disabled]="generalInformationForm.invalid"
+                <button mat-raised-button color="accent" type="submit"
                     (click)="submitGeneralInfoForm()">Save</button>
             </div>
         </mat-tab>

@@ -21,6 +21,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { A11yModule } from '@angular/cdk/a11y';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +36,7 @@ import { ManageMenuComponent } from './components/manage-menu/manage-menu.compon
 import { TextFieldComponent } from './components/text-field/text-field.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { BusinessComponent } from './pages/business/business.component';
+import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 import { LandingComponent } from './pages/home/landing.component';
 import { ReservationFormComponent } from './pages/reservation-form/reservation-form.component';
 import { RestaurantDashboardComponent } from './pages/restaurant-dashboard/restaurant-dashboard.component';
@@ -44,8 +47,6 @@ import { AuthService } from './services/auth.service';
 import { QuestionControlService } from './services/question-control.service';
 import { RestaurantInfoService } from './services/restaurant-info.service';
 import { RestaurantsService } from './services/restaurants.service';
-import { A11yModule } from '@angular/cdk/a11y';
-import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { ConfirmationComponent } from './pages/confirmation/confirmation.compone
     MatSlideToggleModule,
     FormsModule,
     MatTableModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     RestaurantsService,

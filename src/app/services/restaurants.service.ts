@@ -23,10 +23,10 @@ export class RestaurantsService {
       .get<Restaurant[]>(url);
   }
 
-  fetchRestaurant(name: string) {
+  fetchRestaurant(id: string) {
     return this.http
-      .get<{ restaurant: Restaurant }>(`${this.URL}/name/${name}`)
-      .pipe(map((responseData): Restaurant => responseData.restaurant));
+      .get<Restaurant>(`${this.URL}/id/${id}`)
+      .pipe(map((responseData): Restaurant => responseData));
   }
 
   createRestaurant(name: string) {
