@@ -47,20 +47,20 @@
             <p>{{restaurant.about}}</p>
         </article>
     </article>
-    <!-- <article class="container restaurant-menu mt-2" *ngIf="restaurantMenu.menuItems.length!==0">
+    <article class="container restaurant-menu mt-2" *ngIf="!!restaurant.menu">
         <h5>Menu</h5>
         <mat-accordion>
-            <mat-expansion-panel [ngClass]="{'mt-2': i!==0}" [expanded]="i == 0" *ngFor="let menu of restaurantMenu.menuItems;
+            <mat-expansion-panel [ngClass]="{'mt-2': i!==0}" [expanded]="i == 0" *ngFor="let menu of restaurant.menu.categories;
                 let i= index;">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        {{menu.categoryName}}
+                        {{menu.name}}
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <article class="menu-item">
-                    <mat-card appearance="outlined" *ngFor="let menuItem of menu.categoryItems">
+                    <mat-card appearance="outlined" *ngFor="let menuItem of menu.items">
                         <mat-card-header>
-                            <img mat-card-avatar [src]="menuItem.image" alt="Photo of a Shiba Inu">
+                            <img mat-card-avatar [src]="menuItem.image" alt="Photo of{{menuItem.name}}">
                             <mat-card-title>{{menuItem.name}}</mat-card-title>
                             <mat-card-subtitle>CA ${{menuItem.price}}</mat-card-subtitle>
                         </mat-card-header>
@@ -71,7 +71,7 @@
                 </article>
             </mat-expansion-panel>
         </mat-accordion>
-    </article> -->
+    </article>
 </section>
 
 <ng-template #spinner>

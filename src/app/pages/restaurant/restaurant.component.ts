@@ -43,7 +43,6 @@ export class RestaurantComponent implements OnInit {
       restaurantId = params['id'];
     });
     const restaurant = this.restaurantService.fetchRestaurant(restaurantId);
-    // const menu = this.restaurantService.fetchMenu(restaurantId);
 
     forkJoin([restaurant]).subscribe(([restaurant]) => {
       this.isLoading = false;

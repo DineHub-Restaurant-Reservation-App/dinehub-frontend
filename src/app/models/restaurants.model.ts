@@ -1,3 +1,5 @@
+import { Menu } from "./menu.model";
+
 export interface Restaurant {
   _id: string;
   name: string;
@@ -14,9 +16,9 @@ export interface Restaurant {
   businessHours: BusinessHours[];
   seatingArrangements: SeatingArragements[];
   slotInterval: number;
-  menu: any;
+  menu: Menu;
   isVisible: boolean;
-  reservations:any
+  reservations:any;
 }
 
 export interface Address{
