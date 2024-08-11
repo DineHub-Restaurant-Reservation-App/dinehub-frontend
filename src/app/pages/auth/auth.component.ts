@@ -110,9 +110,9 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   handleSignUp() {
-    const { email, password, restaurantName, contactNumber } = this.form.value;
+    const { email, password, restaurantName:name } = this.form.value;
     this.authService
-      .signUp(email, password, restaurantName, contactNumber)
+      .signUp(email, password, name)
       .pipe(switchMap(() => this.authService.login(email, password)))
       .subscribe(
         (data) => {

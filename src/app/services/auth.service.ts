@@ -20,26 +20,22 @@ export class AuthService {
   signUp(
     email: string,
     password: string,
-    restaurantName: string,
-    contactNumber: string
+    name: string,
   ) {
     return this.http
-      .post(`${this.URL}/restaurant`, {
-        name: restaurantName,
-        businessEmail: email,
+      .post<AuthResponseData>(`${this.URL}/restaurant/auth/register`, {
+        name,
+        email,
         password,
-        contactNumber,
       })
       .pipe(
-        catchError(this.handleError)
-        // tap((responseData) => {
-        //   this.handleAuthentication(
-        //     responseData.email,
-        //     responseData.userId,
-        //     responseData.token,
-        //     +responseData.expiresIn
-        //   );
-        // })
+        catchError(this.handleError),
+        tap((responseData) => {
+          this.handleAuthentication(
+            responseData.restaurant,
+            responseData.token
+          );
+        })
       );
   }
 

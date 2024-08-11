@@ -61,21 +61,6 @@ export const signUpFormGroup: FormControlObject[] = [
       minLength: 'Password should have minimum 6 characters.',
     },
   },
-  {
-    controlName: 'contactNumber',
-    controlType: 'text',
-    label: 'Contact Number',
-    validators: [
-      Validators.required,
-      Validators.minLength(10),
-      Validators.maxLength(10),
-    ],
-    errorMessage: {
-      required: 'Restaurant name cannot be empty.',
-      minLength: 'Phone number should have minimum 10 characters.',
-      maxLength: 'Phone number should have maximum 10 characters.',
-    },
-  },
 ];
 
 export const signUpPageContent = {
