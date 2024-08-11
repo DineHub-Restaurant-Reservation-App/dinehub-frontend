@@ -63,7 +63,7 @@ export class ManageMenuDialogComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  onSubmit() {  
     if (this.form.valid) {
       if (this.isCategoryModal && !this.isEditModal) {
         this.dbs
@@ -89,7 +89,7 @@ export class ManageMenuDialogComponent implements OnInit {
           .updateMenuItem(
             this.form.value,
             this.data.formData._id,
-            this.data.category?._id
+            this.data.category
           )
           .subscribe(
             (data) => {
@@ -106,7 +106,7 @@ export class ManageMenuDialogComponent implements OnInit {
   onDelete() {
     if (this.isEditModal && !this.isCategoryModal)
       this.dbs
-        .deleteMenuItem(this.data.formData._id, this.data.category?._id)
+        .deleteMenuItem(this.data.formData._id, this.data.category)
         .subscribe(
           (data) => {
             this.dialogRef.close();

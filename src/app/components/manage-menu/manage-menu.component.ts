@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { tap } from 'rxjs';
 import { Category, Menu } from 'src/app/models/menu.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { DashboardService } from 'src/app/services/dashboard.service';
@@ -33,6 +34,13 @@ export class ManageMenuComponent implements OnInit {
           });
       }
     });
+
+    this.dashboardService.menu$.pipe(tap(()=>{
+      this.isLoaded = false;
+    })).subscribe((data)=>{
+      this.menu = data;
+      this.isLoaded = true;
+    })
   }
 
   openMenuModal(

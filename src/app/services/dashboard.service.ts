@@ -50,7 +50,7 @@ export interface BusinessHour {
 export class DashboardService {
   public generalInfoSubject: Subject<{}> = new Subject();
   public reservationInfoSubject: Subject<{}> = new Subject();
-  public menuSubject: Subject<{}> = new Subject();
+  public menu$: Subject<{}> = new Subject();
   private URL: string = `${environment.API_ENDPOINT}`;
   private currentUser?: User | null;
   private categories: any = [];
@@ -61,6 +61,7 @@ export class DashboardService {
   }
 
   private menu: any = [];
+  
 
   getGeneralInfoData() {
     return this.http.get<Restaurant>(`${this.URL}/restaurant/auth`, {
@@ -199,7 +200,7 @@ export class DashboardService {
       .pipe(
         map((data: any) => {
           this.menu = data;
-          console.log('Res: ', data);
+          this.menu$.next(data);
         })
       );
   }
@@ -218,6 +219,7 @@ export class DashboardService {
       .pipe(
         map((data: any) => {
           this.menu = data;
+          this.menu$.next(data);
         })
       );
   }
@@ -235,6 +237,7 @@ export class DashboardService {
     .pipe(
       map((data: any) => {
         this.menu = data;
+        this.menu$.next(data);
       })
     );
   }
@@ -256,43 +259,38 @@ export class DashboardService {
       .pipe(
         map((data: any) => {
           this.menu = data;
+          this.menu$.next(data);
         })
       );
   }
 
   updateMenuItem(data: any, itemId: any, categoryId: any) {
-    console.log('updateCategory', data);
-    const category = this.menu.menuItems.filter(
-      (category: any) => category._id === categoryId
-    );
-    const items = category[0].categoryItems;
-    for (const item of items) {
-      if (itemId === item._id) {
-        item.name = data.name;
-        item.image = data.image;
-        item.description = data.description;
-        item.price = data.price;
-        break;
-      }
-    }
-    return this.http.put(`${this.URL}/menu/${this.menu._id}`, this.menu).pipe(
+
+    return this.http
+    .put(`${this.URL}/menu/category/${categoryId}/item/${itemId}`, data, {
+      headers: {
+        Authorization: `Bearer ${this.currentUser?.token}`,
+      },
+    })
+    .pipe(
       map((data: any) => {
-        this.extractCategoriesAndUpdate(data.updatedMenu.menuItems);
+        this.menu = data;
+        this.menu$.next(data);
       })
     );
   }
 
   deleteMenuItem(itemId: any, categoryId: any) {
-    const category = this.menu.menuItems.filter(
-      (category: any) => category._id === categoryId
-    );
-    const updatedItems = category[0].categoryItems.filter(
-      (item: any) => item._id !== itemId
-    );
-    category[0].categoryItems = updatedItems;
-    return this.http.put(`${this.URL}/menu/${this.menu._id}`, this.menu).pipe(
+    return this.http
+    .delete(`${this.URL}/menu/category/${categoryId}/item/${itemId}`, {
+      headers: {
+        Authorization: `Bearer ${this.currentUser?.token}`,
+      },
+    })
+    .pipe(
       map((data: any) => {
-        this.extractCategoriesAndUpdate(data.updatedMenu.menuItems);
+        this.menu = data;
+        this.menu$.next(data);
       })
     );
   }

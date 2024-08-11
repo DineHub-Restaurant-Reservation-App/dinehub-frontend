@@ -6,6 +6,7 @@
 // }
 
 export interface Menu{
+  _id: string,
   restaurant: string,
   categories: Category[]
 }
