@@ -13,7 +13,7 @@ import { ManageMenuDialogComponent } from '../manage-menu-dialog/manage-menu-dia
 })
 export class ManageMenuComponent implements OnInit {
   // TODO: remove and re-use the menu.model
-  menu!: any;
+  menu!: Menu;
   isLoaded: boolean = false;
 
   constructor(
@@ -28,7 +28,6 @@ export class ManageMenuComponent implements OnInit {
         this.dashboardService
           .getMenuDataByCategory(user.userId)
           .subscribe((data) => {
-            console.log(data);
             this.menu = data;
             this.isLoaded = true;
           });
@@ -47,7 +46,7 @@ export class ManageMenuComponent implements OnInit {
     e: MouseEvent,
     modalType: string,
     formData?: any,
-    category?: Category
+    categoryId?: string
   ) {
     e.stopPropagation();
     let modalTitle = '';
@@ -61,7 +60,7 @@ export class ManageMenuComponent implements OnInit {
       modalTitle = 'Add Menu Item';
     }
     this.dialog.open(ManageMenuDialogComponent, {
-      data: { modalType, modalTitle, formData, category },
+      data: { modalType, modalTitle, formData, categoryId },
     });
   }
 }

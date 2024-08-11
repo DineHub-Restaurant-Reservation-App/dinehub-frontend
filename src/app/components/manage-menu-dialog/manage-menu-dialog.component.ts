@@ -20,7 +20,7 @@ export class ManageMenuDialogComponent implements OnInit {
       modalType: string;
       modalTitle: string;
       formData?: any;
-      category?:Category;
+      categoryId?:string;
     },
     public dialogRef: MatDialogRef<ManageMenuDialogComponent>,
 
@@ -89,7 +89,7 @@ export class ManageMenuDialogComponent implements OnInit {
           .updateMenuItem(
             this.form.value,
             this.data.formData._id,
-            this.data.category
+            this.data.categoryId
           )
           .subscribe(
             (data) => {
@@ -106,7 +106,7 @@ export class ManageMenuDialogComponent implements OnInit {
   onDelete() {
     if (this.isEditModal && !this.isCategoryModal)
       this.dbs
-        .deleteMenuItem(this.data.formData._id, this.data.category)
+        .deleteMenuItem(this.data.formData._id, this.data.categoryId)
         .subscribe(
           (data) => {
             this.dialogRef.close();

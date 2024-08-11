@@ -50,7 +50,7 @@ export interface BusinessHour {
 export class DashboardService {
   public generalInfoSubject: Subject<{}> = new Subject();
   public reservationInfoSubject: Subject<{}> = new Subject();
-  public menu$: Subject<{}> = new Subject();
+  public menu$: Subject<Menu> = new Subject();
   private URL: string = `${environment.API_ENDPOINT}`;
   private currentUser?: User | null;
   private categories: any = [];
@@ -60,7 +60,7 @@ export class DashboardService {
     });
   }
 
-  private menu: any = [];
+  private menu!: Menu;
   
 
   getGeneralInfoData() {
@@ -182,13 +182,9 @@ export class DashboardService {
   }
 
   addNewCategory(data: any) {
-    // this.menu.menuItems.push({
-    //   categoryName: data.name,
-    //   categoryItems: [],
-    // });
-
+    
     return this.http
-      .post(
+      .post<Menu>(
         `${this.URL}/menu/category`,
         { name: data.name },
         {
@@ -198,7 +194,7 @@ export class DashboardService {
         }
       )
       .pipe(
-        map((data: any) => {
+        map((data: Menu) => {
           this.menu = data;
           this.menu$.next(data);
         })
@@ -207,7 +203,7 @@ export class DashboardService {
 
   updateCategory(data: any, categoryId: any) {
     return this.http
-      .put(
+      .put<Menu>(
         `${this.URL}/menu/category/${categoryId}`,
         { name: data.name },
         {
@@ -217,7 +213,7 @@ export class DashboardService {
         }
       )
       .pipe(
-        map((data: any) => {
+        map((data: Menu) => {
           this.menu = data;
           this.menu$.next(data);
         })
@@ -226,7 +222,7 @@ export class DashboardService {
 
   deleteCategory(categoryId: any) {
     return this.http
-    .delete(
+    .delete<Menu>(
       `${this.URL}/menu/category/${categoryId}`,
       {
         headers: {
@@ -235,7 +231,7 @@ export class DashboardService {
       }
     )
     .pipe(
-      map((data: any) => {
+      map((data: Menu) => {
         this.menu = data;
         this.menu$.next(data);
       })
@@ -251,13 +247,13 @@ export class DashboardService {
     };
 
     return this.http
-      .post(`${this.URL}/menu/category/${data.category}/item`, menu, {
+      .post<Menu>(`${this.URL}/menu/category/${data.category}/item`, menu, {
         headers: {
           Authorization: `Bearer ${this.currentUser?.token}`,
         },
       })
       .pipe(
-        map((data: any) => {
+        map((data: Menu) => {
           this.menu = data;
           this.menu$.next(data);
         })
@@ -267,13 +263,13 @@ export class DashboardService {
   updateMenuItem(data: any, itemId: any, categoryId: any) {
 
     return this.http
-    .put(`${this.URL}/menu/category/${categoryId}/item/${itemId}`, data, {
+    .put<Menu>(`${this.URL}/menu/category/${categoryId}/item/${itemId}`, data, {
       headers: {
         Authorization: `Bearer ${this.currentUser?.token}`,
       },
     })
     .pipe(
-      map((data: any) => {
+      map((data: Menu) => {
         this.menu = data;
         this.menu$.next(data);
       })
@@ -282,13 +278,13 @@ export class DashboardService {
 
   deleteMenuItem(itemId: any, categoryId: any) {
     return this.http
-    .delete(`${this.URL}/menu/category/${categoryId}/item/${itemId}`, {
+    .delete<Menu>(`${this.URL}/menu/category/${categoryId}/item/${itemId}`, {
       headers: {
         Authorization: `Bearer ${this.currentUser?.token}`,
       },
     })
     .pipe(
-      map((data: any) => {
+      map((data: Menu) => {
         this.menu = data;
         this.menu$.next(data);
       })
