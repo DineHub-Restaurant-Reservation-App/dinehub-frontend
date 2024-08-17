@@ -30,9 +30,8 @@ export class RestaurantsComponent implements OnInit {
       return;
     }
 
-    const filteredRestaurantsBySearch = this.filteredRestaurants.filter(
-      (restaurant) =>
-        restaurant.name.toLowerCase().startsWith(this.searchTerm.toLowerCase())
+    const filteredRestaurantsBySearch = this.restaurants.filter((restaurant) =>
+      restaurant.name.toLowerCase().startsWith(this.searchTerm.toLowerCase())
     );
     this.filteredRestaurants = filteredRestaurantsBySearch;
   }
