@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -11,20 +11,21 @@ export class ReservationService {
 
   constructor(private http: HttpClient) {}
 
-  bookReservation(reservation: Reservation) {
-    return this.http
-      .post<{ savedReservation: Reservation }>(
-        `${this.url}/reservation`,
-        reservation
-      )
-      .pipe(map((response) => response.savedReservation));
+  getAvailableSeats(seatRequest: any) {
+    const params = new HttpParams({ fromObject: seatRequest });
+
+    return this.http.get<string[]>(`${this.url}/reservation/seats`, { params });
   }
 
-  getReservation(reservationId: string) {
-    return this.http
-      .get<{ reservation: Reservation }>(
-        `${this.url}/reservation/${reservationId}`
-      )
-      .pipe(map((response) => response.reservation));
+  bookReservation(reservation: any) {
+    return this.http.post(`${this.url}/reservation/reserve`, reservation);
+  }
+
+  getReservation(reservationRequest: any) {
+    const params = new HttpParams({ fromObject: reservationRequest });
+
+    return this.http.get<Reservation>(`${this.url}/reservation/get-reservation`, {
+      params,
+    });
   }
 }

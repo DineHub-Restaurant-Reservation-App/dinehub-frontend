@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject, catchError, map, of, take, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Menu } from '../models/menu.model';
+import { Reservation } from '../models/reservation.model';
 import { Restaurant } from '../models/restaurants.model';
 import { User } from '../models/user.model';
 import { AuthService } from './auth.service';
@@ -61,7 +62,6 @@ export class DashboardService {
   }
 
   private menu!: Menu;
-  
 
   getGeneralInfoData() {
     return this.http.get<Restaurant>(`${this.URL}/restaurant/auth`, {
@@ -71,9 +71,13 @@ export class DashboardService {
     });
   }
 
-  getReservations(restaurantId: string) {
+  getReservations() {
     return this.http
-      .get(`${this.URL}/reservation/restaurant/${restaurantId}`)
+      .get<Reservation[]>(`${this.URL}/reservation/restaurant`, {
+        headers: {
+          Authorization: `Bearer ${this.currentUser?.token}`,
+        },
+      })
       .pipe(catchError(this.handleReservationsError));
   }
 
@@ -134,7 +138,6 @@ export class DashboardService {
       {
         from: data.businessHours.thursdayStartingTime,
         to: data.businessHours.thursdayEndingTime,
-
       },
       {
         from: data.businessHours.fridayStartingTime,
@@ -151,7 +154,7 @@ export class DashboardService {
     ];
     data.businessHours = mappedBusinessHours;
 
-    if(data.password === ''){
+    if (data.password === '') {
       delete data.password;
     }
 
@@ -166,14 +169,15 @@ export class DashboardService {
           },
         }
       )
-      .pipe(map((data) => {
-        console.log("updateGeneralInfoData: ", data);
-        return data;
-      }));
+      .pipe(
+        map((data) => {
+          console.log('updateGeneralInfoData: ', data);
+          return data;
+        })
+      );
   }
 
   addNewCategory(data: any) {
-    
     return this.http
       .post<Menu>(
         `${this.URL}/menu/category`,
@@ -213,20 +217,17 @@ export class DashboardService {
 
   deleteCategory(categoryId: any) {
     return this.http
-    .delete<Menu>(
-      `${this.URL}/menu/category/${categoryId}`,
-      {
+      .delete<Menu>(`${this.URL}/menu/category/${categoryId}`, {
         headers: {
           Authorization: `Bearer ${this.currentUser?.token}`,
         },
-      }
-    )
-    .pipe(
-      map((data: Menu) => {
-        this.menu = data;
-        this.menu$.next(data);
       })
-    );
+      .pipe(
+        map((data: Menu) => {
+          this.menu = data;
+          this.menu$.next(data);
+        })
+      );
   }
 
   addNewMenuItem(data: any) {
@@ -252,33 +253,36 @@ export class DashboardService {
   }
 
   updateMenuItem(data: any, itemId: any, categoryId: any) {
-
     return this.http
-    .put<Menu>(`${this.URL}/menu/category/${categoryId}/item/${itemId}`, data, {
-      headers: {
-        Authorization: `Bearer ${this.currentUser?.token}`,
-      },
-    })
-    .pipe(
-      map((data: Menu) => {
-        this.menu = data;
-        this.menu$.next(data);
-      })
-    );
+      .put<Menu>(
+        `${this.URL}/menu/category/${categoryId}/item/${itemId}`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${this.currentUser?.token}`,
+          },
+        }
+      )
+      .pipe(
+        map((data: Menu) => {
+          this.menu = data;
+          this.menu$.next(data);
+        })
+      );
   }
 
   deleteMenuItem(itemId: any, categoryId: any) {
     return this.http
-    .delete<Menu>(`${this.URL}/menu/category/${categoryId}/item/${itemId}`, {
-      headers: {
-        Authorization: `Bearer ${this.currentUser?.token}`,
-      },
-    })
-    .pipe(
-      map((data: Menu) => {
-        this.menu = data;
-        this.menu$.next(data);
+      .delete<Menu>(`${this.URL}/menu/category/${categoryId}/item/${itemId}`, {
+        headers: {
+          Authorization: `Bearer ${this.currentUser?.token}`,
+        },
       })
-    );
+      .pipe(
+        map((data: Menu) => {
+          this.menu = data;
+          this.menu$.next(data);
+        })
+      );
   }
 }

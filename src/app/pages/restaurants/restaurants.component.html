@@ -12,14 +12,16 @@
             </ng-container>
 
             <ng-template #restaurants>
-                <a routerLink="/restaurants/{{restaurant._id}}" *ngFor="let restaurant of filteredRestaurants">
-                    <mat-card>
-                        <img mat-card-image [src]="restaurant.logoHref" [alt]="restaurant.name" height="200">
-                        <mat-card-content class="mt-2">
-                            <mat-card-title>{{restaurant.name}}</mat-card-title>
-                        </mat-card-content>
-                    </mat-card>
-                </a>
+                <ng-container *ngFor="let restaurant of filteredRestaurants">
+                    <a routerLink="/restaurants/{{restaurant._id}}" *ngIf="restaurant.isVisible">
+                        <mat-card>
+                            <img mat-card-image [src]="restaurant.logoHref" [alt]="restaurant.name" height="200">
+                            <mat-card-content class="mt-2">
+                                <mat-card-title>{{restaurant.name}}</mat-card-title>
+                            </mat-card-content>
+                        </mat-card>
+                    </a>
+                </ng-container>
             </ng-template>
 
 

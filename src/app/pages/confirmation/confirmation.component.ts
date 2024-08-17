@@ -18,9 +18,12 @@ export class ConfirmationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const reservationId = this.route.snapshot.params['id'];
-
-    this.reservationService.getReservation(reservationId).subscribe((data) => {
+    const restaurantId = this.route.snapshot.params['restaurantId'];
+    const reservationId = this.route.snapshot.params['reservationId'];
+    const date = decodeURIComponent(this.route.snapshot.paramMap.get('date') || '');
+    const time = this.route.snapshot.params['time'];
+    this.reservationService.getReservation({restaurantId, reservationId, date, time}).subscribe((data:any) => {
+      console.log(data);
       this.reservation = data;
       this.isLoaded = true;
     });

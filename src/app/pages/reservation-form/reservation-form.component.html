@@ -6,6 +6,32 @@
         <form [formGroup]="form" class="reservation-form" (ngSubmit)="submitReservation()">
 
             <mat-form-field class="full-width">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date" required>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="form.controls['date'].invalid">{{getDateErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Number of Guests</mat-label>
+                <input matInput formControlName="guests" required>
+                <mat-error *ngIf="form.controls['guests'].invalid">
+                    Please enter the number of guests that will be present.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Arrival Time</mat-label>
+                <mat-select formControlName="arrivalTime">
+                    <mat-option *ngFor="let timing of arrivalTimings" value="{{timing}}">{{timing}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['arrivalTime'].invalid">Please choose an arrival time.</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="full-width">
                 <mat-label>Your Name</mat-label>
                 <input matInput formControlName="name" required>
                 <mat-error *ngIf="form.controls['name'].invalid">Please enter your name.</mat-error>
@@ -21,44 +47,16 @@
 
             <mat-form-field class="full-width">
                 <mat-label>Phone Number</mat-label>
-                <input matInput formControlName="phone" required>
-                <mat-error *ngIf="form.controls['phone'].invalid">Please enter a valid phone number containing 10
+                <input matInput formControlName="phoneNumber" required>
+                <mat-error *ngIf="form.controls['phoneNumber'].invalid">Please enter a valid phone number containing 10
                     digits.</mat-error>
             </mat-form-field>
 
-            <mat-form-field class="full-width">
-                <mat-label>Date</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="date" required>
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-                <mat-error *ngIf="form.controls['date'].invalid">{{getDateErrorMessage()}}</mat-error>
-            </mat-form-field>
 
 
-            <mat-form-field>
-                <mat-label>Arrival Time</mat-label>
-                <mat-select formControlName="arrivalTime">
-                    <mat-option value="10 AM - 12:00 PM">10 AM - 12:00 PM</mat-option>
-                    <mat-option value="12 PM - 2:00 PM">12 PM - 2:00 PM</mat-option>
-                    <mat-option value="2:00 AM - 4:00 PM">2:00 AM - 4:00 PM</mat-option>
-                    <mat-option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</mat-option>
-                    <mat-option value="6:00 PM - 8:00 PM">6:00 PM - 8:00 PM</mat-option>
-                    <mat-option value="8:00 PM - 10:00 PM">8:00 PM - 10:00 PM</mat-option>
-                </mat-select>
-                <mat-error *ngIf="form.controls['arrivalTime'].invalid">Please choose an arrival time.</mat-error>
-            </mat-form-field>
 
 
-            <mat-form-field class="full-width">
-                <mat-label>Number of Guests</mat-label>
-                <input matInput formControlName="guests" required>
-                <mat-error *ngIf="form.controls['guests'].invalid">
-                    Please enter the number of guests that will be present.
-                </mat-error>
-            </mat-form-field>
-
-            <mat-form-field>
+            <!-- <mat-form-field>
                 <mat-label>Select Table</mat-label>
                 <mat-select formControlName="tableNumber">
                     <mat-option value="9 AM" *ngFor="let table of restaurant.seatingArrangements"
@@ -67,7 +65,7 @@
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="form.controls['tableNumber'].invalid">Please choose a table.</mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <!-- <mat-form-field class="full-width">
                 <mat-label>Additional Requests</mat-label>

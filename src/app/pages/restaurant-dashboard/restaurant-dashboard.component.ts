@@ -24,7 +24,7 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
     '_id',
     'customerName',
     'customerEmail',
-    'customerPhoneNumber',
+    'phoneNumber',
     'reservedDate',
     'slotInterval',
     'tableNumber',
@@ -45,13 +45,14 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const fetchDashboardInfo = this.dashboardService.getGeneralInfoData();
 
-    forkJoin([fetchDashboardInfo]).subscribe(([dashBoardData]) => {
+    const fetchReservationInfo = this.dashboardService.getReservations();
+
+
+    forkJoin([fetchDashboardInfo, fetchReservationInfo]).subscribe(([dashBoardData, reservations]) => {
 
       this.createOrUpdateGeneralInfoForm(dashBoardData);
-
-      if (dashBoardData) {
-        this.reservations = [];
-      }
+      console.log("reservations: ", reservations);
+      this.reservations = reservations;
 
       this.isLoading = true;
     });
@@ -99,12 +100,15 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
   }
 
   submitGeneralInfoForm() {
-    
     this.dashboardService
       .updateGeneralInfoData(this.generalInformationForm.value)
       .subscribe((data) => {
         this.createOrUpdateGeneralInfoForm(data);
       });
+  }
+
+  getDate(date: string){
+    return new Date(date).toLocaleDateString();
   }
 
   ngOnDestroy(): void {

@@ -34,7 +34,7 @@ const routes: Routes = [
     component: ReservationFormComponent,
   },
   {
-    path: 'confirmation/:id',
+    path: 'confirmation/:restaurantId/:reservationId/:date/:time',
     component: ConfirmationComponent,
   },
   {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
+  FormControl,
   FormGroup,
   ValidationErrors,
   Validators,
@@ -21,6 +22,8 @@ export class ReservationFormComponent implements OnInit {
   form: FormGroup;
   isLoaded: boolean = false;
   restaurant: any;
+  arrivalTimings: string[] = []
+
   constructor(
     private fb: FormBuilder,
     private restaurantService: RestaurantsService,
@@ -29,10 +32,11 @@ export class ReservationFormComponent implements OnInit {
     private reservationService: ReservationService,
     private snackBar: MatSnackBar
   ) {
+    const today = new Date();
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phone: [
+      phoneNumber: [
         '',
         [
           Validators.required,
@@ -40,18 +44,24 @@ export class ReservationFormComponent implements OnInit {
           Validators.maxLength(10),
         ],
       ],
-      date: [new Date(), [Validators.required, this.dateValidator]],
-      arrivalTime: ['', [Validators.required]],
-      guests: ['', [Validators.required]],
-      tableNumber: ['', Validators.required],
+      date: [today, [Validators.required, this.dateValidator]],
+      arrivalTime: [{ value: '', disabled: true }, [Validators.required]],
+      guests: ['', [Validators.required]]
     });
   }
   ngOnInit(): void {
     const restaurantId = this.route.snapshot.params['id'];
     this.restaurantService.fetchRestaurant(restaurantId).subscribe((data) => {
-      console.log(data);
       this.restaurant = data;
       this.isLoaded = true;
+    });
+
+    this.form.get('guests')?.valueChanges.subscribe((date) => {
+      this.enableDisableArrivalTimeControl();
+    });
+
+    this.form.get('date')?.valueChanges.subscribe((date) => {
+      this.enableDisableArrivalTimeControl();
     });
   }
 
@@ -80,19 +90,22 @@ export class ReservationFormComponent implements OnInit {
   submitReservation() {
     if (this.form.valid) {
       const formData = this.form.value;
-      const reservationData: Reservation = {
-        restaurant: this.restaurant._id,
-        customerName: formData.name,
-        customerEmail: formData.email,
-        customerPhoneNumber: formData.phone,
+      const reservationData = {
+        restaurantId: this.restaurant._id,
+        reservationName: formData.name,
         slotInterval: formData.arrivalTime,
-        reservedDate: new Date(formData.date).toISOString().slice(0, 10),
+        date: formData.date.toLocaleDateString(),
         tableNumber: formData.tableNumber,
+        totalNumberOfPersons: formData.guests,
+        time: formData.arrivalTime,
+        email: formData.email,
+        phoneNumber: formData.phoneNumber
       };
 
       this.reservationService.bookReservation(reservationData).subscribe(
-        (data) => {
-          this.router.navigate(['/confirmation', data._id]);
+        (data :any) => {
+          const encodedDate = encodeURIComponent(data.date);
+          this.router.navigate(['/confirmation', data.restaurantId, data._id, encodedDate, data.time]);
         },
         (errorMessage) => {
           this.snackBar.open(errorMessage, 'Close', {
@@ -101,6 +114,34 @@ export class ReservationFormComponent implements OnInit {
           });
         }
       );
+    }
+  }
+
+  enableDisableArrivalTimeControl() {
+    const arrivalTimeControl = this.form.get('arrivalTime');
+
+    if (this.form.get('guests')?.value && this.form.get('date')?.value) {
+    const { guests, date } = this.form.value;
+      const seatRequest = {
+        restaurantId: this.restaurant._id,
+        totalNumberOfPersons: guests,
+        date: date.toLocaleDateString(),
+      };
+
+      this.reservationService
+        .getAvailableSeats(seatRequest)
+        .subscribe((availableTimings) => {
+          this.arrivalTimings = availableTimings;
+          arrivalTimeControl?.enable();
+        },(error)=>{
+          console.log("Error: ", error);
+          this.snackBar.open(error.error?.message || 'An error occurred!', 'Close', {
+            duration: 2000,
+            verticalPosition: 'top',
+          });
+        });
+    } else {
+      arrivalTimeControl?.disable();
     }
   }
 }
