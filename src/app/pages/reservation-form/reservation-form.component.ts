@@ -56,13 +56,6 @@ export class ReservationFormComponent implements OnInit {
       this.isLoaded = true;
     });
 
-    this.form.get('guests')?.valueChanges.subscribe((date) => {
-      this.enableDisableArrivalTimeControl();
-    });
-
-    this.form.get('date')?.valueChanges.subscribe((date) => {
-      this.enableDisableArrivalTimeControl();
-    });
   }
 
   dateValidator(control: AbstractControl): ValidationErrors | null {
@@ -117,7 +110,7 @@ export class ReservationFormComponent implements OnInit {
     }
   }
 
-  enableDisableArrivalTimeControl() {
+  getArrivalTime() {
     const arrivalTimeControl = this.form.get('arrivalTime');
 
     if (this.form.get('guests')?.value && this.form.get('date')?.value) {
