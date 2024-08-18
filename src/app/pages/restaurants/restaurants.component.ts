@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
+import { tap } from 'rxjs';
 import { RestaurantsService } from 'src/app/services/restaurants.service';
 import { Restaurant } from '../../models/restaurants.model';
 
@@ -14,11 +15,14 @@ export class RestaurantsComponent implements OnInit {
   searchTerm!: string;
   restaurants!: Restaurant[];
   filteredRestaurants: Restaurant[] = [];
+  isLoading: boolean = true;
 
   constructor(private restaurantService: RestaurantsService) {}
 
   ngOnInit(): void {
-    this.restaurantService.fetchRestaurants().subscribe((restaurants) => {
+    this.restaurantService.fetchRestaurants().pipe(tap(()=>{
+    })).subscribe((restaurants) => {
+      this.isLoading = false;
       this.restaurants = restaurants;
       this.filteredRestaurants = this.restaurants;
     });
@@ -29,7 +33,7 @@ export class RestaurantsComponent implements OnInit {
       this.filteredRestaurants = this.restaurants;
       return;
     }
-
+    
     const filteredRestaurantsBySearch = this.restaurants.filter((restaurant) =>
       restaurant.name.toLowerCase().startsWith(this.searchTerm.toLowerCase())
     );

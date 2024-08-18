@@ -6,7 +6,7 @@
     </div>
     <section class="mt-5">
         <h2>Featured Restaurants<span class="dot">.</span></h2>
-        <article class="resaturants-container mt-5">
+        <article class="resaturants-container mt-5" *ngIf="!isLoading; else spinner">
             <ng-container *ngIf="filteredRestaurants.length === 0; else restaurants">
                 <p>No Restaurants with the given search term found!</p>
             </ng-container>
@@ -28,3 +28,7 @@
         </article>
     </section>
 </div>
+
+<ng-template #spinner>
+    <mat-spinner class="spinner" color="accent"></mat-spinner>
+</ng-template>

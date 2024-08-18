@@ -19,6 +19,7 @@ import { RestaurantsService } from 'src/app/services/restaurants.service';
   styleUrls: ['./reservation-form.component.scss'],
 })
 export class ReservationFormComponent implements OnInit {
+  reservationForm: FormGroup;
   form: FormGroup;
   isLoaded: boolean = false;
   restaurant: any;
@@ -33,6 +34,10 @@ export class ReservationFormComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {
     const today = new Date();
+    this.reservationForm = this.fb.group({
+      date: [today, [Validators.required, this.dateValidator]],
+      guests: ['', [Validators.required]]
+    })
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -44,10 +49,12 @@ export class ReservationFormComponent implements OnInit {
           Validators.maxLength(10),
         ],
       ],
-      date: [today, [Validators.required, this.dateValidator]],
-      arrivalTime: [{ value: '', disabled: true }, [Validators.required]],
-      guests: ['', [Validators.required]]
+      arrivalTime: ['', [Validators.required]],
     });
+
+    this.reservationForm.valueChanges.subscribe((data)=>{
+      this.arrivalTimings = [];
+    })
   }
   ngOnInit(): void {
     const restaurantId = this.route.snapshot.params['id'];
@@ -83,13 +90,14 @@ export class ReservationFormComponent implements OnInit {
   submitReservation() {
     if (this.form.valid) {
       const formData = this.form.value;
+      const {date, guests} = this.reservationForm.value;
       const reservationData = {
         restaurantId: this.restaurant._id,
         reservationName: formData.name,
         slotInterval: formData.arrivalTime,
-        date: formData.date.toLocaleDateString(),
+        date: date.toLocaleDateString(),
         tableNumber: formData.tableNumber,
-        totalNumberOfPersons: formData.guests,
+        totalNumberOfPersons: guests,
         time: formData.arrivalTime,
         email: formData.email,
         phoneNumber: formData.phoneNumber
@@ -111,10 +119,10 @@ export class ReservationFormComponent implements OnInit {
   }
 
   getArrivalTime() {
-    const arrivalTimeControl = this.form.get('arrivalTime');
 
-    if (this.form.get('guests')?.value && this.form.get('date')?.value) {
-    const { guests, date } = this.form.value;
+    if (this.reservationForm.get('guests')?.value && this.reservationForm.get('date')?.value) {
+      this.arrivalTimings = [];
+    const { guests, date } = this.reservationForm.value;
       const seatRequest = {
         restaurantId: this.restaurant._id,
         totalNumberOfPersons: guests,
@@ -125,16 +133,13 @@ export class ReservationFormComponent implements OnInit {
         .getAvailableSeats(seatRequest)
         .subscribe((availableTimings) => {
           this.arrivalTimings = availableTimings;
-          arrivalTimeControl?.enable();
         },(error)=>{
-          console.log("Error: ", error);
+          this.arrivalTimings = [];
           this.snackBar.open(error.error?.message || 'An error occurred!', 'Close', {
             duration: 2000,
             verticalPosition: 'top',
           });
         });
-    } else {
-      arrivalTimeControl?.disable();
-    }
+    } 
   }
 }
