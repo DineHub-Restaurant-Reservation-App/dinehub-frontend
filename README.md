@@ -1,27 +1,56 @@
-# Client
+# DineHub
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
+DineHub is a modern restaurant reservation platform crafted to simplify dining experiences through seamless seat reservations. With a sleek Angular-based frontend adorned with Material UI for elegant and adaptive user interface elements, users can effortlessly navigate and interact with the application. On the backend, an efficient Express.js server handles requests, ensuring reliability and scalability. Data is securely stored and managed using MongoDB, ensuring a robust foundation for storing restaurant and user information.
 
-## Development server
+## Table of Contents
+
+- [Features](#features)
+- [Development Server](#development-server)
+- [Production Deployment](#production-deployment)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contact](#contact)
+
+## Features
+
+- **Responsive UI**: Built with Angular and Material UI for a sleek, modern user experience.
+- **Real-time Reservations**: Seamlessly book and manage reservations.
+- **Secure Data Storage**: MongoDB is used to securely store and manage restaurant and user information.
+- **Scalable Backend**: The backend is powered by Express.js, ensuring scalability and reliability.
+
+## Development Server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Production Deployment
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+You can access the live application [here](https://dinehub-b2bf.onrender.com/).
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To get started with DineHub, clone the repository and install the dependencies:
 
-## Running unit tests
+```bash
+git clone https://github.com/your-username/dinehub.git
+cd dinehub
+npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Running end-to-end tests
+To start the development server, run:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm run start
+```
+Navigate to http://localhost:4200/ to use the application.
 
-## Further help
+## Contact
+For any inquiries, please reach out to me at haneefmhmmd@gmail.com.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Author
+Name: Haneef Muhammad
+
+GitHub: https://github.com/haneefmhmmd/
+LinkedIn: https://www.linkedin.com/in/haneefmhmmd/
