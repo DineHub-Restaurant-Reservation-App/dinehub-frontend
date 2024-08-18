@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTabChangeEvent, MatTabGroup } from '@angular/material/tabs';
 import { forkJoin } from 'rxjs';
 
@@ -40,7 +41,8 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
   constructor(
     private restaurantQuestionService: RestaurantInfoService,
     private qcs: QuestionControlService,
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private snackBar: MatSnackBar
   ) {}
   ngOnInit(): void {
     const fetchDashboardInfo = this.dashboardService.getGeneralInfoData();
@@ -104,6 +106,10 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
       .updateGeneralInfoData(this.generalInformationForm.value)
       .subscribe((data) => {
         this.createOrUpdateGeneralInfoForm(data);
+        this.snackBar.open('Restaurant Info updated!', 'Close', {
+          duration: 2000,
+          verticalPosition: 'top',
+        });
       });
   }
 
