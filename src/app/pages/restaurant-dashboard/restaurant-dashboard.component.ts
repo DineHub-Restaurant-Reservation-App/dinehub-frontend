@@ -102,6 +102,10 @@ export class RestaurantDashboardComponent implements OnInit, OnDestroy {
   }
 
   submitGeneralInfoForm() {
+    this.snackBar.open('Saving changes...!', 'Close', {
+      duration: 2000,
+      verticalPosition: 'top',
+    });
     this.dashboardService
       .updateGeneralInfoData(this.generalInformationForm.value)
       .subscribe((data) => {

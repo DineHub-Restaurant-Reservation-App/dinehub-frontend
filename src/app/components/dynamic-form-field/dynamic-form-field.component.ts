@@ -44,6 +44,8 @@ export class DynamicFormFieldComponent {
           errorMessage = this.question.errorMessage?.['maxLength'];
         } else if (error === 'invalidHour') {
           errorMessage = this.question.errorMessage?.['invalidHour'];
+        } else if (error === 'pattern') {
+          errorMessage = this.question.errorMessage?.['pattern'];
         }
       });
       if (errorMessage === undefined) {
@@ -83,7 +85,7 @@ export class DynamicFormFieldComponent {
       tableNumber: [0],
       capacity: [0],
     });
-    this.seatingArrangements().controls.push(newSeatingArrangement);
+    this.seatingArrangements().push(newSeatingArrangement);
     this.seatingArrangements().updateValueAndValidity();
     console.log('value: ', this.form.controls);
   }

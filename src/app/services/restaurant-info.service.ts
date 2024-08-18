@@ -79,11 +79,11 @@ export class RestaurantInfoService {
         },
       },
       {
-        key: 'businessEmail',
+        key: 'email',
         type: 'email',
         controlType: 'textbox',
         label: 'Email',
-        value: answer?.businessEmail ?? null,
+        value: answer?.email ?? null,
         validators: [Validators.required, Validators.email],
         errorMessage: {
           required: 'Email address cannot be empty.',
@@ -146,13 +146,11 @@ export class RestaurantInfoService {
             value: answer?.address?.postalCode ?? null,
             validators: [
               Validators.required,
-              Validators.minLength(6),
-              Validators.maxLength(6),
+              Validators.pattern(/^\w{3} \w{3}$/)
             ],
             errorMessage: {
               required: 'Postal code cannot be empty.',
-              minLength: 'Postal cannot be less than 6 characters',
-              maxLength: 'Postal cannot be more than 6 characters',
+              pattern: 'Postal should be of the format ABC DEF',
             },
           },
           {
